@@ -1,0 +1,39 @@
+@import './styles/custom.scss';
+@import '~bootstrap/scss/bootstrap.scss';
+@font-face {
+  font-family: 'Jf-openhuninn';
+  src: url('../src/styles/jf-openhuninn-1.1/jf-openhuninn-1.1.ttf');
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  font-family: 'Jf-openhuninn';
+  padding: 0 135px;
+  height: 125px;
+  background-color: #a8ae91;
+  font-size: 16px;
+}
+.Logo {
+  width: 80px;
+  margin: 0 30px 0 0;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.Avatar {
+  width: 40px;
+  margin: 0 25px 0 0;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.menu1 {
+  margin-right: 30px;
+}
+.menu2 {
+  margin-right: 25px;
+}
