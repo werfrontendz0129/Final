@@ -1,0 +1,158 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+
+.v-input-style {
+  background-color: #fff;
+  width: 220px;
+  height: 48px;
+  font-size: 16px;
+  color: #838383;
+  border-radius: 0;
+  padding: 0;
+  border: 1px solid #838383;
+  padding: 5px;
+}
+.v-input-style:focus,
+.v-input-style-lg:focus {
+  outline: 0;
+  border-radius: 1px;
+  border: 2px solid #494949;
+  //   z-index: 2;
+}
+.v-input-style-lg {
+  background-color: #fff;
+  width: 440px;
+  height: 48px;
+  font-size: 16px;
+  color: #838383;
+  border-radius: 1px;
+  padding: 0;
+  border: 1px solid #838383;
+  padding: 5px;
+}
+.v-btn-g {
+  height: 48px;
+  border-radius: 1px;
+  color: #fff;
+  border: 0;
+}
+.v-btn-g:focus {
+  opacity: 0.8;
+  outline: 0;
+}
+.v-btn-addlike {
+  background-color: #e58f80;
+  width: 215px;
+}
+.v-btn-arrivalnotice {
+  background-color: #d1cfcf;
+  width: 215px;
+}
+.v-btn-checkdate {
+  background-color: #6c8650;
+  width: 440px;
+}
+.v-product-background {
+  background: linear-gradient(to bottom, #ebebeb 100%, #fff);
+  /* top:70px; */
+  background-size: 100% 400px;
+  background-repeat: no-repeat;
+  /* width:100vw; */
+  padding-top: 70px;
+}
+.v-product-breadcrumb {
+  /* color:#D1CFCF; */
+  margin: 25px 0;
+  /* background-color: green; */
+}
+.v-product-card-lg {
+  max-width: 1200px;
+  height: 875px;
+  justify-self: center;
+  /* background:coral */
+  background: rgb(255, 255, 255);
+}
+.v-product-img-wrapper {
+  width: 600px;
+  margin: 25px;
+}
+.v-product-img-browse {
+  justify-content: space-around;
+  padding: 50px 0;
+}
+.v-product-img-lg {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
+.v-product-left {
+  /* background-color: rgb(233, 0, 0); */
+  width: 20px;
+}
+.v-product-right {
+  /* background-color: rgb(233, 0, 0); */
+  width: 20px;
+}
+.v-product-img-sm {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  /* background:powderblue; */
+}
+.v-product-card-text-main {
+  text-align: center;
+  margin: 50px 75px 0 50px;
+  max-width: 550px;
+  max-height: 823px;
+  /* background-color: rgb(85, 85, 85); */
+  text-align: left;
+}
+.v-price {
+  color: #e58f80;
+  font-size: 24px;
+  text-align: left;
+}
+.v-product-description {
+  text-align: left;
+  padding: 30px 0;
+}
+.v-date-wrapper {
+  max-width: 440px;
+  margin: 0;
+  padding: 0;
+}
+.v-rent-date {
+  font-size: 16px;
+  padding: 10px 0 5px 5px;
+  margin-bottom: 0;
+}
+.v-rent-date-right {
+  margin-left: -1px;
+}
+.v-limit-rent {
+  color: #a8ae91;
+  margin-bottom: 0;
+}
+.v-rent-product-des-wrapper {
+  margin-top: 70px;
+}
+.v-share {
+  margin: 15px 0;
+}
+.v-shipping-des,
+.v-maintain-des {
+  margin: 5px;
+  color: #838383;
+}
+.v-other-des {
+  margin: 5px;
+  color: #838383;
+  font-size: 14px;
+}
+.v-share-text {
+  font-size: 20px;
+}
+.v-share img {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}

@@ -1,0 +1,36 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  padding: 0 135px;
+  height: 125px;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+.logo {
+  width: 100px;
+  margin: 4px 0 0 0;
+  img {
+    width: 100%;
+    padding: 10px;
+    object-fit: cover;
+  }
+}
+.Avatar {
+  width: 50px;
+  margin: 0 25px 0 0;
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+.menu1 {
+  margin-right: 30px;
+}
+.menu2 {
+  margin-right: 25px;
+}
