@@ -1,0 +1,15 @@
+.VScroll {
+  cursor: pointer;
+  animation: animate 0.8s ease-in-out 0s infinite alternate;
+  margin: 40px auto 10px;
+  max-width: 80px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}

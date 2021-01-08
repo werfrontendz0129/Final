@@ -1,0 +1,169 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.v-price {
+  color: #e58f80;
+  font-size: 24px;
+}
+
+.v-input-style {
+  input {
+    background-color: #fff;
+    width: 220px;
+    height: 48px;
+    font-size: 16px;
+    color: #838383;
+    border-radius: 1px;
+    padding: 0;
+    border: 1px solid #838383;
+    padding: 5px;
+  }
+  input:focus {
+    outline: 0;
+    border-radius: 1px;
+    border: 2px solid #494949;
+    z-index: 2;
+  }
+}
+
+.v-input-style-lg {
+  input {
+    background-color: #fff;
+    /* width:440px; */
+    height: 48px;
+    font-size: 16px;
+    color: #838383;
+    border-radius: 1px;
+    padding: 0;
+    border: 1px solid #838383;
+    padding: 5px;
+  }
+  input:focus {
+    outline: 0;
+    border-radius: 1px;
+    border: 2px solid #494949;
+    z-index: 2;
+  }
+}
+
+.v-btn-g {
+  input {
+    height: 48px;
+    border-radius: 1px;
+    color: #fff;
+    border: 0;
+  }
+  input:focus {
+    opacity: 0.8;
+    outline: 0;
+  }
+}
+
+.v-btn-addlike {
+  input {
+    background-color: #e58f80;
+  }
+}
+
+.v-btn-arrivalnotice {
+  input {
+    background-color: #d1cfcf;
+  }
+}
+
+.v-btn-checkdate {
+  input {
+    background-color: #6c8650;
+  }
+}
+
+.v-bg {
+  background: linear-gradient(to bottom, #ebebeb 100%, #fff);
+  background-size: 100vw 400px;
+  background-repeat: no-repeat;
+  padding-top: 75px;
+}
+
+.v-card-lg {
+  margin: 0 auto;
+  max-width: 1200px;
+  background: #fff;
+}
+
+.v-detail-lg {
+  padding: 0 120px;
+}
+
+.v-cardsgroup-lg {
+  padding: 0 120px;
+}
+
+.v-img-part {
+  margin: 0 25px;
+  padding: 0;
+}
+
+.v-form-part {
+  margin: 25px;
+  padding: 0 20px 0 0;
+}
+
+.v-product-img-wrapper {
+  max-width: 600px;
+}
+
+.v-product-left {
+  width: 20px;
+}
+
+.v-product-right {
+  // background-color: rgb(233, 0, 0);
+  width: 20px;
+}
+
+.v-product-img-browse {
+  max-width: 600px;
+  justify-content: space-between;
+  margin: 0 5px;
+  padding: 25px 5px 100px 5px;
+}
+
+.v-product-img-lg {
+  max-width: 600px;
+  height: 600px;
+  object-fit: cover;
+  margin: 25px 0;
+}
+
+.v-product-img-sm {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  /* background:powderblue; */
+}
+
+.v-product-description {
+  margin-bottom: 50px;
+}
+
+.v-card-des-wrapper {
+  margin-top: 100px;
+}
+
+.v-card-des-wrapper img {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+
+.v-share {
+  margin: 10px 0;
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+  }
+}
+
+.v-share-text {
+  font-size: 20px;
+}

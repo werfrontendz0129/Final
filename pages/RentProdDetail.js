@@ -1,12 +1,18 @@
 import React from 'react'
-import ProductCardLg from '../components/ProdCardLg/ProductCardLg'
+import ProductCardRent from '../components/ProdCardRent/ProductCardRent'
 import ProdHeader from '../components/ProdHeader/ProdHeader'
+import ProdDetail from '../components/ProdDetail/ProdDetail'
+import ProdCardSm from '../components/ProdCardSm/ProdCardSm'
+import VBreadCrumbs from '../components/VBreadCrumbs/VBreadCrumbs'
 
 function RentProdDetail() {
   return (
     <>
       <ProdHeader />
-      <ProductCardLg />
+      <VBreadCrumbs />
+      <ProductCardRent />
+      <ProdDetail />
+      <ProdCardSm />
     </>
   )
 }
