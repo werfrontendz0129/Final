@@ -1,0 +1,28 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.v-prod-sidenav {
+  ul {
+    list-style-type: none;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  li {
+    padding: 8px 8px 8px 20px;
+  }
+}
+
+.v-prod-arrow {
+  max-width: 15px;
+  //   margin-left: 70px;
+}
+
+.v-nav-title {
+  background: #e6e9da;
+  height: 40px;
+}
+
+.v-nav-title-closed {
+  background: transparent;
+  border-bottom: 1px solid #d1cfcf;
+  color: #d1cfcf;
+}

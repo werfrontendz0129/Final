@@ -10,6 +10,7 @@ function VScroll() {
     <>
       <div className="d-flex justify-content-center">
         <img
+          alt=""
           className="VScroll"
           src={devUrl + '/images/svg/arrow-down-01.svg'}
           onClick={scrollTo}

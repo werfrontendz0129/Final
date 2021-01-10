@@ -10,7 +10,7 @@ function ProdDetail() {
         <div className="col-6 p-0">
           <img
             className="v-product-detail-img"
-            src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽2.jpg'}
+            src={devUrl + '/images/images/rentproddetail/金邊虎尾蘭盆栽2.jpg'}
             alt=""
           />
         </div>
@@ -34,7 +34,7 @@ function ProdDetail() {
         <div className="col-6 p-0">
           <img
             className="v-product-detail-img p-0"
-            src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽3.jpg'}
+            src={devUrl + '/images/images/rentproddetail/金邊虎尾蘭盆栽3.jpg'}
             alt=""
           />
         </div>
@@ -42,7 +42,7 @@ function ProdDetail() {
         <div className="col-6 p-0">
           <img
             className="v-product-detail-img p-0"
-            src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽4.jpg'}
+            src={devUrl + '/images/images/rentproddetail/金邊虎尾蘭盆栽4.jpg'}
             alt=""
           />
         </div>

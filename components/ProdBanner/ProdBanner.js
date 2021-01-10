@@ -8,7 +8,7 @@ function ProdBanner() {
       <div className="text-center">
         <img
           className="banner-wrapper"
-          src={devUrl + '/images/images/banner.jpg'}
+          src={devUrl + '/images/images/rentprodindex/banner.jpg'}
           alt=""
         />
       </div>

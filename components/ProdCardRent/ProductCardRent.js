@@ -12,7 +12,9 @@ function ProductCardLg() {
               <div>
                 <img
                   className="v-product-img-lg"
-                  src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽.jpg'}
+                  src={
+                    devUrl + '/images/images/rentproddetail/金邊虎尾蘭盆栽.jpg'
+                  }
                   alt=""
                 />
               </div>
@@ -27,21 +29,30 @@ function ProductCardLg() {
                 <div className="col-3 p-0">
                   <img
                     className="   v-product-img-sm"
-                    src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽2.jpg'}
+                    src={
+                      devUrl +
+                      '/images/images/rentproddetail/金邊虎尾蘭盆栽2.jpg'
+                    }
                     alt=""
                   />
                 </div>
                 <div className="col-3 p-0">
                   <img
                     className=" v-product-img-sm"
-                    src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽3.jpg'}
+                    src={
+                      devUrl +
+                      '/images/images/rentproddetail/金邊虎尾蘭盆栽3.jpg'
+                    }
                     alt=""
                   />
                 </div>
                 <div className="col-3 p-0">
                   <img
                     className="  v-product-img-sm"
-                    src={devUrl + '/images/images/Fiddle 琴葉榕大型植栽4.jpg'}
+                    src={
+                      devUrl +
+                      '/images/images/rentproddetail/金邊虎尾蘭盆栽4.jpg'
+                    }
                     alt=""
                   />
                 </div>

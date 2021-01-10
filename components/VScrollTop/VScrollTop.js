@@ -20,6 +20,7 @@ function VScrollTop() {
   return (
     <>
       <img
+        alt=""
         className="ScrollTop"
         src={devUrl + '/images/svg/ScrollTop.jpg'}
         onClick={scrollToTop}
