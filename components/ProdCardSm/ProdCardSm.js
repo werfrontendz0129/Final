@@ -14,7 +14,10 @@ function ProdCardSm() {
           <figure className="v-product-card ml-0">
             <img
               className="v-recommend-img"
-              src={devUrl + '/images/images/九龍柱大理石落地盆栽.jpg'}
+              src={
+                devUrl +
+                '/images/images/rentproddetail/九龍柱大理石落地盆栽.jpg'
+              }
               alt=""
             />
             <figcaption>
@@ -25,7 +28,10 @@ function ProdCardSm() {
           <figure className="v-product-card">
             <img
               className="v-recommend-img"
-              src={devUrl + '/images/images/九龍柱大理石落地盆栽.jpg'}
+              src={
+                devUrl +
+                '/images/images/rentproddetail/九龍柱大理石落地盆栽.jpg'
+              }
               alt=""
             />
             <figcaption>
@@ -36,7 +42,10 @@ function ProdCardSm() {
           <figure className="v-product-card">
             <img
               className="v-recommend-img"
-              src={devUrl + '/images/images/九龍柱大理石落地盆栽.jpg'}
+              src={
+                devUrl +
+                '/images/images/rentproddetail/九龍柱大理石落地盆栽.jpg'
+              }
               alt=""
             />
             <figcaption>
@@ -47,7 +56,10 @@ function ProdCardSm() {
           <figure className="v-product-card mr-0">
             <img
               className="v-recommend-img"
-              src={devUrl + '/images/images/九龍柱大理石落地盆栽.jpg'}
+              src={
+                devUrl +
+                '/images/images/rentproddetail/九龍柱大理石落地盆栽.jpg'
+              }
               alt=""
             />
             <figcaption>

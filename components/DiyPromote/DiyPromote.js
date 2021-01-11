@@ -9,7 +9,7 @@ function DiyPromote() {
         <div class="col-6 p-0">
           <img
             class="v-diy-photo1"
-            src={devUrl + '/images/images/DIY1.jpg'}
+            src={devUrl + '/images/images/rentprodindex/DIY1.jpg'}
             alt=""
           />
         </div>

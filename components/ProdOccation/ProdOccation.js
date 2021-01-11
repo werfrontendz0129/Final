@@ -17,7 +17,7 @@ function ProdOccation() {
         <div className="left-pic d-flex text-center">
           <img
             className="livingroom-pic"
-            src={devUrl + '/images/images/客廳布置3.jpg'}
+            src={devUrl + '/images/images/rentprodindex/客廳布置3.jpg'}
             alt=""
           />
           <div className="living-room-mask mask">
@@ -27,7 +27,7 @@ function ProdOccation() {
         <div className="right-pic-top d-flex text-center">
           <img
             className="wall-pic"
-            src={devUrl + '/images/images/居家牆面.jpg'}
+            src={devUrl + '/images/images/rentprodindex/居家牆面.jpg'}
             alt=""
           />
           <div className="wall-mask mask">
@@ -37,7 +37,7 @@ function ProdOccation() {
         <div className="right-pic-bottom d-flex text-center">
           <img
             className="bathroom-pic"
-            src={devUrl + '/images/images/浴室布置.jpeg'}
+            src={devUrl + '/images/images/rentprodindex/浴室布置.jpeg'}
             alt=""
           />
           <div className="bathroom-mask mask">
@@ -48,7 +48,7 @@ function ProdOccation() {
 
       <div className="section-tilte">
         <div className="title2">
-          <h3>駕馭各種商業場合</h3>
+          <h3>適合各種商業場合</h3>
           <h5 className="mt-1">Business Occasions</h5>
         </div>
       </div>
@@ -56,7 +56,7 @@ function ProdOccation() {
         <div className="left-pic-top d-flex text-center">
           <img
             className="livingroom-pic"
-            src={devUrl + '/images/images/辦公室布置.jpg'}
+            src={devUrl + '/images/images/rentprodindex/辦公室布置.jpg'}
             alt=""
           />
           <div className="living-room-mask mask">
@@ -66,7 +66,7 @@ function ProdOccation() {
         <div className="left-pic-bottom d-flex text-center">
           <img
             className="wall-pic"
-            src={devUrl + '/images/images/咖啡廳5.jpg'}
+            src={devUrl + '/images/images/rentprodindex/咖啡廳5.jpg'}
             alt=""
           />
           <div className="wall-mask mask">
@@ -76,7 +76,7 @@ function ProdOccation() {
         <div className="right-pic d-flex text-center">
           <img
             className="bathroom-pic"
-            src={devUrl + '/images/images/婚禮布置.jpg'}
+            src={devUrl + '/images/images/rentprodindex/婚禮布置.jpg'}
             alt=""
           />
           <div className="bathroom-mask mask">
