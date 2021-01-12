@@ -1,0 +1,27 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-lessonpics {
+  width: 120px;
+  height: 120px;
+  border-radius: 1px;
+  margin: 20px;
+}
+
+.w-lessonname {
+  color: #494949;
+}
+
+.w-lessontime {
+  font-size: 14px;
+  color: #494949;
+}
+
+/* 課程狀態：已預約 */
+.w-lessonstatus-booked {
+  color: #e58f80;
+}
+
+/* 課程狀態：已結束 */
+.w-lessonstatus-end {
+  color: #d1cfcf;
+}

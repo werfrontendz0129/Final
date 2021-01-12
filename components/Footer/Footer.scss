@@ -1,0 +1,63 @@
+.c-width100 {
+  width: 100vw;
+}
+.c-border {
+  border: 1px solid #d1cfcf;
+}
+.c-paddingtome {
+  height: 6.25rem;
+}
+.c-footheight {
+  height: 21rem;
+  padding: 0 7.5rem;
+}
+.c-reserved {
+  flex-grow: 1;
+  border-top: 1px solid #d1cfcf;
+  line-height: 0.875rem;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+.c-socialmedia {
+  display: flex;
+  flex-direction: row;
+}
+.c-subscription {
+  color: #e58f80;
+}
+.c-email {
+  height: 5rem;
+  width: fit-content;
+  margin: 4.5rem 0 0 0;
+}
+.c-socialmedia {
+  display: flex;
+  width: fit-content;
+  height: 9rem;
+  flex-direction: row;
+}
+.c-mark {
+  margin: 0 0.25rem;
+}
+figure {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+.c-help {
+  margin: 3.25rem 4.5rem 0 0rem;
+  line-height: 1rem;
+  font-size: 14px;
+}
+.c-list-padding {
+  margin: 1.875rem 0 0 0;
+}
+.c-list-padding li {
+  padding: 0 0 1.25rem 0;
+  line-height: 1rem;
+  font-size: 14px;
+}
+@import "~bootstrap/scss/bootstrap.scss";

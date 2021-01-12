@@ -1,0 +1,16 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-wrapper {
+  width: 1200px;
+  margin: auto;
+
+  .w-card {
+    min-width: 200px;
+    border: none;
+    margin: 100px 0 130px 0;
+  }
+  .w-article {
+    min-width: 740px;
+    margin: 100px;
+  }
+}

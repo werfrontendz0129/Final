@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-notifydiv {
+  margin-top: 20px;
+
+  .w-notify-table tbody {
+    margin: 20px;
+    color: #838383;
+  }
+  :hover {
+    color: #a8ae91;
+  }
+}

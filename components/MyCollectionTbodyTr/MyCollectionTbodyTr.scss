@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-collect-pics {
+  width: 120px;
+  height: 120px;
+}
+.w-collect-prod {
+  text-align: left;
+
+  .w-collect-prod span {
+    color: #494949;
+    margin-bottom: 5px;
+  }
+
+  .w-collect-prod span:hover {
+    color: #a8ae91;
+  }
+}
+
+.w-collect-prod p {
+  font-size: 0.875rem;
+  color: #838383;
+}

@@ -1,0 +1,74 @@
+.c-w100p {
+  padding: 0 7.5rem;
+  .c-xbox {
+    display: flex;
+    flex-grow: 1;
+    height: 12.5rem;
+    background-color: #e6decd;
+    margin: 4.25rem 0 3.125rem 0;
+    position: relative;
+    .xbutton {
+      right: 0;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      height: fit-content;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0);
+      figure {
+        margin: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.c-full {
+  padding: 0 7.5rem;
+  height: 31.125rem;
+  width: 100vw;
+  margin: 0;
+  .colplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .c-card1 {
+    width: 18.75em;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ebebeb;
+    .c-text-part {
+      flex-direction: column;
+      display: flex;
+      margin: 1.875rem 0 0 0;
+      .c-fit-with-content1 {
+        line-height: 1.5rem;
+        margin: 0 0 0.625rem 0;
+      }
+      .c-fit-with-content2 {
+        line-height: 0.875rem;
+      }
+    }
+    figure {
+      width: 18.75rem;
+      height: 18.75rem;
+      margin: 0;
+      padding: 0;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .c-margin {
+    margin: 0 1rem 0 1rem;
+  }
+}
+
+@import "~bootstrap/scss/bootstrap.scss";

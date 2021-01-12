@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-mycollect-tablehead th {
+  color: #494949;
+  text-align: center;
+}
+
+.w-mycollect-tablebody tr td {
+  min-height: 180px;
+  justify-content: center;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+.b-shoppingcart-title-exchange {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    div {
+    width: 190px;
+    height: 1px;
+    border-bottom: solid #494949 1px;
+    }
+    .b-shoppingcart-title-style1 {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 5px;
+    color: #6C8650;
+    border-bottom: 3px solid #6c8650;
+    }
+    .b-shoppingcart-title-style2 {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 5px;
+    color: #D1CFCF;
+    }
+
+    .b-shoppingcart-title-style2:hover{
+    color:#6C8650;
+    }
+  }
+  
+  

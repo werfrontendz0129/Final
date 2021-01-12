@@ -1,0 +1,20 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-mycollect-tablebody tr td {
+  height: 100px;
+  justify-content: center;
+  text-align: center;
+}
+
+.w-ordernumber,
+.w-orderdate {
+  font-size: 14px;
+  color: #494949;
+}
+
+.w-orderlist-buy-pics {
+  width: 50px;
+  height: 50px;
+  border-radius: 1px;
+  margin: 3px;
+}

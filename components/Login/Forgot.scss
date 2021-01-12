@@ -1,0 +1,54 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-container__form {
+  height: 100%;
+  position: absolute;
+  top: 0;
+
+  .w-input {
+    background-color: #ffffff;
+    margin: 8px 0;
+    width: 450px;
+  }
+}
+
+.w-signup02 {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.w-form2 {
+  background-color: #ffffff;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+  height: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.w-form__title {
+  font-size: 24px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#passwordinputnumber2 {
+  color: #838383;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.w-btn-clicksend {
+  width: 450px;
+  min-height: 50px;
+  background-color: #6c8650;
+  border-radius: 1px;
+  border: 0px;
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 auto;
+}

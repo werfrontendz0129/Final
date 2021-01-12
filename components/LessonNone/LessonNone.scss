@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-collect-none {
+  width: 900px;
+  color: #838383;
+  margin: 40px 0 90px 40px;
+}
+
+.w-btn-viewlesson {
+  width: 200px;
+  height: 50px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c8650;
+  color: #ffffff;
+  text-align: center;
+  margin: 90px 10px 0 10px;
+}
+
+.w-btn-viewlesson:hover {
+  background: #a8ae91;
+  color: #ffffff;
+}

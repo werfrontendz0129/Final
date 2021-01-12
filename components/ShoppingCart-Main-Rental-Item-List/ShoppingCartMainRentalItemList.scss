@@ -1,0 +1,40 @@
+.b-shoppingcart-reantal-itemlist-d-flexer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  .b-shoppingcart-reantal-itemlist-img-sm {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .b-shoppingcart-rental-itemlist-daily-price-wrap {
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+  .b-shoppingcart-rental-itemlist-daily-price{
+      font-weight: bold;
+      margin-right: 5px;
+      margin-bottom: 2px;
+      display: block;
+      color: #e58f80;
+    }
+  }
+
+  .b-shoppingcart-reantal-itemlist-font-size1 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .b-shoppingcart-reantal-itemlist-font-size2 {
+    font-size: 12px;
+  }
+  .b-shoppingcart-reantal-itemlist-font-size3 {
+    font-size: 14px;
+  }
+  .text-muted {
+    color: #969696 !important;
+  }
+  a {
+    text-decoration: none !important;
+  }

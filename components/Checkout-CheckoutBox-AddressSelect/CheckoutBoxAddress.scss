@@ -1,0 +1,38 @@
+.b-checkoutbox-address-card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 275px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0px;
+}
+.b-checkoutbox-dlist-align-address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 235px;
+}
+
+[class*="dlist-"] {
+  margin-bottom: 5px;
+}
+
+
+.b-checkout-checkoutbox-address-btn-main {
+  border-radius: 2px;
+  text-transform: capitalize;
+  font-size: 15px;
+  padding: 10px 19px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #6C8650;
+  width: 100%;
+  outline: 0px solid #fff;
+  outline-offset: -5px;
+}

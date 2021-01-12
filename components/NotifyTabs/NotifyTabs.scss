@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-div-title {
+  font-size: 36px;
+  color: #494949;
+}
+
+.w-notify-main {
+  width: 700px;
+  font-size: 16px;
+  color: #838383;
+  margin: 30px 0 50px 40px;
+
+  .w-notifytabtitle {
+    font-size: 24px;
+    color: #d1cfcf;
+
+    .active {
+      font-size: 24px;
+      color: #6c8650;
+    }
+  }
+}

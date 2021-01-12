@@ -1,0 +1,86 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-container__form {
+  height: 100%;
+  position: absolute;
+  top: 0;
+
+  .w-input {
+    background-color: #ffffff;
+    margin: 8px 0;
+    width: 450px;
+  }
+}
+
+.w-signup02 {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.w-container.w-right-panel-active .w-signup02 {
+  transform: translateX(100%);
+}
+
+.w-form2 {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+  height: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.w-form__title {
+  font-size: 24px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
+#passwordinputnumber {
+  color: #e58f80;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.w-signbtns {
+  margin: 50px;
+  justify-content: center;
+}
+
+.w-btn-clicksend {
+  width: 450px;
+  height: 48px;
+  background-color: #6c8650;
+  border-radius: 1px;
+  border: 0px;
+  color: #ffffff;
+  font-size: 16px;
+  transition: transform 80ms ease-in;
+  margin: 0 auto;
+}
+
+.w-btn-facebook {
+  width: 200px;
+  height: 44px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c92de;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.w-btn-google {
+  width: 200px;
+  height: 44px;
+  border-radius: 1px;
+  border: 0px;
+  background: #dd7f73;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 10px;
+}

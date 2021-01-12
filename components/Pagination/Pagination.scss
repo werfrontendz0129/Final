@@ -1,0 +1,16 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-pagination a {
+  color: #838383;
+  text-decoration: none;
+}
+
+.w-pagination a.active {
+  background: #a8ae91;
+  color: #ffffff;
+  border-radius: 1px;
+}
+
+.w-pagination a:hover:not(.active) {
+  color: #a8ae91;
+}

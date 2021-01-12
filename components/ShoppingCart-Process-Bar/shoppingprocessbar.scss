@@ -1,0 +1,47 @@
+.b-processingdui {
+    display: flex;
+    height: 60px;
+    padding: 0 450px 0 160px;
+      .b-checkouticon {
+      margin: 35px 12px 0 12px;
+      border: 0px solid black;
+      border-radius: 50%;
+      height: 21px;
+      min-width: 21px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      background-color: #6c8650;
+      color: white;
+    }
+    .b-checkouticongray {
+      margin: 35px 12px 0 12px;
+      border: 0px solid black;
+      border-radius: 50%;
+      height: 21px;
+      min-width: 21px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      background-color: #d1cfcf;
+      color: white;
+    }
+    .b-link-cart {
+      margin-top: 40px;
+      width: 100px;
+      height: 1px;
+      border-top: solid #494949 1px;
+    }
+  }
+
+  .b-processingtext {
+    display: flex;
+    justify-content: space-between;
+    height: 20px;
+    padding: 0 440px 0 150px;
+    p {
+    height: 20px;
+    font-size: 14px;
+    }
+  }
+  
