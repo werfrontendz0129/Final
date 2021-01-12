@@ -2,16 +2,15 @@
 .v-recommend-goods {
   margin-top: 100px;
   margin-bottom: 50px;
-
   padding: 0 120px;
 }
 .v-card-group {
-  // max-width: 1200px;
-  //   background-color: coral;
+  max-width: 1200px;
+  // background-color: coral;
 }
 .v-product-card {
   margin: 15px;
-  max-width: 280px;
+  width: 280px;
   height: 370px;
   background: white;
   box-shadow: 3px 3px 6px #ccc;

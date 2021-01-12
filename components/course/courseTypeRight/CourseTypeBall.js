@@ -13,7 +13,7 @@ function CourseTypeBall() {
         <h4>Kokedama Courses</h4>
       </div>
       <div className="course-guide-pics d-flex">
-      <CourseBlockTwo
+        <CourseBlockTwo
           imgUrl2={'/images/course/course-guide/demo_ball2.jpg'}
           imgUrl3={'/images/course/course-guide/demo_ball3.jpg'}
         />

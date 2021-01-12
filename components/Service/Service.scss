@@ -1,0 +1,87 @@
+.c-service-vh {
+  padding: 0 7.5rem 0 7.5rem;
+  width: 100vw;
+  height: 58vh;
+  .c-margin-top {
+    margin-top: 7.6vh;
+    .box {
+      margin-top: 7.25rem;
+      width: 6.25rem;
+      height: 3.75rem;
+    }
+    .c-card2-top {
+      width: fit-content;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      .c-textmargin36px {
+        margin: 2.25rem 0 0 0;
+        padding: 0;
+      }
+      .c-textlength {
+        margin: 1.5rem 0;
+        width: fit-content;
+        line-height: 1.5rem;
+      }
+      .c-svg1 {
+        background-image: url('http:localhost3000/images/index/plants.svg');
+        width: 4.5vw;
+        padding-top: 4.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .c-svg3 {
+        background-image: url('http:localhost3000/images/index/shoppingcart.svg');
+        width: 4.5vw;
+        padding-top: 4.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .c-svg5 {
+        background-image: url('http:localhost3000/images/index/receive.svg');
+        width: 4.5vw;
+        padding-top: 4.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    .c-card2-down {
+      width: fit-content;
+      margin-top: 6vh;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      .c-textmargin36px {
+        margin: 2.25rem 0 0 0;
+        padding: 0;
+      }
+      .c-textlength {
+        margin: 1.5rem 0;
+        width: fit-content;
+        line-height: 1.5rem;
+      }
+      .c-svg2 {
+        background-image: url('http:localhost3000/images/index/calender.svg');
+        width: 4.2vw;
+        padding-top: 4.2vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .c-svg4 {
+        background-image: url('http:localhost3000/images/index/shipping.svg');
+        width: 4.5vw;
+        padding-top: 4.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .c-svg6 {
+        background-image: url('http:localhost3000/images/index/maintain.svg');
+        width: 4.5vw;
+        padding-top: 4.5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+@import '~bootstrap/scss/bootstrap.scss';
