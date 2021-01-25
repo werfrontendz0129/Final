@@ -1,0 +1,51 @@
+.b-paddingLR {
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+}
+.b-Checkout-AddressSelect-header {
+  display: flex;
+  max-width: 1200px;
+  margin-top: 125px;
+}
+.b-checkout-address-breadtitle {
+  width: 120px;
+  p {
+    width: 120px;
+    font-size: 36px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+}
+.b-Checkout-AddressSelect-title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 480px;
+  margin-top: 24px;
+
+  p {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 24px;
+  }
+  a {
+    height: 26px;
+    font-size: 16px;
+    color: #e58f80;
+    border-bottom: 2px solid #e58f80;
+    border-radius: 0px;
+  }
+}
+.b-Checkout-AddressSelect-checkout-outterbox {
+  width: 275px;
+  height: 400px;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  margin-left: 25px;
+}
+//以上為主頁scss
+.b-checkout-address-text-uppercase {
+  background-color: #e6e9da;
+  height: 35px;
+  th{
+    font-size: 16px;
+  }
+}

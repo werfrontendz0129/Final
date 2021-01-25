@@ -1,0 +1,102 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-container__overlay {
+  height: 900px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: transform 0.6s ease-in-out;
+  width: 50%;
+  z-index: 100;
+}
+
+.w-container.w-right-panel-active .w-container__overlay {
+  transform: translateX(-100%);
+}
+
+.w-overlay {
+  background-color: #008997;
+  background: url('http://localhost:3000/images/member/pexels-min-an-793012.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  left: -100%;
+  position: relative;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  width: 200%;
+}
+
+.w-container.w-right-panel-active .w-overlay {
+  transform: translateX(50%);
+}
+
+.w-overlay__panel {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  width: 50%;
+}
+
+.w-overlay--left {
+  transform: translateX(-20%);
+}
+
+.w-container.w-right-panel-active .w-overlay--left {
+  transform: translateX(0);
+}
+
+.w-overlay--right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.w-container.w-right-panel-active .w-overlay--right {
+  transform: translateX(20%);
+}
+.w-loginlogo-icon img {
+  margin-top: -600px;
+  margin-left: -400px;
+}
+
+.w-signlogo {
+  width: 126px;
+  height: 154px;
+}
+.w-overlay-cautionword {
+  font-size: 14px;
+  color: var(--white);
+}
+.w-btn-signbutton {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  border-radius: 1px;
+  background: transparent;
+  color: #ffffff;
+  margin: 20px;
+}
+
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}

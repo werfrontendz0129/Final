@@ -1,0 +1,34 @@
+@import "~bootstrap/scss/bootstrap.scss";
+.v-search-group {
+  // background-color: chartreuse;
+  max-width: 200px;
+  margin: 0 0 50px 0;
+  border-bottom: 1px solid #d1cfcf;
+}
+
+.v-search-bar {
+  // background-color: tomato;
+  height: 40px;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  /* padding: 6px 0; */
+  font-size: 20px;
+  p {
+    color: #d1cfcf;
+  }
+}
+
+.v-search-img {
+  max-width: 18px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.v-search-result {
+  margin-top: 50px;
+  padding-left: 8px;
+  h4 {
+    width: 200px;
+  }
+}

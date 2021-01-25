@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.v-detail-lg {
+  padding: 0 120px;
+}
+.v-featuretext {
+  padding: 100px;
+  line-height: 36px;
+  font-size: 24px;
+  width: 570px;
+}
+
+.v-product-detail-img {
+  width: 100%;
+  object-fit: cover;
+  height: 500px;
+}

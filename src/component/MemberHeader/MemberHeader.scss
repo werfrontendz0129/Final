@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.w-memberNav {
+  height: 125px;
+  background: #a8ae91;
+
+  .w-navcontainer {
+    max-width: 100vw;
+    margin: auto;
+
+    .w-navlogo {
+      width: 80px;
+      height: 66.6px;
+    }
+  }
+}

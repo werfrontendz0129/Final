@@ -1,0 +1,14 @@
+body {
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+  $noto-sans-TC: "Noto sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: $noto-sans-TC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

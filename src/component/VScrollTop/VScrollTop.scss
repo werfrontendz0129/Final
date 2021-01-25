@@ -1,0 +1,36 @@
+.ScrollTop {
+  cursor: pointer;
+  animation: animate 0.8s ease-in-out 0s infinite alternate, fadeIn 0.8s;
+  // animation: fadeIn 0.8s;
+  transition: opacity 0.4s;
+  opacity: 0.6;
+  position: fixed;
+  right: 10%;
+  bottom: 25%;
+  z-index: 1000;
+  max-width: 100px;
+}
+
+.ScrollTop:hover {
+  opacity: 1;
+}
+
+//動態上下移效果
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+//淡入效果
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

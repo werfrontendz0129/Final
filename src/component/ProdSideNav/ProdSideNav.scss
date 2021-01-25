@@ -1,0 +1,50 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.v-prod-sidenav {
+  ul {
+    list-style-type: none;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  li {
+    padding-left: 8px;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  li:hover {
+    color: #a8ae91;
+    transition: 0.2s;
+  }
+}
+
+.v-prod-arrow {
+  max-width: 15px;
+  height: 100%;
+  object-fit: cover;
+  // background-color: cadetblue;
+}
+
+.v-nav-title {
+  background: #e6e9da;
+  padding: 8px 8px 8px 20px;
+  // height: 40px;
+}
+
+.v-nav-item {
+  padding: 15px 8px 0 20px;
+}
+.v-nav-title-closed {
+  background: transparent;
+  border-bottom: 1px solid #d1cfcf;
+  color: #d1cfcf;
+  padding: 8px 0;
+}
+.v-nav-title-closed:hover {
+  background: #e6e9da;
+  border: none;
+  transition: 0.2s;
+}
+
+.vclose {
+  display: none;
+}

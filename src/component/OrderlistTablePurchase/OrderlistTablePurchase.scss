@@ -1,0 +1,35 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-orderlist-buy-table {
+  margin: 30px 0 50px 0;
+
+  thead th {
+    color: #494949;
+    text-align: center;
+  }
+}
+
+.w-mycollect-tablebody tr td {
+  height: 100px;
+  justify-content: center;
+  text-align: center;
+}
+
+.w-ordernumber,
+.w-orderdate {
+  font-size: 14px;
+  color: #494949;
+}
+
+.w-orderlist-buy-pics {
+  width: 50px;
+  height: 50px;
+  border-radius: 1px;
+  margin: 3px;
+}
+
+// 選購訂單狀態：待出貨color：#838383、已完成：#6C8650
+.w-statuspurchase {
+  font-size: 14px;
+  color: #a8ae91;
+}

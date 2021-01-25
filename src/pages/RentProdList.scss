@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.v-prod-list-wrapper {
+  // max-width: 1200px;
+  padding: 0 120px;
+  margin: 0 auto;
+  // background-color: brown;
+}
+.v-list-title {
+  // padding-bottom: 20px;
+  // margin-bottom: 20px;
+}
+.v-spinner {
+  margin: 0 auto;
+  align-self: center;
+}
+
+.v-price-bar {
+  max-height: 60px;
+  margin-bottom: 20px;
+  // background-color: sandybrown;
+}

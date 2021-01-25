@@ -1,0 +1,132 @@
+.b-checkout-payment-header {
+  display: flex;
+  max-width: 1200px;
+  margin-top: 125px;
+}
+.b-checkout-payment-breadtitle {
+  width: 120px;
+  p {
+    width: 120px;
+    font-size: 36px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+}
+.b-checkout-payment-titlebar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 480px;
+  margin-top: 24px;
+
+  p {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 24px;
+  }
+  a {
+    height: 26px;
+    font-size: 16px;
+    color: #e58f80;
+    border-bottom: 2px solid #e58f80;
+    border-radius: 0px;
+  }
+}
+
+.b-chekcout-payment-checkout-outterbox {
+  width: 275px;
+  height: 400px;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  margin-left: 25px;
+}
+.b-paddingLR {
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+}
+
+//以上為主頁面scss
+
+.b-checkout-payment-title-table {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e6e9da;
+  height: 35px;
+  th{
+    font-size: 16px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+}
+/////////////////////////////////////////////////////
+.b-checkout-payment-wrap {
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.b-payment-checkout-font-size {
+      font-size: 16px;
+      margin: 5px 0px;
+      font-weight: 400;
+      margin-right: 5px;
+      display: block;
+      }
+.b-checkout-payment-line{
+  width: 100%; 
+  height: 1px; 
+  border-top: 1px solid #D1CFCF;
+  padding: 0px;
+}
+////////////////////////////////////////////////////
+
+
+
+.b-checkout-checkoutbox-payment-card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 275px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0px;
+}
+
+.b-checkout-checkoutbox-payment-dlist-align {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 235px;
+}
+
+[class*="dlist-"] {
+  margin-bottom: 5px;
+}
+
+.b-checkout-checkoutbox-payment-btn-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 19px;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    background-color:#6C8650 ;
+    width: 220;
+    height: 50px;
+}
+b-checkout-checkoutbox-payment-btn-main:hover{
+  color:#494949;
+}
+
+
+  
+  
+  

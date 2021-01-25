@@ -1,0 +1,38 @@
+
+  .b-shippingcart-box-card-body{
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    ;
+  }
+  
+  .b-shippingcart-boxdlist-align {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 235px;
+  }
+  
+
+  [class*="dlist-"] {
+    margin-bottom: 0px;
+  }
+  
+  .b-shippingcart-box-btn-main {
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff;
+    width: 220px;
+    height: 50px;
+    background-color: #6C8650;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .b-shippingcart-box-btn-main:hover{
+    color: #494949;
+  }
+  
+  

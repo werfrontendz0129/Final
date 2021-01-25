@@ -1,0 +1,28 @@
+.b-shoppingcart-title-exchange {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    div {
+    width: 197px;
+    height: 1px;
+    border-bottom: solid #494949 1px;
+    }
+    p.active {
+    font-size: 26px;
+    margin: 0;
+    
+    color: #6C8650;
+    border-bottom: 3px solid #6c8650;
+    }
+    p {
+    font-size: 26px;
+    margin: 0 5px;
+    color: #D1CFCF;
+    }
+
+    p:hover{
+    color:#6C8650;
+    }
+  }
+  
+  

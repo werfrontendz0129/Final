@@ -1,0 +1,80 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-lessonbookinglisttable {
+  width: 900px;
+  margin: 30px 0 50px 0;
+
+  thead th {
+    color: #494949;
+    text-align: center;
+  }
+}
+
+.w-lessonbookinglisttbody tr td {
+  min-height: 180px;
+  justify-content: center;
+  text-align: center;
+}
+
+.w-lessonpics {
+  width: 120px;
+  height: 120px;
+  border-radius: 1px;
+  margin: 20px;
+}
+
+.w-lessonname {
+  color: #494949;
+}
+
+.w-lessontime {
+  font-size: 14px;
+  color: #494949;
+}
+
+/* 課程狀態：已預約 */
+.w-lessonstatus-booked {
+  color: #e58f80;
+}
+
+/* 課程狀態：已結束 */
+.w-lessonstatus-end {
+  color: #d1cfcf;
+}
+
+/* 取消預約button */
+.w-btn-cancellesson {
+  width: 80px;
+  height: 30px;
+  border-radius: 1px;
+  border: 0px;
+  background: #5f7775;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  padding: 3px;
+}
+
+/* 課程詳情button */
+.w-btn-lessondetail {
+  width: 80px;
+  height: 30px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c8650;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+/* 課程詳情button:hover */
+.w-btn-lessondetail:hover {
+  background: #a8ae91;
+  color: #ffffff;
+}

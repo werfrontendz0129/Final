@@ -1,0 +1,34 @@
+.r-course-category {
+    width: 20%;
+    text-align: left;
+    .course-category-searchbar {
+        padding: 0;
+        width: 200px;
+        list-style-type: none;
+        li {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+        }
+        .category-title {
+            background: #e6e9da;
+        }
+        a {
+            text-decoration: none;
+            color: #838383;
+            cursor: pointer;
+            &:hover {
+                & li {
+                    color: #97b69c;
+                }
+            }
+        }
+        .active {
+            color: #97b69c;
+        }
+        .default {
+            color: #838383;
+        }
+        
+    }
+}

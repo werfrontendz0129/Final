@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-signbody {
+  max-width: 1440px;
+  align-items: left;
+  background-color: #ffffff;
+  background: url('http://localhost:3000/images/member/pexels-min-an-793012.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  min-height: 900px;
+  place-items: center;
+}
+
+.w-container {
+  background-color: #ffffff;
+  height: 100%;
+  // max-width: 1440px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}

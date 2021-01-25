@@ -1,0 +1,26 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-btn-clicktodetail {
+  width: 80px;
+  height: 30px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c8650;
+  // color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 3px;
+
+  a {
+    color: #ffffff;
+  }
+}
+
+.w-btn-clicktodetail:hover {
+  background: #a8ae91;
+  color: #ffffff;
+}

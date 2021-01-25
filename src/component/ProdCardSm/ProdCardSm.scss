@@ -1,0 +1,62 @@
+@import '~bootstrap/scss/bootstrap.scss';
+.v-recommend-goods {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding: 0 120px;
+}
+@media screen and (max-width: 1200px) {
+  .v-recommend-goods {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0 40px;
+  }
+}
+.v-card-group {
+  max-width: 1200px;
+  margin: 0 auto;
+  // background-color: coral;
+}
+.v-product-card {
+  margin: 15px;
+  width: 280px;
+  height: 370px;
+  background: white;
+  box-shadow: 3px 3px 6px #ccc;
+  border-radius: 3px;
+  text-align: center;
+  @media screen and (max-width: 1200px) {
+    .v-product-card {
+      width: 200px;
+    }
+  }
+  figcaption {
+    p {
+      font-size: 20px;
+      margin: 15px 0 10px 0;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    p {
+      font-size: 16px;
+      margin: 15px 0 10px 0;
+    }
+  }
+  .v-price {
+    font-size: 16px;
+    margin: 0;
+    color: #e58f80;
+  }
+}
+.v-recommend-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  padding: 10px;
+  text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  .v-recommend-img {
+    width: 100%;
+    height: 250px;
+  }
+}

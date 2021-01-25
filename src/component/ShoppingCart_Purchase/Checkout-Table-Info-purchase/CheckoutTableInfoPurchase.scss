@@ -1,0 +1,53 @@
+.b-completepage-header {
+    display: flex;
+    max-width: 1200px;
+    margin-top: 125px;
+  }
+  .b-complete-noonspace {
+    width: 1200px;
+    height: 50px;
+  }
+  
+  .b-complete-cart-title {
+    width: 120px;
+    p {
+      width: 120px;
+      font-size: 36px;
+      margin-top: -10px;
+      margin-bottom: -10px;
+    }
+  }
+  .b-paddingLR {
+    padding-left: 7.5rem;
+    padding-right: 7.5rem;
+  }
+//以上為主頁面scss
+.b-complete-left-pace{
+    margin-left: 30px;
+    }
+
+.b-order-checkout-view-box{
+    border: 1px solid #EBEBEB;
+    margin-top: 5px;
+    }
+.b-completepage-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    div {
+    width: 190px;
+    height: 1px;
+    border-top: solid #494949 1px;
+    }
+    p {
+        font-size: 24px;
+        margin: 0;
+        margin-right: 24px;
+    }
+    }
+    .b-order-checout-info-table-dlist-align {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 5px;
+      }

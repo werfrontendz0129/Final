@@ -1,0 +1,72 @@
+.r-month-courses {
+    text-align: center;
+    // border: 1px solid red;
+    .title {
+      // margin-bottom: 40px;
+      h1 {
+        font-size: 1.75rem;
+        color: #494949;
+      }
+      h5 {
+        font-size: 1.25rem;
+        color: #494949;
+      }
+    }
+
+    .courses-card-wrapper {
+      margin-bottom: 100px;
+      display: flex;
+      // justify-content: space-evenly;
+      transition: .5s;
+      transform: scaleY(0px);
+      &:hover {
+        & .card {
+          transition: transform .5s;
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+            content: '';
+            opacity: 0;
+            z-index: -1;
+          }
+          
+          &:hover,
+          &:focus {
+            transform: scale3d(1.006, 1.006, 1);
+
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .card {
+        margin: 0 auto;
+        .card-text {
+        color: #838383;
+      }
+      }
+      
+    }
+  }
+
+  .r-course-card-carouse {
+    height: 500px;
+    width: 1050px;
+    // border: 1px solid blue;
+    margin: 0 auto;
+    // display: flex;
+    // justify-content: center;
+    // text-align: center;
+  }
+
+  // .r-carousel-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   text-align: center;
+  // }

@@ -1,0 +1,72 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-mycollect-tablehead th {
+  color: #494949;
+  text-align: center;
+}
+
+.w-mycollect-tablebody tr td {
+  min-height: 180px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.w-collect-pics {
+  width: 120px;
+  height: 120px;
+}
+.w-collect-prod {
+  text-align: left;
+
+  .w-collect-prod span {
+    color: #494949;
+    margin-bottom: 5px;
+  }
+
+  .w-collect-prod span:hover {
+    color: #a8ae91;
+  }
+}
+
+.w-collect-prod p {
+  font-size: 14px;
+  color: #838383;
+  margin-bottom: 3px;
+}
+
+// remove button
+.w-remove {
+  color: #838383;
+
+  :hover {
+    color: #e58f80;
+  }
+}
+
+//
+.w-collect-none {
+  width: 900px;
+  color: #838383;
+  margin: 40px 0 90px 40px;
+}
+
+/* 瀏覽教學課程button */
+.w-btn-viewlesson {
+  width: 200px;
+  height: 50px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c8650;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 90px 10px 0 10px;
+}
+
+.w-btn-viewlesson:hover {
+  background: #a8ae91;
+  color: #ffffff;
+}

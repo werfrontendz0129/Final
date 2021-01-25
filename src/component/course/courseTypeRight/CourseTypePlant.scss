@@ -1,0 +1,89 @@
+.r-type-plant {
+    margin-bottom: 80px;
+    width: 100%;
+    // border: 1px solid black;
+    padding: 0;
+    margin: 0 0 80px 0;
+    text-align: center;
+    .title {
+        margin-bottom: 3.12rem;
+        h4 {
+            color: #707070;
+        }
+    } 
+    .course-guide-pics  {
+        // border: 1px solid red;
+        margin-bottom: 3.12rem;
+        .block_one {
+            width: 625px;
+            height: 900px;
+            padding: 0;
+            margin: 0 25px;
+            position: relative;
+            // border: 1px solid blue;
+            overflow: hidden;
+            &:hover {
+                    & img {
+                        filter: brightness(0.7);
+                        transform: scale(1.1);
+                    }
+                    & .btn-info-more {
+                        display: block;
+                        top: calc(50% - 19px);
+                    }
+                }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 2s;
+            }
+
+            .btn-info-more {
+                position: absolute;
+                left: calc(50% - 43px);
+                top: calc(50% - 10px);
+                display: none;
+                transition: .5s;
+            }
+        }
+       .block_two {
+            .wrapper {
+                margin: 0;
+                padding: 0;
+                height: 436px;
+                margin-left: 25px;
+                position: relative;
+                overflow: hidden;
+                &:hover {
+                    & img {
+                        filter: brightness(0.7);
+                        transform: scale(1.1);
+                    }
+                    & .btn-info-more {
+                        display: block;
+                        top: calc(50% - 19px);
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: 2s;
+                }
+                .btn-info-more {
+                    position: absolute;
+                    left: calc(50% - 43px);
+                    top: calc(50% - 10px);
+                    display: none;
+                    transition: .5s;
+                }
+            }
+            // max-height: 436px;
+            // margin-right: 25px;
+            
+            
+        }
+    }
+}

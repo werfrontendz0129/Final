@@ -1,0 +1,76 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.v-header {
+  padding: 0 120px;
+  height: 125px;
+  font-size: 16px;
+  p {
+    padding: 5px 0;
+  }
+  .menu1:hover {
+    color: #a8ae91;
+    transform: translateY(-5px);
+    transition: 0.2s;
+    border-bottom: 1px solid #a8ae91;
+  }
+}
+.v-selected {
+  color: #a8ae91;
+}
+
+.v-logo {
+  max-width: 80px;
+  margin: 20px;
+  img {
+    width: 100%;
+    // padding: 20px;
+    object-fit: cover;
+  }
+  .menu1 {
+    color: #494949;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .menu1,
+  .menu2,
+  .Avatar {
+    display: none;
+  }
+}
+
+.v-nav-group {
+  margin-left: 100px;
+}
+
+.Avatar {
+  width: 50px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+.menu1 {
+  margin-right: 30px;
+}
+
+// .v-mobile-group {
+//   display: none;
+// }
+
+// @media screen and (min-width: 1199px) {
+//   .v-mobile-group {
+//     display: inline-flex;
+//     .v-mobile-icon {
+//       padding: 8px;
+//     }
+//   }
+// }
+@media screen and (max-width: 800px) {
+  .v-mobile {
+    margin: 0 auto;
+    left: calc(50% - 100px);
+  }
+}

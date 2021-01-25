@@ -1,0 +1,16 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.memberbreadcrumb ol {
+  height: 20px;
+  width: 100%;
+  background: #ffffff;
+  margin: 30px 0 0 120px;
+
+  li a {
+    color: #d1cfcf;
+  }
+
+  li.active {
+    color: #494949;
+  }
+}

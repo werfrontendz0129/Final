@@ -1,0 +1,15 @@
+.Scroll {
+  cursor: pointer;
+  animation: animate 0.8s ease-in-out 0s infinite alternate;
+  margin: 47px 50% 73px 46%;
+  width: 100px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}

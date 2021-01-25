@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap.scss";
+.v-bread {
+  padding: 0 120px;
+  background-color: aquamarine;
+  li {
+    color: #494949;
+  }
+  li.active {
+    color: #494949;
+  }
+}
+.v-link {
+  color: #494949;
+}

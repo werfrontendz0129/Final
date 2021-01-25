@@ -1,0 +1,29 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-card .card {
+  max-width: 200px;
+  margin: 0;
+
+  .list-group-item {
+    width: 200px;
+    height: 50px;
+    border: 0px;
+
+    a {
+      color: #838383;
+    }
+  }
+  .list-group-item a.active {
+    color: #6c8650;
+  }
+
+  .w-cardlistp {
+    color: #494949;
+  }
+}
+
+.w-cardlistp .w-iconup {
+  float: right;
+  margin-left: 30px;
+  color: #494949;
+}

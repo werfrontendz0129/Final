@@ -1,0 +1,32 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-div-title {
+  font-size: 36px;
+  color: #494949;
+}
+
+/* 課程預約詳情table */
+.w-lessonbooking {
+  margin-left: 50px;
+}
+
+.w-lessonbooking-detail-table {
+  tr th {
+    color: #494949;
+    text-align: left;
+  }
+  tr td {
+    color: #838383;
+    font-size: 14px;
+  }
+  .w-booking-status {
+    color: #e58f80;
+  }
+}
+
+/* 課程預約詳情圖片 */
+.w-lessondetailpics {
+  width: 800px;
+  height: 100%;
+  margin: 50px;
+}

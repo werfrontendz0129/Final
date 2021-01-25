@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.v-banner-wrapper {
+  width: 100%;
+  min-height: 618px;
+}
+@media screen and (max-width: 1400px) {
+  .v-banner-wrapper {
+    min-height: 300px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .v-banner-wrapper {
+    min-height: 200px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .v-banner-wrapper {
+    min-height: 150px;
+  }
+}

@@ -1,0 +1,80 @@
+$h1-font-size: 16px * 3; //48px
+$h2-font-size: 16px * 1.75; //28px
+$h3-font-size: 16px * 1.5; //24px
+$h4-font-size: 16px * 1.25; //20px
+$h5-font-size: 16px;
+$h6-font-size: 16px * 0.875; //14px
+$h7-font-size: 16px * 0.75; //12px
+.c-width100 {
+  // width: 100%;
+  max-width: 1440px;
+
+  // max-width: 1440px;
+  margin: 0 auto;
+}
+.c-border {
+  border-bottom: 1px solid #d1cfcf;
+  border-top: 1px solid #d1cfcf;
+}
+.c-paddingtome {
+  height: 7.5rem;
+}
+.c-footheight {
+  height: 21rem;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 7.5rem;
+}
+.c-reserved {
+  flex-grow: 1;
+  line-height: 0.875rem;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+.c-socialmedia {
+  display: flex;
+  flex-direction: row;
+}
+.c-subscription {
+  color: #e58f80;
+}
+.c-email {
+  height: 5rem;
+  width: fit-content;
+  margin: 4.5rem 0 0 0;
+}
+.c-socialmedia {
+  display: flex;
+  width: fit-content;
+  height: 9rem;
+  flex-direction: row;
+}
+.c-mark {
+  margin: 0 0.25rem;
+}
+figure {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+.c-help {
+  margin: 3.5rem 3.5rem 0 0rem;
+  line-height: 1rem;
+  font-size: 14px;
+  .c-title {
+    color: #d1cfcf;
+  }
+}
+.c-list-padding {
+  margin: 1.875rem 0 0 0;
+}
+.c-list-padding li {
+  padding: 0 0 1.25rem 0;
+  width: 4.5rem;
+  line-height: 1rem;
+  font-size: 14px;
+}
+@import "~bootstrap/scss/bootstrap.scss";

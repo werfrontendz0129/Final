@@ -1,0 +1,90 @@
+.b-shoppingcart-reantal-itemlist-d-flexer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  .b-shoppingcart-reantal-itemlist-img-sm {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .b-shoppingcart-rental-itemlist-daily-price-wrap {
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+  .b-shoppingcart-rental-itemlist-daily-price{
+      font-weight: bold;
+      margin-right: 5px;
+      margin-bottom: 2px;
+      display: block;
+      color: #e58f80;
+    }
+  }
+  .b-shoppingcart-rental-itemlist-qtypicker{
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    flex-direction: row; 
+    .b-shoppingcart-rental-qty-button{
+      width: 40px;
+      height: 40px;
+      padding: .5rem;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      outline: none;
+      font-size: 18px;
+      background: #f3f3f3;
+      color: #888;
+      border: 0 solid #dbdbdb;
+      text-align: center;
+      cursor: pointer;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .b-shoppingcart-rental-qty-button:hover {
+      background: #dadada;
+      color: #D1CFCF;
+    }
+    
+    .b-shoppingcart-rental-qty-button:focus {
+      outline:0;
+    } 
+    .b-shoppingcart-rental-qty-input{
+      width: 40px;
+      height: 40px;
+      padding: .5rem;
+      font-size: 18px;
+      border: 0;
+      border-top: 0 solid #dbdbdb;
+      border-bottom: 0 solid #dbdbdb;
+      text-align: center;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .b-shoppingcart-rental-qty-input:focus {
+      background: red;
+    }
+  }
+
+  .b-shoppingcart-reantal-itemlist-font-size1 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .b-shoppingcart-reantal-itemlist-font-size2 {
+    font-size: 12px;
+  }
+  .b-shoppingcart-reantal-itemlist-font-size3 {
+    font-size: 14px;
+  }
+  // .text-muted {
+  //   color: #969696 !important;
+  // }
+  // a {
+  //   text-decoration: none !important;
+  // }

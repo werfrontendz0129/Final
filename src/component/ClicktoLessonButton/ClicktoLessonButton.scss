@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+/* 課程詳情button */
+.w-btn-lessondetail {
+  width: 80px;
+  height: 30px;
+  border-radius: 1px;
+  border: 0px;
+  background: #6c8650;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+/* 課程詳情button:hover */
+.w-btn-lessondetail:hover {
+  background: #a8ae91;
+  color: #ffffff;
+}

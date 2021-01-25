@@ -1,0 +1,88 @@
+.b-member-return-order-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 1200px;
+    margin: auto;
+    margin-top: 125px;
+    padding: 0px;
+  }
+.b-member-return-order-card {
+    min-width: 200px;
+    border: 0px;
+    margin: 100px 0 130px 0;
+}
+  
+.b-member-return-order-article {
+    margin: 100px;
+  }
+  
+  .b-member-return-order-div-title {
+    font-size: 36px;
+    color: #494949;
+  }
+  
+  .b-member-return-order-orderlist-main {
+    margin: 30px 0 100px 0;
+  }
+  
+  .b-member-return-order-orderlistpics {
+    width: 80px;
+    height: 80px;
+    border-radius: 1px;
+    margin: 5px;
+  }
+  
+  .b-member-return-order-orderlist-rent-detailtable{
+     tr{
+        td {
+            font-size: 14px;
+            color: #494949;
+        }
+     } 
+  }  
+  
+  .b-member-return-order-prod-name p:hover {
+    color: #a8ae91;
+  }
+  
+  .b-member-return-order-rent-starttoend{
+      p{
+        font-size: 12px;
+        margin-bottom: 2px;
+      }
+  }
+  /* 租賃狀態：已預約 #494949; 租賃中 #E58F80; */
+  /* .orderstatus {
+      color: #494949;
+  } */
+  
+  .b-member-return-order-btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 1px;
+    color: #ffffff;
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .b-member-return-order-btn:hover{
+    color: #494949;
+  }
+  
+  .b-member-return-btn-checkelse {
+    background: #6c8650;
+  }
+  
+  .b-member-return-btn-cancelrent {
+    background: #e58f80;
+  }
+  
+  .b-member-return-order-buttonblock {
+    margin: 80px 10px 0 10px;
+  }
+  
+
+  

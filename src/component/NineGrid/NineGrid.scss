@@ -1,0 +1,58 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.ninegrid-row {
+  margin-top: 50px;
+  max-width: 900px;
+  justify-content: center;
+  // background-color: #6c8650;
+  div {
+    padding: 5px;
+  }
+}
+
+.v-ninegrid-item {
+  background-color: indianred;
+  width: 100%;
+  margin: 0;
+  // padding: 5px;
+}
+
+.v-ninegrid-item:hover {
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 1000px) {
+  .pad-none {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .mobile-none {
+    display: none;
+  }
+}
+
+.v-normal-btn {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.v-btn-p {
+  height: 50px;
+  width: 200px;
+  background-color: #6c8650;
+  border-radius: 1;
+  text-align: center;
+  display: block;
+  padding: 12px;
+}
+
+.v-btn-p:hover {
+  background-color: #a8ae91;
+  color: white;
+  transition: 0.2s;
+}

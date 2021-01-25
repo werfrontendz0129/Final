@@ -1,0 +1,54 @@
+.b-member-purchase-order-account-view {
+    margin: 60px 0 100px 0;
+  }
+ 
+  
+  .b-member-purchase-order-orderlistpics {
+    width: 80px;
+    height: 80px;
+    border-radius: 1px;
+    margin: 5px;
+  }
+  
+  .b-member-purchase-order-orderlist-rent-detailtable{ 
+    tr {
+      td {
+      font-size: 14px;
+      color: #494949;
+      }
+    }
+  }
+  .b-member-purchase-order-prod-name p:hover {
+    color: #a8ae91;
+  }
+  .b-member-purchase-order-orderstatus {
+    color: #6c8650;
+  }
+  
+  .b-member-purchase-order-btn {
+    width: 200px;
+    height: 50px;
+    border: 0px solid white;
+    border-radius: 1px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  .b-member-purchase-order-btn:hover{
+    color:#494949;
+  }
+  .b-member-purchase-order-btn-checkelse {
+    background: #6c8650;
+  }
+  
+  .b-member-purchase-order-btn-cancelrent {
+    background: #e58f80;
+  }
+  
+  .b-member-purchase-order-buttonblock {
+    margin: 100px 10px 0 10px;
+  }
+  

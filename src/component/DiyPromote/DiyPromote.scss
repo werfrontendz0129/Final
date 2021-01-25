@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/bootstrap.scss";
+.v-diy-ad {
+  background-color: #e6decd;
+  margin: 100px 0;
+  position: relative;
+}
+
+.v-diy-ad {
+  div {
+    height: 900px;
+  }
+}
+
+.v-diy-subtitle {
+  position: absolute;
+  margin-top: 100px;
+  p {
+    font-size: 14px;
+  }
+}
+
+.v-diy-title {
+  margin-top: 200px;
+  color: #fff;
+  font-size: 60pt;
+  position: absolute;
+  font-family: rubik;
+  z-index: 1;
+  justify-content: center;
+}
+
+.v-diy-photo1 {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  background-color: indianred;
+}
+
+.v-diy-photo2 {
+  // width: 350px;
+  max-height: 750px;
+  //   background-color: indianred;
+  padding: 55px 0 20px 0;
+  object-fit: contain;
+}

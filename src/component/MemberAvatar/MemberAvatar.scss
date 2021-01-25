@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.w-card-avatar {
+  height: 150px;
+
+  .w-avatar {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: auto;
+  }
+  .w-card-text {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
