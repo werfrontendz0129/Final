@@ -4,16 +4,16 @@ import './CheckoutTableItemListRental.scss';
 import Axios from 'axios';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import emailjs from 'emailjs-com'
 
 function CheckoutTableItemListRental() {
     const url = "http://localhost:3001/orderList/create/fullover"
     const [mycart, setMycart] = useState([])
     const [mycartDisplay, setMycartDisplay] = useState([])
-    const shippinginfo = JSON.parse(localStorage.getItem('shipping'))
-    const paymentinfo = JSON.parse(localStorage.getItem('payment'))
+    const shippinginfo = JSON.parse(localStorage.getItem('shipping')) || '[]'
+    const paymentinfo = JSON.parse(localStorage.getItem('payment')) || '[]'
     const Today=new Date()
     const today = Today.getFullYear() + '-' + (Today.getMonth() + 1) + '-' + Today.getDate();
-    const[fullorder, setFullorder] = useState([])
     const shippingaddress = shippinginfo[0].addressCity + shippinginfo[0].addressDistrict + shippinginfo[0].addressDetail;
     const receiver = shippinginfo[0].receiver;
     const cardHolder = paymentinfo[0].card_holder;
@@ -21,10 +21,10 @@ function CheckoutTableItemListRental() {
     const prodId = mycartDisplay;
     const MySwal = withReactContent(Swal)
     
-    // const orderid = require('order-id')('mysecret');
-    //   const id = orderid.generate();
-    //   orderid.getTime(id);
-    // const price = JSON.parse(localStorage.getItem('prices'))
+    const orderid = require('order-id')('mysecret');
+      const id = orderid.generate();
+      orderid.getTime(id);
+    const price = JSON.parse(localStorage.getItem('prices')) || '[]'
 
     const rentalOrder = ({
     orderDate : today,
@@ -41,6 +41,7 @@ function CheckoutTableItemListRental() {
         // e.preventDefault()
         Axios.post(url, rentalOrder)
         .then(res=>{
+          sendmail()
           if (res.data) {
             MySwal.fire({
               icon: 'success',
@@ -50,7 +51,7 @@ function CheckoutTableItemListRental() {
               focusConfirm: false,
               cancelButtonColor:'#6C8650',
               cancelButtonText:
-                '<a href="/" style="color: #FFFFFF;"> 查看訂單詳情 </a>',
+                '<a href="/members/rentaldetail" style="color: #FFFFFF;"> 查看訂單詳情 </a>',
               cancelButtonAriaLabel: '查看訂單詳情',
               confirmButtonColor:'#E58F80',
               confirmButtonText:
@@ -59,8 +60,10 @@ function CheckoutTableItemListRental() {
               html:
                 '可至<a href="/member">會員中心</a>查看查看訂單詳情' 
             }).then(() => {
-          // const myorder=[...rentalOrder,res.data[0]]
-          // setFullorder(myorder)
+              localStorage.removeItem('shipping')
+              localStorage.removeItem('payment')
+              localStorage.removeItem('rent')
+              localStorage.removeItem('prices')
             })
           }
         })
@@ -70,7 +73,7 @@ function CheckoutTableItemListRental() {
       }
     
     function getCartFromLocalStorage() {
-        const newCart = localStorage.getItem('cart') || '[]'
+        const newCart = localStorage.getItem('rent') || '[]'
         setMycart(JSON.parse(newCart))
       }
     
@@ -95,36 +98,52 @@ function CheckoutTableItemListRental() {
         setMycartDisplay(newMycartDisplay)
       }, [mycart])
 
-      const currentCart = JSON.parse(localStorage.getItem('cart'))
+      const currentCart = JSON.parse(localStorage.getItem('rent')) || '[]'
       const DAY = 1000 * 60 * 60  * 24
       const startdate = new Date(currentCart[0].startdates)
       const enddate = new Date(currentCart[0].enddates)
       const days_passed = Math.round((enddate.getTime() - startdate.getTime()) / DAY)
       
+//寄信功能
+function sendmail(e) {
+  // e.preventDefault()
+  let templateParams =
+  {
+  member: receiver, //要改成登入者姓名
+  orderDate: today,
+  orderNumber: id,
+  name: mycartDisplay[0].name,
+  startdates: mycartDisplay[0].startdates,
+  enddates: mycartDisplay[0].enddates,
+  image: mycartDisplay[0].images,
+  dates: days_passed,
+  qtys: mycartDisplay[0].qtys,
+  price: mycartDisplay[0].price,
+  Receiver: receiver,
+  shippingaddress: shippingaddress,
+  member_mail: 'billcyen@gmail.com', //要改成登入者信箱
+  }
+  
+  
+  let service_id = 'default_service'
+  let template_id = 'template_xrdg0xn'
+  let userID = 'user_V1xvLcD7TEshQMhDQrKmj'
+  emailjs
+  .send(service_id, template_id, templateParams, userID)
+  .then((response) => {
+  console.log('SUCCESS!', response.status, response.text)
+  })
+  .catch((error) => {
+  console.log('FAILED...', error)
+  })
+  }
 
 const display = (
     <>
     {mycartDisplay.map((item, index) => {
     return (
         <React.Fragment key={item.id}>
-            <div className=" b-completepage-itemlist">
-            <div className="row">
-                    <h4>租賃商品列表</h4>
-                    <div className="card " style={{minWidth: "100%",  border:0}}>
-                            <table className="table table-borderless">
-                                <thead className="text-muted ">
-                                    <tr className="large text-uppercase d-flex justify-content-between b-complete-tableTitle">
-                                        <th scope="col" width="10%" className="text-center p-2">No.</th>
-                                        <th scope="col" width="12%" className="p-2"></th>
-                                        <th scope="col" width="15%" className="text-center p-2">產品名稱</th>
-                                        <th scope="col" width="19%" className="text-center p-2">租賃區間</th>
-                                        <th scope="col" width="15%" className="text-center p-2">租賃天數</th>
-                                        <th scope="col" width="9%" className="text-center p-2">數量</th>
-                                        <th scope="col" width="10%" className="text-center p-2">價格</th>
-                                        <th scope="col" width="10%" className="text-center p-2">小記</th>
-                                        
-                                    </tr>
-                                </thead>
+           
                                 <tbody>
                                     <tr className="d-flex justify-content-between"> 
                                         <td className="d-flex justify-content-center align-items-center" height="140" width="10%">
@@ -162,13 +181,7 @@ const display = (
                                     </tr>
                                     
                                 </tbody>
-                            </table>
-                        </div>
-                    </div>
-            </div>
-            <div className="d-flex justify-content-center align-items-center">
-            <button onClick={submit}  className="b-completepage-button-to-mainpages">確認購買</button> 
-            </div> 
+                            
             </React.Fragment>
        )
        })}
@@ -176,7 +189,32 @@ const display = (
 
 return (
     <>
-        {display}
+     <div className=" b-completepage-itemlist">
+            <div className="row">
+                    <h4>租賃商品列表</h4>
+                    <div className="card " style={{minWidth: "100%",  border:0}}>
+                            <table className="table table-borderless">
+                                <thead className="text-muted ">
+                                    <tr className="large text-uppercase d-flex justify-content-between b-complete-tableTitle">
+                                        <th scope="col" width="10%" className="text-center p-2">No.</th>
+                                        <th scope="col" width="12%" className="p-2"></th>
+                                        <th scope="col" width="15%" className="text-center p-2">產品名稱</th>
+                                        <th scope="col" width="19%" className="text-center p-2">租賃區間</th>
+                                        <th scope="col" width="15%" className="text-center p-2">租賃天數</th>
+                                        <th scope="col" width="9%" className="text-center p-2">數量</th>
+                                        <th scope="col" width="10%" className="text-center p-2">價格</th>
+                                        <th scope="col" width="10%" className="text-center p-2">小記</th>
+                                        
+                                    </tr>
+                                </thead>
+                            {display}
+                            </table>
+                      </div>
+              </div>
+      </div>
+      <div className="d-flex justify-content-center align-items-center">
+        <button onClick={submit}  className="b-completepage-button-to-mainpages">確認購買</button> 
+      </div> 
     </>
   );
 }

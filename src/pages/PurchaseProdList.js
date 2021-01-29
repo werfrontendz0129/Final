@@ -262,7 +262,7 @@ function PurchaseProdList(props) {
             prod = {prods}
             >
             </PurchaseCardMd>
-          ))) : (    <div className="d-flex v-spinner text-center">
+          ))) : (    <div className="d-flex v-spinner text-center v-helloworld">
                       {/* <h4 className="m-5">很抱歉，查無此項商品。</h4> */}
                       <figure>
                         <img style={{width:'300px', paddingRight:'30px'}} alt="" src='http://localhost:3000/images/svg/noresult.gif' />

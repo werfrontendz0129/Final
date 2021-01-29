@@ -65,7 +65,7 @@ function CheckoutBoxAddressRental(props){
                     <dd className="text-right text-danger ml-4 font-weight-normal">NT$21,000</dd>
                   </dl> */}
                   <div className="d-flex justify-content-center align-items-center">
-                    <NavLink to='/checkout/selectpayment-rental' className="b-checkout-checkoutbox-address-btn-main" data-abc="true"
+                    <NavLink to='/checkout/selectpayment-rental' className="b-checkout-checkoutbox-address-btn-mainS" data-abc="true"
                     onClick={() => {
                       updateAddressToLocalStorage({
                         receiver: props.orderList[props.passdata].receiver,

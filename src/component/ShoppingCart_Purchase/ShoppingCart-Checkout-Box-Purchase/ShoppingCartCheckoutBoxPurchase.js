@@ -10,7 +10,7 @@ function ShoppingCartCheckoutBoxPurchase(props){
   const [conponvar, setConponvar] = useState("")
     return(
     <>
-    <div className="card position-fixed">
+    <div className="card position-fixed d-none">
       <div className="card-body b-shippingcart-box-card-body">
         <dl className="b-shippingcart-boxdlist-align">
             <dt className="font-weight-normal">金額總計:</dt>

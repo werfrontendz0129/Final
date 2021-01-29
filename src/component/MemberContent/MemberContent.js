@@ -1,12 +1,28 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './MemberContent.scss'
 import {Accordion, Button, Card, ListGroup} from 'react-bootstrap'
 import { BsChevronUp } from "react-icons/bs"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
+function MemberContent(props) {
+  // console.log('test', props)
+  // const {data, setData} = useState([])
+  // console.log(data)
+//   useEffect(() => {
+//     //取該會員的資料
+//         axios.get(`http://localhost:3001/members/${props.id}`)
+//         .then((response)=> {
+//             // console.log(response)
 
-function MemberContent() {
-  
+//             //有資料的話
+//             if(response.data){
+//                 setData(response.data)
+//             }
+//         }).catch((err) => console.log(err))
+    
+// },[])
+
     return (
         <>
         <Accordion defaultActiveKey="0">
@@ -22,10 +38,10 @@ function MemberContent() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-            <ListGroup.Item as="li"><Link to="/member">帳戶資訊</Link></ListGroup.Item>
-                      <ListGroup.Item as="li" ><Link to="/memberedit">編輯個人檔案</Link></ListGroup.Item>
-                      <ListGroup.Item as="li"><Link to="/notifications">訊息通知</Link></ListGroup.Item>
-                      <ListGroup.Item as="li"><Link to="/mycollections">我的收藏</Link></ListGroup.Item>
+            <ListGroup.Item as="li"><Link to={`/member/${props.id}`}>帳戶資訊</Link></ListGroup.Item>
+                      <ListGroup.Item as="li" ><Link to={props && `/member/memberedit/${props.id}`}>編輯個人檔案</Link></ListGroup.Item>
+                      <ListGroup.Item as="li"><Link to={props && `/member/notifications/${props.id}`}>訊息通知</Link></ListGroup.Item>
+                      <ListGroup.Item as="li"><Link to={props && `/member/mycollections/${props.id}`}>我的收藏</Link></ListGroup.Item>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -40,8 +56,8 @@ function MemberContent() {
           </Card.Header>
           <Accordion.Collapse eventKey="1">
             <Card.Body>
-            <ListGroup.Item as="li"><Link to="/rentalorder">租賃訂單管理</Link></ListGroup.Item>
-              <ListGroup.Item as="li"><Link to="/purchaseorder">選購訂單管理</Link></ListGroup.Item>
+            <ListGroup.Item as="li"><Link to={`/member/rentalorder/${props.id}`}>租賃訂單管理</Link></ListGroup.Item>
+              <ListGroup.Item as="li"><Link to={`/member/purchaseorder/${props.id}`}>選購訂單管理</Link></ListGroup.Item>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -56,7 +72,7 @@ function MemberContent() {
           </Card.Header>
           <Accordion.Collapse eventKey="2">
             <Card.Body>
-            <ListGroup.Item as="li"><Link to="/lesson">課程預約管理</Link></ListGroup.Item>
+            <ListGroup.Item as="li"><Link to={`/member/lesson/${props.id}`}>課程預約管理</Link></ListGroup.Item>
             </Card.Body>
           </Accordion.Collapse>
         </Card>

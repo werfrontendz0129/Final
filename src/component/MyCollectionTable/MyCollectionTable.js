@@ -1,49 +1,41 @@
 import React, {useState,useEffect} from 'react'
 import './MyCollectionTable.scss'
 import ClicktoCartButton from '../ClicktoCartButton/ClicktoCartButton'
-import {Modal, Button} from 'react-bootstrap'
 import {NavLink,useHistory,withRouter} from 'react-router-dom'
 import MyCollectionNone from '../MyCollectionNone/MyCollectionNone'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-
-// 測試data
-// import data from '../../data/collectionsdata'
+import axios from 'axios'
 
 function MyCollectionTable(props) {
-    const [collections, setCollections] = useState([])
-    // console.log('collections:',collections)
+    const id = props.match.params.id //會員id
+    // console.log('id???',id)
 
-    //
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    const [collections, setCollections] = useState([]) //該會員的收藏商品
+    const [data, setData] = useState([]) //放商品資料
+    
     // sweet alert
     const MySwal = withReactContent(Swal)
 
+
     let history = useHistory()
 
-    // const _id = 1
 
-    async function deleteCollections(index){
-        const member_id = 1
+    async function deleteCollections(index,product_id){
         try {
             const response = await fetch(
-                'http://localhost:3001/members/deleteCollections/' + index + '/' + member_id,
+                'http://localhost:3001/members/deleteCollections/' + index + '/' + id + '/' + product_id,
                 {
                     method:'delete'
                 }
             )
             if(response.ok){
                 // reload data
-                // const data = await response.json()
-                // const datas = data[0].collections
-
-                // setCollections(datas)
-                // window.location.reload()
-                getCollections()
-                history.push('/MyCollections')
+                setCollections(response.data)
+                setTimeout(()=>{
+                    window.location.replace('/member/mycollections/' + id)
+                },1000)
+                // history.push('/member/mycollections/'+ id)
                
             } 
         } catch(error) {
@@ -51,12 +43,18 @@ function MyCollectionTable(props) {
         }
     }
 
+    useEffect(()=>{
+        getMember(id)
+    },[])
 
+    useEffect(()=>{
+        getCollections()
+    },[collections])
 
-    async function getCollections(){
+    async function getMember(id){
         try {
             const response = await fetch(
-                'http://localhost:3001/members',
+                `http://localhost:3001/members/${id}`,
                 {
                     method:'get',
                     headers: {
@@ -67,50 +65,40 @@ function MyCollectionTable(props) {
             )
             if(response.ok){
                 const data = await response.json()
-                // data是所有會員資料
-                console.log('data?:',data)
-                // 測試
-                const datas = data[0].collections
-                // datas是第1個會員的所有收藏資料
-                console.log('datas?:',datas)
-
+                // data是該會員的所有資料
+                console.log('data?',data)
+                let datas = data.collections.map((item)=> item.product_id)
+                console.log(datas)
+                
                 setCollections(datas)
+                // console.log(datas)
             } 
-        } catch {
-            alert('no data')
+        } catch(error) {
+            console.log('error:',error)
         }
     }
 
-    // async function getMember(id){
-    //     try {
-    //         const response = await fetch(
-    //             'http://localhost:3001/members/' + id,
-    //             {
-    //                 method:'get',
-    //                 headers: {
-    //                     Accept: 'application/json',
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //             }
-    //         )
-    //         if(response.ok){
-    //             const data = await response.json()
-    //             const datas = data[0].collections
-                
-    //             console.log(data)
-    //             setCollections(datas)
-                
-                
-    //         } 
-    //     } catch(error) {
-    //         console.log('error',error)
-    //     }
-    // }
+    function getCollections() {
+        const data_arr = []
+            if(collections) {
+                collections.forEach((item)=> {
+                    axios.get(`http://localhost:3001/members/collections/${item}`)
+                    .then((response) => {                  
+                        data_arr.push(response.data)
+                        // console.log('test',response.data)
+                    }).then(()=> {
+                        const product_arr = collections.length || 0
+                        if(data_arr.length == product_arr) {
+                            setData(data_arr)
+                            console.log('final', data)
+                        }
+                    })
+                    .catch((err)=> console.log(err))
+                })
+            }
+            
+    }
 
-    useEffect(()=>{
-        getCollections()
-        // getMember(_id)
-    },[])
 
     const display = (
         <>
@@ -125,9 +113,9 @@ function MyCollectionTable(props) {
                             </tr>
                         </thead>
                         <tbody className="w-mycollect-tablebody">
-                            {collections.map((v, i)=>{
+                            {data && data.map((v, i)=>{
             return(
-                <tr key={i}>
+                <tr>
             <td className="align-middle">
                 <img className="w-collect-pics" src={v.product_img} alt="" />                    
             </td>                                        
@@ -141,7 +129,7 @@ function MyCollectionTable(props) {
                 <p>NT$ {v.product_price}</p>
             </td>
             <td className="align-middle d-flex justify-content-center">
-                <ClicktoCartButton />
+                <ClicktoCartButton id={v._id} />
             </td>
             <td className="align-middle" style={{textAlign: 'center',maxWidth:100}}>
             <button
@@ -151,17 +139,18 @@ function MyCollectionTable(props) {
                                             aria-label="Close" 
                                             onClick={()=>{
                                                 MySwal.fire({
-                                                    title: '是否刪除收藏？',
+                                                    title: '是否移除收藏？',
                                                     icon: 'warning',
                                                     showCancelButton: true,
-                                                    confirmButtonColor: '#3085d6',
+                                                    confirmButtonColor: '#6c8650',
                                                     cancelButtonColor: '#d33',
-                                                    confirmButtonText: '是，我要刪除!'
+                                                    confirmButtonText: '是，我要移除!',
+                                                    cancelButtonText: '返回'
                                                     }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         Swal.fire(
-                                                        'Deleted!',
-                                                        deleteCollections(v.index),
+                                                        '移除收藏!',
+                                                        deleteCollections(i,v._id),
                                                         'success'
                                                         )
                                                     }
@@ -169,35 +158,7 @@ function MyCollectionTable(props) {
                                             }}
                                             >
                                             <span aria-hidden="true">&times;</span>
-                                        </button>
-                {/* <button 
-                    type="button" 
-                    className="close w-remove" 
-                    id="w-rrrmove" 
-                    aria-label="Close"               
-                    onClick={handleShow}>                        
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>刪除收藏？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            aria-label="Close" 
-                                            onClick={()=>{deleteCollections(v.index)}}>
-                                            <span aria-hidden="true">是，刪除收藏！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到我的收藏
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal> */}
-                                        
+                                        </button>                    
             </td>
         </tr>
             )
@@ -209,85 +170,13 @@ function MyCollectionTable(props) {
 
     const none = (
         <MyCollectionNone />
-        // <MyCollectionNone>
-        // <div className="w-collect-none">
-        //     <p>目前還沒有收藏商品，快去選購吧</p>
-        //     <div className="d-flex">
-        //         <NavLink to="/member" className="w-btn-viewlesson">植物租賃</NavLink>                
-        //         <NavLink to="/member" className="w-btn-viewlesson">植物選購</NavLink>  
-        //     </div>   
-        // </div>
-        // </MyCollectionNone>
+        
     )
 
 
     return (
         <>
         {collections == 0 ? none : display }
-        {/* <table className="table" style={{width: 900}}>
-                        <thead className="w-mycollect-tablehead" style={{backgroundColor: '#E6E9DA'}}>
-                            <tr>
-                                <th scope="col" style={{width: 180}}></th>
-                                <th scope="col" style={{width: 270}}>商品</th>
-                                <th scope="col" style={{width: 150}}>價格</th>
-                                <th scope="col" style={{width: 200}}>加入購物車</th>
-                                <th scope="col" style={{width: 100}}>移除收藏</th>
-                            </tr>
-                        </thead>
-                        <tbody className="w-mycollect-tablebody">
-                            {collections.map((v, i)=>{
-            return(
-                <tr key={i}>
-            <td className="align-middle">
-                <img className="w-collect-pics" src={v.product_img} alt="" />                    
-            </td>                                        
-            <td className="align-middle">
-                <div className="w-collect-prod d-inline-block">
-                    <span>{v.product_name}</span>
-                    <p>{v.product_info}</p>                 
-                </div>                    
-            </td>                    
-            <td className="align-middle" style={{color: '#E58F80'}}>
-                <p>NT$ {v.product_price}</p>
-            </td>
-            <td className="align-middle d-flex justify-content-center">
-                <ClicktoCartButton />
-            </td>
-            <td className="align-middle" style={{textAlign: 'center',maxWidth:100}}>
-                <button 
-                    type="button" 
-                    className="close w-remove" 
-                    id="w-rrrmove" 
-                    aria-label="Close"               
-                    onClick={handleShow}>                        
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>刪除收藏？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            aria-label="Close" 
-                                            onClick={()=>{deleteCollections({i})}}>
-                                            <span aria-hidden="true">刪除收藏！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到我的收藏
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                        
-            </td>
-        </tr>
-            )
-        })}
-                        </tbody>
-                    </table> */}
         </>
     )
 }

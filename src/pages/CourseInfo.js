@@ -1,5 +1,5 @@
 //基本套件引入
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './CourseInfo.scss'
 import { withRouter, useHistory } from 'react-router-dom'
 // import data from '../data'//測試用
@@ -9,18 +9,22 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import emailjs from 'emailjs-com'
 
+
 //載入元件
 import CourseBreadcrumb from '../component/course/courseBreadcrumb/CourseBreadcrumb'
 import CourseRecommend from '../component/course/courseRecommend/CourseRecommend'
 import ScrollTop from '../component/main/ScrollTop/ScrollTop'
 import Footer from '../component/Footer/Footer'
 import HeaderA from '../component/Header/HeaderA'
+import {UserContext} from '../component/Index/UserContext'
 
 const MySwal = withReactContent(Swal)
 
 function CourseInfo(props) {
   // console.log(props)
 
+  const [isAuth , setIsAuth] = useState(true)
+  const {user, setUser} = useContext(UserContext)
   //設一個useState準備接收API資料
   const [course, setCourse] = useState([])
   const [bookStatue, setBookStatue] = useState()
@@ -60,9 +64,9 @@ function CourseInfo(props) {
       // console.log(response.data)
 
       // 有資料的話
-      if (response.data) {
+      if (response.data){
         //寄信先暫時關掉
-        // sendmail()
+        sendmail()
         MySwal.fire({
           icon: 'success',
           title: '預約成功',
@@ -89,7 +93,7 @@ function CourseInfo(props) {
   function sendmail(e) {
     // e.preventDefault()
     let templateParams = {
-      member: 'Lao', //要改成登入者姓名
+      member: 'Vivian', //要改成登入者姓名
       course_name: course.name,
       course_date: course.date,
       course_time: course.hours,
@@ -112,7 +116,7 @@ function CourseInfo(props) {
 
   return (
     <>
-    <HeaderA />
+    <HeaderA isAuth={isAuth} />
       <div className="r-container" key={course._id}>
         <CourseBreadcrumb course={course.name} />
         <h1 className="r-course-name pc">{course.name}</h1>
@@ -255,26 +259,27 @@ function CourseInfo(props) {
                     }
                     onClick={() => {
                       //先判斷有無登入
-                      {
-                        !props.isAuth
-                          ? MySwal.fire({
-                              icon: 'warning',
-                              title: '請先登入會員',
-                              text: '登入會員後，再做預約課程',
-                              confirmButtonText: '前往登入',
-                              confirmButtonColor: '#6c8650',
-                              showCancelButton: true,
-                              cancelButtonText: '稍後登入',
-                              cancelButtonColor: '#838383',
-                            }).then((result) => {
-                              console.log(result)
-                              if (result.value) {
-                                //這邊之後要改成登入頁面
-                                // history.push('/course')
-                              }
-                            })
-                          : booking()
-                      }
+                      // {
+                      //   isAuth = true
+                      //     ? MySwal.fire({
+                      //         icon: 'warning',
+                      //         title: '請先登入會員',
+                      //         text: '登入會員後，再做預約課程',
+                      //         confirmButtonText: '前往登入',
+                      //         confirmButtonColor: '#6c8650',
+                      //         showCancelButton: true,
+                      //         cancelButtonText: '稍後登入',
+                      //         cancelButtonColor: '#838383',
+                      //       }).then((result) => {
+                      //         console.log(result)
+                      //         if (result.value) {
+                      //           //這邊之後要改成登入頁面
+                      //           history.push('/login')
+                      //         }
+                      //       })
+                      //     : booking()
+                      // }
+                      booking()
                     }}
                   >
                     {course.people === 0

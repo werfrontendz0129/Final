@@ -118,7 +118,7 @@ function RentNineGrid() {
         </div>
       </div>
       <div  className="v-normal-btn">
-        <NavLink style={{color:'#fff'}}  to="/rental/list">
+        <NavLink style={{color:'#fff',textDecoration:"none"}}  to="/rental/list">
           <div className="v-btn-p">更多商品</div>
         </NavLink>
       </div>

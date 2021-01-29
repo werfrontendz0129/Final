@@ -1,50 +1,92 @@
 import React, {useEffect, useState, useContext} from 'react'
 import './SignUp.scss'
-import {useParams,useHistory} from 'react-router-dom'
+import {useParams,useHistory,NavLink} from 'react-router-dom'
 import {UserContext} from '../Index/UserContext'
-import { NavLink } from 'react-router-dom'
+// import { response } from 'express'
+
 function SignUp(props) {
- 
-  const [regAccount, setRegAccount] = useState()
-  const [regPassword, setRegPassword] = useState()
-  const [confirmPassword, setConfirmPassword] = useState()
-  const [gender, setGender] = useState()
-  const [birthdate, setBirthdate] = useState()
+  // const [members, setMembers] = useState([])
 
   const {user, setUser} = useContext(UserContext)
+  const [member_Account, setMember_Account] = useState('')
+  const [member_Password, setMember_Password] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [member_Gender, setMember_Gender] = useState('')
+  const [member_Birthdate, setMember_Birthdate] = useState('')
+
+
+  let {id} = useParams()
   let history = useHistory()
 
-  async function request(){
-    const params = {member_account:regAccount,member_password:regPassword,member_gender:gender,member_birthdate:birthdate}
-    console.log(params)
-    const url = 'http://localhost:3001/api/register'
-    const response = await fetch(url,{
-      method:"POST",
-      headers:{
-          'Content-Type': 'application/json',
-      },
-      body:JSON.stringify(params)
-    })
-    if(!response.ok){
-      console.log(response)
-    }else{
-      console.log(response)
+  
+  async function addMember() {
+    const newMember = {
+      member_Account,
+      member_Password,
+      confirmPassword,
+      member_Gender,
+      member_Birthdate
+    }
+    try {
+      const response = await fetch(
+        'http://localhost:3001/members',
+        {
+          method: 'post',
+          body: JSON.stringify(newMember),
+          headers:{
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }
+        }
+      )
+      if (response.ok){
+        const data = await response.json()
+        console.log(data)
+
+        history.push('/member')
+      }
+    } catch(error){
+      console.log(error)
     }
   }
 
-  // function chkPassword(){
-  //   if(regPassword===confirmPassword){
-  //     const msg = "ok";
-  //   }else{
-  //     const msg ="請重新確認密碼"
-  //   }
-  // }
+  async function getMember(id) {
+    try {
+      //伺服器端
+      const response = await fetch(
+        'http://localhost:3001/members/get' + id,
+        {
+          method: 'get',
+        }
+      )
 
+      if (response.ok) {
+        const data = await response.json()
+        
+        setMember_Account(data.member_Account)
+        setMember_Password(data.member_Password)
+        setMember_Gender(data.member_Gender)
+        setMember_Birthdate(data.member_Birthdate)
+
+        console.log(data)
+      }
+    } catch (error) {
+      console.log(error)
+      // response.json(error)
+    }
+  }
+
+
+  useEffect(()=>{
+    if(props.type === true){
+      getMember(id)
+    }
+  },[props.type, id])
 
     return (
         <>
         <div className="w-container__form w-signup01">
-      <form className="w-form" id="form1">
+      <form action="http://localhost:3001/members" className="w-form" id="form1" method="post">
         <h2 className="w-form__title">註冊 Sign Up</h2>
         <div className="form-group">
           <label htmlFor="">建立帳號 Account</label>
@@ -52,7 +94,8 @@ function SignUp(props) {
             type="email" 
             placeholder="請輸入您的E-mail" 
             className="form-control w-input" 
-            onChange={(e)=>setRegAccount(e.target.value)}
+            value={member_Account} 
+            onChange={(e)=>setMember_Account(e.target.value)}
             required
             />
         </div>
@@ -63,8 +106,9 @@ function SignUp(props) {
             type="password" 
             placeholder="請輸入密碼" 
             className="form-control w-input"
-            maxLength="20"
-            onChange={(e)=>setRegPassword(e.target.value)}
+            maxLength="20" 
+            value={member_Password}
+            onChange={(e)=>setMember_Password(e.target.value)}
             required
             />
         </div>
@@ -74,6 +118,7 @@ function SignUp(props) {
             type="password" 
             placeholder="再次輸入密碼" 
             className="form-control w-input" 
+            value={confirmPassword}
             onChange={(e)=>setConfirmPassword(e.target.value)}
             required
             />
@@ -81,9 +126,9 @@ function SignUp(props) {
         <div className="form-group">
           <label htmlFor="">性別 Gender</label>
           <select 
-            className="form-control"
-            onChange={(e)=>setGender(e.target.value)}
-            required
+            className="form-control" 
+            value={member_Gender}
+            onChange={(e)=>setMember_Gender(e.target.value)}
             >
             <option>不透露</option>
             <option>男</option>
@@ -96,26 +141,22 @@ function SignUp(props) {
             <input 
               type="date" 
               placeholder="yyyy-mm-dd" 
-              className="form-control"
-              onChange={(e)=>setBirthdate(e.target.value)}
-              required
+              className="form-control" 
+              value={member_Birthdate}
+              onChange={(e)=>setMember_Birthdate(e.target.value)}
               />
           </div>
         </div>
         <div className="form-group">
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="" required/>
+            <input className="form-check-input" type="checkbox" id="" />
             <label className="form-check-label" htmlFor="">
               我已閱讀並同意遵守 <a className="w-form-checkbox-a">商店服務條款</a> 與 <a
                 className="w-form-checkbox-a">會員責任規範及個資聲明。</a>
             </label>
           </div>
         </div>
-        <NavLink to="#"
-          onClick={(e)=>request(e)}
-          >
-          <button className="w-btn-clicksend">確認送出 Send</button>
-          </NavLink>
+        <button className="w-btn-clicksend" onClick={(e)=>{addMember(e);setUser({id:member_Account})}}>確認送出 Send</button>
         <div className="d-flex w-signbtns">
           <button className="w-btn-facebook">使用facebook帳號註冊</button>
           <button className="w-btn-google">使用Google帳號註冊</button>

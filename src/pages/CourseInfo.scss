@@ -1,158 +1,166 @@
 .r-container {
-    width: 100vw;
-    padding: 0 200px;
-    
+  width: 100vw;
+  padding: 0 200px;
 
-    .r-course-name {
-        font-size: 2.25rem;
-        margin: 20px 0 30px 0;
-        text-align: left;
+  .r-course-name {
+    font-size: 2.25rem;
+    margin: 20px 0 30px 0;
+    text-align: left;
+  }
+  .r-course-info-banner-bg {
+    max-width: 100vw;
+    // width: 1200px;
+    height: 515px;
+    // border: 1px solid black;
+    margin: 0 auto 35px auto;
+    margin-bottom: 35px;
+  }
+  .banner-wrapper {
+    max-width: 100vw;
+    // width: 1200px;
+    height: 515px;
+    margin: 0 auto;
+    // position: absolute;
+    top: 51.6%;
+    right: 18%;
+    margin-bottom: 35px;
+    // border: 1px solid blue;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      // border: 1px solid red;
     }
-    .r-course-info-banner-bg {
-        max-width: 100vw;
-        // width: 1200px;
-        height: 515px;
-        border: 1px solid black;
-        margin: 0 auto 35px auto;
-        margin-bottom: 35px;
-    }
-    .banner-wrapper {
-        max-width: 100vw;
-        // width: 1200px;
-        height: 515px;
-        margin: 0 auto;
-        // position: absolute;
-        top: 51.6%;
-        right: 18%;
-        margin-bottom: 35px;
-        // border: 1px solid blue;
-        img {
+  }
+
+  .r-course-info-wrapper {
+    // border: 1px solid black;
+    width: 100%;
+    .left {
+      // border: 1px solid red;
+      width: 70%;
+      .title {
+        margin-bottom: 6.5px;
+        h4 {
+          color: #6c8650;
+        }
+        .box {
+          max-width: 50rem;
+          border-top: 1px solid rgba(112, 112, 112, 0.4);
+          padding-top: 20px;
+          margin-bottom: 33px;
+          line-height: 2rem;
+          P {
+            max-width: 500px;
+          }
+        }
+      }
+      .learn {
+        .box {
+          ul {
+            list-style-type: none;
+            padding: 0;
+            // 改道這邊 1.11號
+          }
+        }
+      }
+      .work {
+        // border: 1px solid red;
+        figure {
+          margin-bottom: 20px;
+          width: 640px;
+          //   border: 1px solid black;
+          height: 640px;
+          img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            // border: 1px solid red;
+          }
         }
+      }
+      .information {
+        .map {
+          max-width: 400px;
+        }
+      }
+      .note span {
+        color: #e58f80;
+      }
+      .demo {
+        figure {
+          width: 380px;
+          height: 380px;
+          margin-right: 20px;
+        }
+      }
     }
+    .right {
+      width: 20%;
+      // border: 1px solid blue;
+      .position-sticky {
+        top: 10px;
+      }
+      .book {
+        min-width: 280px;
+        min-height: 350px;
+        border: 1px solid #dedede;
+        border-radius: 1px;
+        background: #fff;
+        position: relative;
 
-    .r-course-info-wrapper {
-        // border: 1px solid black;
-        width: 100%;
-        .left {
-            // border: 1px solid red;
-            width: 70%;
-            .title {
-                margin-bottom: 6.5px;
-                h4 {
-                    color: #6c8650;
-                }
-                .box {
-                    max-width: 50rem;
-                    border-top: 1px solid rgba(112, 112, 112, 0.4) ;
-                    padding-top: 20px;
-                    margin-bottom: 33px;
-                    line-height: 2rem;
-                    P {
-                        max-width: 500px;
-                    }
-                }
-            }
-            .learn {
-                .box {
-                ul {
-                    list-style-type: none;
-                    padding: 0;
-                    // 改道這邊 1.11號  
-                }
-                }
-            }
-            .work {
-                figure {
-                    margin-bottom: 20px;
-                    max-width: 640px;
-                }
-            }
-            .information {
-                .map {
-                    max-width: 400px;
-                }
-            }
-            .note span {
-                color: #e58f80;
-            }
-            .demo {
-                figure {
-                    width: 380px;
-                    margin-right: 20px;
-                }
-            }
+        .book-title {
+          h4 {
+            text-align: center;
+            margin: 25px 0 25px 0;
+          }
         }
-        .right {
-            width: 20%;
-            // border: 1px solid blue;
-            .position-sticky {
-                top: 10px;
+        .book-content {
+          color: #808080;
+          // border: 1px solid blue;
+          padding-left: 20px;
+          ul {
+            list-style-type: none;
+            line-height: 2rem;
+            span {
+              color: #cf3131;
             }
-            .book {
-                min-width: 280px;
-                min-height: 350px;
-                border: 1px solid #dedede;
-                border-radius: 1px;
-                background: #fff;
-                position: relative;
-                
-                .book-title {
-                    h4 {
-                        text-align: center;
-                        margin: 25px 0 25px 0;
-                    }
-                }
-                .book-content {
-                    color: #808080;
-                    // border: 1px solid blue;
-                    padding-left: 20px;
-                    ul {
-                        list-style-type: none;
-                        line-height: 2rem;
-                        span {
-                            color:#cf3131;
-                        } 
-                    }
-                    .default {
-                        display: block;
-                        width: 220px;
-                        height: 50px;
-                        background: #e58f80;
-                        border: 0;
-                        color: #ffffff;
-                        text-decoration: none;
-                        text-align: center;
-                        line-height: 50px;
-                        margin: 5px 10px 30px 10px;
-                    }
-                    .booked {
-                        width: 220px;
-                        height: 50px;
-                        background: #ccc;
-                        border: 0;
-                        color: #ffffff;
-                        text-decoration: none;
-                        text-align: center;
-                        line-height: 50px;
-                        margin: 5px 10px 30px 10px;
-                    }
-                    &:hover {
-                        & button {
-                            border: 0;
-                            opacity: .8;
-                        }
-                    }
-                }
-                .calendar-wrapper {
-                    position: absolute;
-                    top: 30%;
-                    left: 1%;
-                }
+          }
+          .default {
+            display: block;
+            width: 220px;
+            height: 50px;
+            background: #e58f80;
+            border: 0;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            margin: 5px 10px 30px 10px;
+          }
+          .booked {
+            width: 220px;
+            height: 50px;
+            background: #ccc;
+            border: 0;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            margin: 5px 10px 30px 10px;
+          }
+          &:hover {
+            & button {
+              border: 0;
+              opacity: 0.8;
             }
+          }
         }
+        .calendar-wrapper {
+          position: absolute;
+          top: 30%;
+          left: 1%;
+        }
+      }
     }
+  }
 }

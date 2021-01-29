@@ -4,50 +4,47 @@ import {Tabs, Tab, Modal, Button} from 'react-bootstrap'
 import {useHistory,withRouter} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import axios from 'axios'
 
-function NotifyTabs() {
+function NotifyTabs(props) {
+    // console.log('this?',props)
+    const data_id = props.match.params.id
+    // console.log('data_id?',data_id)
+
     // Tab對應的eventKey
     const [key, setKey] = useState('accountnotifyTab')
 
     // Tab內容
+    const {memberData, setMemberData} = useState([])
     const [accountNotify, setAccountNotify] = useState([])
     const [ordersNotify, setOrdersNotify] = useState([])
     const [lessonNotify, setLessonNotify] = useState([])
+    // date
+    const year = new Date().getFullYear()
+    const month = '0'+ (new Date().getMonth()+1)
+    const date = new Date().getDate()
+    const today = year + '年' + month + '月' + date + '日'
 
+    // console.log('memberData?',memberData)
     let history = useHistory()
-
-    //
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     // sweet alert
     const MySwal = withReactContent(Swal)
 
-
     async function deleteNotifications(index){
-        const member_id = 1
+        // const member_id = 1
         try {
             const response = await fetch(
-                'http://localhost:3001/members/deleteNotifications/' + index + '/' + member_id,
+                'http://localhost:3001/members/deleteNotifications/' + index + '/' + data_id,
                 {
                     method:'delete'
                 }
             )
             if(response.ok){
                 // reload data
-                // const data = await response.json()
-                // const datas = data[0].notifications_account
-                // console.log(datas)
-                // const orders = data[0].notifications_orders
-                // const classsess = data[0].notifications_lesson
-
-                // setAccountNotify(datas)
-                // setOrdersNotify(orders)
-                // setLessonNotify(classsess)
                 getNotifications()
                 
-                history.push('/Notifications')
+                history.push('/member/Notifications/'+ data_id)
 
                 // window.location.reload()
                 
@@ -60,7 +57,7 @@ function NotifyTabs() {
     async function getNotifications(){
         try {
             const response = await fetch(
-                'http://localhost:3001/members',
+                `http://localhost:3001/members/${props.id}`,
                 {
                     method:'get',
                     headers: {
@@ -70,15 +67,17 @@ function NotifyTabs() {
                 }
             )
             if(response.ok){
+                // 取得會員資料
                 const data = await response.json()
-                // console.log('data',data) 
-                const datas = data[0].notifications_account
-                // console.log('datas',datas)
-                const orders = data[0].notifications_orders
-                // console.log('orders',orders)
-                const classsess = data[0].notifications_lesson
-                // console.log('classsess',classsess)
-                // console.log(data)
+                console.log('data',data) 
+                // 取得會員的各項通知
+                const datas = data.notifications_account
+                console.log('datas',datas)
+                const orders = data.notifications_orders
+                console.log('orders',orders)
+                const classsess = data.notifications_lesson
+                console.log('classsess',classsess)
+                
                 setAccountNotify(datas)
                 setOrdersNotify(orders)
                 setLessonNotify(classsess)
@@ -120,7 +119,7 @@ function NotifyTabs() {
                                         {v.accountnotify_title}
                                         </td>
                                         <td style={{width: 500, textAlign: 'left'}}>
-                                        {v.accountnotify_content}
+                                        您在{today}{v.accountnotify_content}
                                         </td>
                                         <td>
                                         <button
@@ -135,7 +134,8 @@ function NotifyTabs() {
                                                     showCancelButton: true,
                                                     confirmButtonColor: '#3085d6',
                                                     cancelButtonColor: '#d33',
-                                                    confirmButtonText: '是，我要刪除!'
+                                                    confirmButtonText: '是，我要刪除!',
+                                                    cancelButtonText: '返回'
                                                     }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         Swal.fire(
@@ -149,36 +149,6 @@ function NotifyTabs() {
                                             >
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        {/* <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={handleShow}>
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>是否刪除訊息？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            // id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={
-                                                ()=>{deleteNotifications(v.index)}}
-                                            >
-                                            <span aria-hidden="true">是，刪除它！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到訊息通知
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal> */}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -198,7 +168,7 @@ function NotifyTabs() {
                                         {v.orderlistnotify_title}
                                         </td>
                                         <td style={{width: 500, textAlign: 'left'}}>
-                                        {v.orderlistnotify_content}
+                                        您在{today}{v.orderlistnotify_content}
                                         </td>
                                         <td>
                                         <button
@@ -227,34 +197,6 @@ function NotifyTabs() {
                                             >
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        {/* <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={handleShow}>
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>是否刪除訊息？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            // id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={()=>{deleteNotifications({i})}}>
-                                            <span aria-hidden="true">是，刪除它！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到訊息通知
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal> */}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -274,7 +216,7 @@ function NotifyTabs() {
                                         {v.lessonnotify_title}
                                         </td>
                                         <td style={{width: 500, textAlign: 'left'}}>
-                                        {v.lessonnotify_content}
+                                        您在{today}{v.lessonnotify_content}
                                         </td>
                                         <td>
                                         <button
@@ -287,7 +229,7 @@ function NotifyTabs() {
                                                     title: '是否刪除訊息？',
                                                     icon: 'warning',
                                                     showCancelButton: true,
-                                                    confirmButtonColor: '#3085d6',
+                                                    confirmButtonColor: '#6c8650',
                                                     cancelButtonColor: '#d33',
                                                     confirmButtonText: '是，我要刪除!'
                                                     }).then((result) => {
@@ -303,34 +245,6 @@ function NotifyTabs() {
                                             >
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        {/* <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={handleShow}>
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>是否刪除訊息？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            // id="w-rrrmove" 
-                                            aria-label="Close" 
-                                            onClick={()=>{deleteNotifications({i})}}>
-                                            <span aria-hidden="true">是，刪除它！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到訊息通知
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal> */}
                                         </td>
                                     </tr>
                                     

@@ -1,18 +1,22 @@
-import React, {useContext} from 'react'
+import React, {useState,useContext} from 'react'
 import {UserContext} from '../Index/UserContext'
 import { devUrl } from '../../config/index'
 import {NavLink} from 'react-router-dom'
 import './headerA.scss'
 
-function HeaderA(){
-
+function HeaderA(props){
   const {user , setUser} = useContext(UserContext)
-
+  // user = 1
+  console.log("check",user)
+  const isAuth = true
   return (
     <>
+    <div className="container-fluid c-1 p-0 m-0">
+      <div className="c-back"></div>
+
       <div className="c-headerforRent align-content-center">
         <div className="c-padd">
-          <div className="col-md-2 p-0 d-flex justify-content-center">
+          <div className="col-md-2 p-0 d-flex">
             <NavLink to="/">
               <figure>
                 <img src={devUrl + '/images/index/Logo3.png'} alt="" />
@@ -28,21 +32,22 @@ function HeaderA(){
             </div>
             <div className="c-cw row d-flex align-items-center">
             {
-              user?<figure><img src={devUrl + '/images/index/avatar.png'} alt="" /></figure>:<figure><img src={""} alt="" /></figure>
+              isAuth?<figure><img src={devUrl + '/images/images/avatar.jpg'} alt="" /></figure>:<figure><img src={""} alt="" /></figure>
             }
             {
-              user?<NavLink to="/member" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">會員中心</NavLink>:<NavLink to="/register" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">註冊會員</NavLink>
+              isAuth?<NavLink to="/member/1" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">會員中心</NavLink>:<NavLink to="/register" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">註冊會員</NavLink>
             } 
               <p className="c-margin25px h6"  style={{textDecoration: 'none', color: "#494949"}} >|</p>
-              <NavLink to="/shoppingcart" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">購物車</NavLink>
+              <NavLink to="/main/shoppingcart-rental" style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">購物車</NavLink>
               <p className="c-margin25px h6"  style={{textDecoration: 'none', color: "#494949"}}>|</p>
             {
-              user?<NavLink to="/" style={{textDecoration: 'none', color: "#494949"}} onClick={()=>setUser(null)} className="c-margin25px h6">登出</NavLink>:<NavLink to="/login" onClick={()=>setUser(true)} style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">登入</NavLink>
+              isAuth?<NavLink to="/" style={{textDecoration: 'none', color: "#494949"}} onClick={()=>setUser(null)} className="c-margin25px h6">登出</NavLink>:<NavLink to="/login" onClick={()=>setUser(true)} style={{textDecoration: 'none', color: "#494949"}} className="c-margin25px h6">登入</NavLink>
             }
             </div>
           </div>
         </div>
       </div>
+    </div>
     </>
   )
 }

@@ -1,78 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
 $noto-sans-TC: "Noto sans TC", sans-serif;
 html {
-  font-size: 16px;
+  font-size: 20px;
 }
 body {
   margin: 0;
   padding: 0;
   font-family: $noto-sans-TC;
 }
-$h1-font-size: 16px * 3; //48px
-$h2-font-size: 16px * 1.75; //28px
-$h3-font-size: 16px * 1.5; //24px
-$h4-font-size: 16px * 1.25; //20px
-$h5-font-size: 16px;
-$h6-font-size: 16px * 0.875; //14px
-$h7-font-size: 16px * 0.75; //12px
+$h1-font-size: 20px * 3; //48px
+$h2-font-size: 20px * 1.75; //28px
+$h3-font-size: 20px * 1.5; //24px
+$h4-font-size: 20px * 1.25; //20px
+$h5-font-size: 20px;
+$h6-font-size: 20px * 0.875; //14px
+$h7-font-size: 20px * 0.75; //12px
 .c-header_rentandcourse {
-  width: 100vw;
+  width: 1440px;
   height: 7.8125rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #fff;
+  margin: 0 auto;
   .c-padd {
     padding: 0 7.5rem;
     display: flex;
-    .c-margin30px {
-      margin: 0 1.875rem 0 0;
-      padding: 0;
-      color: #494949;
-      font-size: 1rem;
-      &:hover {
-        color: #a8ae91;
-        transform: translateY(-5px);
-        transition: 0.2s;
-        border-bottom: 1px solid #a8ae91;
-      }
-    }
-    figure {
-      display: block;
-      width: 5rem;
-      border-radius: 50%;
-      img {
-        object-fit: cover;
-        width: 100%;
-      }
+  }
+  figure {
+    display: block;
+    width: 5rem;
+    border-radius: 50%;
+    img {
+      object-fit: cover;
+      width: 100%;
     }
   }
-  .c-cw {
-    display: flex;
-    figure {
-      display: block;
-      align-self: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: 0;
-      margin: 0 1.5625rem 0 0;
-      img {
-        object-fit: cover;
-        width: 100%;
-      }
-    }
-  }
-  .c-margin25px {
-    margin: 0 1.5625rem 0 0;
+}
+.c-cw {
+  display: flex;
+  figure {
+    display: block;
+    align-self: center;
+    width: 2.5rem;
+    height: 2.5rem;
     padding: 0;
-    color: #494949;
-
-    &:hover {
-      color: #a8ae91;
-      transform: translateY(-5px);
-      transition: 0.2s;
-      border-bottom: 1px solid #a8ae91;
+    margin: 0 1.5625rem 0 0;
+    img {
+      object-fit: cover;
+      width: 100%;
+      border-radius: 50%;
     }
   }
+}
+.c-margin25px {
+  margin: 0 1.5625rem 0 0;
+  padding: 0;
+  color: #494949;
+  &:hover {
+    color: #a8ae91;
+    transform: translateY(-5px);
+    transition: 0.2s;
+    border-bottom: 1px solid #a8ae91;
+  }
+}
+.c-margin30px {
+  margin: 0 1.875rem 0 0;
+  padding: 0;
+  // color: red;
+  font-size: 1rem;
+}
+.c-margin30px:hover {
+  color: #a8ae91;
+  transform: translateY(-5px);
+  transition: 0.2s;
+  border-bottom: 1px solid #a8ae91;
 }
 @import "~bootstrap/scss/bootstrap.scss";

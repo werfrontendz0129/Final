@@ -5,9 +5,10 @@ import Axios from 'axios';
 function OrderManagementRentalInfoTable() {
     const[orderview, setOrderview] = useState([]);
     const[orderpriceview, setOrderpriceview] = useState([]);
+    const Return = JSON.parse(localStorage.getItem('submit')) || '[]'
 
     useEffect(()=>{
-        Axios.get('http://localhost:3005/orderList/')
+        Axios.get('http://localhost:3001/orderList/')
         .then((response) => {
             setOrderview(response.data[0].user_rental[0]) 
             setOrderpriceview(response.data[0].user_rental[0].Price[0]) 
@@ -65,7 +66,10 @@ function OrderManagementRentalInfoTable() {
                                 <td className="b-member-Rental-order-style1">運費：</td>
                                 <td className="b-member-Rental-order-style2">NT${orderpriceview.shippingCost}</td>
                                 <td className="b-member-Rental-order-style1">訂單狀態：</td>
-                                <td className="b-member-Rental-order-style2">已完成</td>
+                                {Return == '[]'? (  <td className="b-member-Rental-order-style2">已完成</td>)
+                                :
+                                ( <td className="b-member-Rental-order-style2" style={{color:"#E58F80"}}>退租申請已送出</td>)
+                                }
                             </tr>
                             <tr>
                                 <td className="b-member-Rental-order-style1">折扣金額：</td>

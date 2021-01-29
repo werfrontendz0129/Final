@@ -19,7 +19,7 @@ function PurchaseCardMd(props) {
       {/* 商品卡  */}
       <div className="col-4 p-0">
         <div className="v-product-card-md d-flex">
-            <NavLink to={`/purchase/list/${prod._id}`}>
+            <NavLink to={`/purchase/list/${prod._id}`} >
             <figure className="v-prod-figure">
             <img className="v-prod-img" src={prod.product_img} alt="" />
             <figcaption className="h5 v-prod-title">{prod.product_name} </figcaption>

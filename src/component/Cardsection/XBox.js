@@ -12,7 +12,7 @@ function XBox() {
       <div class="c-w100p mb-6">
       {
         show?"":
-        <div className="c-xbox">
+        <div className="c-xbox row">
         <figure><img src={devUrl + '/images/index/banner-flat-01.jpg'} alt=""/></figure>
           <div className="xbutton" onClick={Toggle}>
             <figure>

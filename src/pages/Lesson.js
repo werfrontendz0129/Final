@@ -10,12 +10,11 @@ import Header from '../component/Header/Header'
 import Footer from '../component/Footer/Footer'
 
 function Lesson(props) {
-    const {isAuth} = props
+    // console.log('props?',props)
 
     return (
         <>
         {/*  */}
-         {/* <MemberHeader /> */}
          <Header />
          {/* <MyBreadcrumb /> */}
          {/* --測試登入狀態-- */}
@@ -25,13 +24,13 @@ function Lesson(props) {
             <section className="w-wrapper d-flex">
             <div className="w-card">
                 <MemberAvatar />
-                <MemberContent />
+                <MemberContent id={props.id}/>
             </div>
             <div className="w-article">
-                <LessonContent />
+                <LessonContent id={props.match.params.id} />
             </div>
             </section>
-            <Footer/>
+        <Footer />
         </> 
     )
 }

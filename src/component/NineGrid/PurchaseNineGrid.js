@@ -114,7 +114,7 @@ function PurchaseNineGrid() {
         </div>
       </div> */}
       <div className="v-normal-btn">
-        <NavLink style={{color:'#fff'}} to="/purchase/list">
+        <NavLink style={{color:'#fff',textDecoration:"none"}} to="/purchase/list">
           <div className="v-btn-p">更多商品</div>
         </NavLink>
       </div>

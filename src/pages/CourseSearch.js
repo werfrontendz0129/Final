@@ -1,10 +1,11 @@
 //基本套件引入
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { withRouter } from 'react-router-dom'
 import { devUrl } from '../config/index'
 // import data from '../data.js' //測試用
 import './CourseSearch.scss'
 import Axios from 'axios'
+
 
 //元件引入
 import CourseCategoryMenu from '../component/course/courseCategoryMenu/CourseCategoryMenu'
@@ -13,8 +14,10 @@ import CourseResultTitle from '../component/course/courseResultTitle/CourseResul
 import CourseShowCard from '../component/course/courseShowCard/CourseShowCard'
 import Footer from '../component/Footer/Footer'
 import HeaderA from '../component/Header/HeaderA'
+import {UserContext} from '../component/Index/UserContext'
 
 function CourseSearch(props) {
+  const{user , setUser} =useContext(UserContext) 
   console.log(props)
   console.log(props.Guide_type)
   const [data, setData] = useState([]) //等第一次預設資料
@@ -281,7 +284,7 @@ function CourseSearch(props) {
 
   return (
     <>
-    <HeaderA />
+    <HeaderA isAuth={user} />
       <div className="r-search-container">
         {/* <h1>這邊是課程搜尋</h1>
         <h1>這邊是課程搜尋</h1>

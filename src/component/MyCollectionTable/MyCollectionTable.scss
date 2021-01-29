@@ -1,8 +1,10 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 
-.w-mycollect-tablehead th {
+.w-mycollect-tablehead tr th {
   color: #494949;
   text-align: center;
+  border-top: 0px;
+  border-bottom: 0px;
 }
 
 .w-mycollect-tablebody tr td {

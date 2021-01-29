@@ -18,7 +18,7 @@ function CourseBreadcrumb(props) {
             </NavLink>
           </li>
           <li className="breadcrumb-item">
-            <NavLink to="/course/search" style={{ color: '#494949' }}>
+            <NavLink to="/courses/search" style={{ color: '#494949' }}>
               課程搜尋
             </NavLink>
           </li>

@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../component/RegisterContent/LoginContent.scss'
 import SignUp from '../component/Login/SignUp'
 import LogIn from '../component/Login/LogIn'
 import Overlay from '../component/Login/Overlay'
 import Footer from '../component/Footer/Footer'
 
-function Login() {
+function Login(props) {
+
     useEffect(
         ()=>{
             const signInBtn = document.getElementById("signIn")
@@ -28,10 +29,10 @@ function Login() {
         <SignUp /> 
         <LogIn />
         <Overlay />
-        <Footer />
+        
          </div>
         </div>
-            
+        <Footer />
         </>
     )
 }

@@ -2,6 +2,24 @@ import React, {useState, useEffect} from 'react'
 import './Overlay.scss'
 
 function Overlay() {
+    // useEffect(
+    //   ()=>{
+    //      const signInBtn = document.getElementById("signIn")
+    //     const signUpBtn = document.getElementById("signUp")
+    //     const container = document.querySelector(".w-container")
+
+    //     signInBtn.addEventListener("click", () => {
+    //       container.classList.remove("right-panel-active");
+    //     });
+        
+    //     signUpBtn.addEventListener("click", () => {
+    //       container.classList.add("right-panel-active");
+    //     });
+    //     }
+    //   ,[])
+     
+    
+
     return (
         <>
         <div className="w-container__overlay">

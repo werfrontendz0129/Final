@@ -4,9 +4,9 @@ import Axios from 'axios';
 
 function CheckoutTableInfo() {
     const url = "http://localhost:3001/orderList/create/fullover"
-    const shippinginfo = JSON.parse(localStorage.getItem('shipping'))
-    const paymentinfo = JSON.parse(localStorage.getItem('payment'))
-    const price = JSON.parse(localStorage.getItem('prices'))
+    const shippinginfo = JSON.parse(localStorage.getItem('shipping')) || '[]'
+    const paymentinfo = JSON.parse(localStorage.getItem('payment'))|| '[]'
+    const price = JSON.parse(localStorage.getItem('prices'))|| '[]'
     const Today= new Date()
     const today = Today.getFullYear() + '-' + (Today.getMonth() + 1) + '-' + Today.getDate();   
 
@@ -76,7 +76,7 @@ function CheckoutTableInfo() {
                 </dl>
                 <dl className="b-order-checout-info-table-dlist-align">
                     <dt className="font-weight-normal">卡號後四碼：</dt>
-                    <dd className="text-right text-dark font-weight-normal" style={{marginLeft: 20}}>{paymentinfo[0].number.slice(-4)}</dd>
+                    <dd className="text-right text-dark font-weight-normal" style={{marginLeft: 20}}>{paymentinfo=='[]' ? "" : paymentinfo[0].number.slice(-4)}</dd>
                 </dl>
                 </div>
             </div>

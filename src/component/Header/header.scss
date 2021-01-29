@@ -15,14 +15,18 @@ $h4-font-size: 16px * 1.25; //20px
 $h5-font-size: 16px;
 $h6-font-size: 16px * 0.875; //14px
 $h7-font-size: 16px * 0.75; //12px
+.c-coverall {
+  width: 100vw;
+  background-color: #a8ae91;
+}
 .c-header1 {
   width: 1440px;
-  margin: 0 auto;
   height: 7.8125rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #a8ae91;
+  // background-color: #a8ae91;
   .c-padd {
     padding: 0 7.5rem;
     display: flex;
@@ -60,6 +64,7 @@ $h7-font-size: 16px * 0.75; //12px
       img {
         object-fit: cover;
         width: 100%;
+        border-radius: 50%;
       }
     }
   }

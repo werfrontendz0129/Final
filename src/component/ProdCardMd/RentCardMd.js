@@ -19,11 +19,11 @@ function RentCardMd(props) {
       {/* 商品卡  */}
       <div className="col-4 p-0">
         <div >
-            <a className="v-product-card-md d-flex" href={`/rental/list/${prod._id}`}>
+            <a className="v-product-card-md d-flex" href={`/rental/list/${prod._id}`} >
             <figure className="v-prod-figure">
             <img className="v-prod-img" src={prod.product_img} alt="" />
             <figcaption className="h5 v-prod-title">{prod.product_name} </figcaption>
-            <p className="v-price">NT$ {prod.product_price}</p>
+            <p className="v-price">NT$ {prod.product_price} /日</p>
             </figure>
             </a>
           </div>

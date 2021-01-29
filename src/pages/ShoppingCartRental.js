@@ -7,6 +7,8 @@ import ShoppingCartMainTableTitleRental from '../component/ShoppingCart-Main-Tab
 import ShoppingCartMainRentalItemList from '../component/ShoppingCart-Main-Rental-Item-List/ShoppingCartMainRentalItemList'
 import ShoppingCartCheckoutBoxRental from '../component/ShoppingCart-Checkout-Box-Rental/ShoppingCartCheckoutBoxRental';
 import Table from 'react-bootstrap/Table';
+import Footer from '../component/Footer/Footer'
+import Header from '../component/Header/Header'
 import {SubTotal} from './SubTotal'
 import {ShippingCost} from './ShippingCost'
 
@@ -19,14 +21,14 @@ function ShoppingCartRental(props){
         <>
         <SubTotal.Provider value={{val, setVal}}>
         <ShippingCost.Provider value={{val1, setVal1}}>
-        
+        <Header />
+        <div className="test">
         <div className="b-paddingLR">
             <div className="b-shoppingcart-rental-main-header">
                 <div>
-                {console.log('test',(val+val1))}
                     {/* <Breadcrumb /> */}
-                    <div className="b-shoppingcart-rental-main-carts">
-                        <p className="mb-2">購物車</p>
+                    <div className="b-shoppingcart-rental-main-carts" style={{marginTop:0}}>
+                        <p className="m-0">購物車</p>
                     </div>
                 </div>
                 <Shoppingprocessbar shopping></Shoppingprocessbar>
@@ -52,6 +54,10 @@ function ShoppingCartRental(props){
                 </aside>
             </ShoppingCartShall>
         </div>
+
+        </div>
+      
+        <Footer />
         </ShippingCost.Provider>
         </SubTotal.Provider>
      </>

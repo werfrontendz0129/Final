@@ -8,9 +8,9 @@ function Courseindex() {
         <div className="c-course align-items-center">
           <div className="c-top1">
             <p className="h2 text-center">最新課程</p>
-            <p className="h4 text-center c-70">LatestCourse</p>
+            <p className="h4 text-center c-70">Latest Course</p>
             <div className="c-rbutton justify-content-center align-items-center">
-              <NavLink style={{textDecoration: 'none', color: "#FFF"}} to="/course"><p className="h6 m-0">所有課程</p></NavLink>
+              <NavLink style={{textDecoration: 'none', color: "#FFF"}} to="/course"><p className="h6 m-0 ">所有課程</p></NavLink>
             </div>
           </div>
           {/* ele.pic_url */}

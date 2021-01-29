@@ -5,6 +5,8 @@ import OrderlistTablePurchase from '../OrderlistTablePurchase/OrderlistTablePurc
 import {withRouter} from 'react-router-dom'
 
 function PurchaseOrderContent(props) {
+    // console.log(props)
+    
     return (
         <>
         <div>
@@ -12,8 +14,7 @@ function PurchaseOrderContent(props) {
             <p>選購訂單管理</p>
         </div>
                 <div className="orderlist-main px-2">
-                  
-                    <OrderlistTablePurchase />
+                    <OrderlistTablePurchase id={props.match.params.id}/>
                     {/* <OrderlistNoPurchase /> */}
                 </div>
             </div>
@@ -21,4 +22,4 @@ function PurchaseOrderContent(props) {
     )
 }
 
-export default PurchaseOrderContent
+export default withRouter(PurchaseOrderContent)

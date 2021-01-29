@@ -15,7 +15,7 @@ function ShoppingCartMainItemList(props) {
   
   
   function getCartFromLocalStorage() {
-      const newCart = localStorage.getItem('cart') || '[]'
+      const newCart = localStorage.getItem('rent') || '[]'
       setMycart(JSON.parse(newCart))
     }
   
@@ -43,7 +43,7 @@ function ShoppingCartMainItemList(props) {
     
     const updateCartToLocalStorage = (item, isAdded = true) => {
       console.log(item, isAdded)
-      const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+      const currentCart = JSON.parse(localStorage.getItem('rent')) || []
       // find if the product in the localstorage with its id
       const index = currentCart.findIndex((v) => v.id === item.id)
       console.log('index', index)
@@ -51,14 +51,14 @@ function ShoppingCartMainItemList(props) {
       if (index > -1) {
         isAdded ? currentCart[index].qtys++ : currentCart[index].qtys--
       } 
-      localStorage.setItem('cart', JSON.stringify(currentCart))
+      localStorage.setItem('rent', JSON.stringify(currentCart))
       console.log('focus',currentCart)
       // 設定資料
       setMycart(currentCart)
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
     const updatedaterange = (item,e,isStart) => {
-      const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+      const currentCart = JSON.parse(localStorage.getItem('rent')) || []
 
       // find if the product in the localstorage with its id
       const index = currentCart.findIndex((v) => v.id === item.id)
@@ -69,14 +69,14 @@ function ShoppingCartMainItemList(props) {
         setEndDate(e.target.value)
         currentCart[index].enddates = e.target.value
       }      
-      localStorage.setItem('cart', JSON.stringify(currentCart))
+      localStorage.setItem('rent', JSON.stringify(currentCart))
       console.log('focus',currentCart)
       // 設定資料
       setMycart(currentCart)
 
     }
 /////////////////////////////////////////////////////////////////////////////////////////////
-const currentCart = JSON.parse(localStorage.getItem('cart')) || '[]'
+const currentCart = JSON.parse(localStorage.getItem('rent')) || '[]'
 const DAY = 1000 * 60 * 60  * 24
 const startdate = new Date(currentCart[0].startdates)
 const enddate = new Date(currentCart[0].enddates)
@@ -105,7 +105,7 @@ const days_passed = Math.round((enddate.getTime() - startdate.getTime()) / DAY)
     const display = (
       <>
        {mycartDisplay.map((item, index) => {
-         return (
+         return(
           <React.Fragment key={item.id}>
           <tr className="d-flex justify-content-between" >  
           <th className="d-flex justify-content-between align-items-center" scope="row" width="145" height="140">
@@ -120,11 +120,10 @@ const days_passed = Math.round((enddate.getTime() - startdate.getTime()) / DAY)
           <td className="b-shoppingcart-reantal-itemlist-d-flexer" height="140" width="100">
             <div className="b-shoppingcart-rental-itemlist-daily-price-wrap"> 
               <p className="b-shoppingcart-rental-itemlist-daily-price b-shoppingcart-reantal-itemlist-font-size3">NT${item.price}</p>
-              <p className="b-shoppingcart-rental-itemlist-daily-price b-shoppingcart-reantal-itemlist-font-size3"> {console.log(startDate)}/日 </p> 
+              <p className="b-shoppingcart-rental-itemlist-daily-price b-shoppingcart-reantal-itemlist-font-size3"> /日 </p> 
             </div>
           </td>
           <td className="b-shoppingcart-reantal-itemlist-d-flexer flex-column" width="200" height="140"> 
-            {/* <p style={{fontSize: 12, margin: 0}}>開始租賃日期<input onChange ={(e) => setStartDate(e.target.value)} className="form-control p-0" type="date" defaultValue={item.startdates} value={startDate} style={{width: 150, height: 35, textAlign: "center"}} /></p> */}
             <p style={{fontSize: 12, margin: 0}}>開始租賃日期<input onChange ={(e) => updatedaterange(item,e,true)} className="form-control p-0" type="date" defaultValue={item.startdates} value={startDate} style={{width: 150, height: 35, textAlign: "center"}} /></p>
             <p style={{fontSize: 12, margin: 0}}>結束租賃日期<input onChange ={(e) => updatedaterange(item,e,false)} className="form-control p-0" type="date" defaultValue={item.enddates} value={endDate} style={{width: 150, height: 35, textAlign: "center"}} /></p>
           </td>
@@ -149,7 +148,7 @@ const days_passed = Math.round((enddate.getTime() - startdate.getTime()) / DAY)
             <div >NT${item.qtys*item.price*days_passed}</div>
             <div ></div>
           </td>
-          <td className="b-shoppingcart-reantal-itemlist-d-flexer" width="50">
+          <td className="b-shoppingcart-reantal-itemlist-d-flexer p-0" width="30">
             <button type="button" className="close" aria-label="Close">
               &times;
             </button>
@@ -164,10 +163,18 @@ const days_passed = Math.round((enddate.getTime() - startdate.getTime()) / DAY)
       </>)
     const shipping = bbt(mycartDisplay)
     const suptotal = sum(mycartDisplay)
+
           return (
       <>
-      
-          {display}
+      {!JSON.parse(localStorage.getItem('rent'))? (
+        <aside>
+          <div className="table-responsive d-flex justify-content-center  flex-column text-center">
+                <div style={{marginBottom: 10, marginTop: 50, fontSize: 20, color: "#838383", fontWeight:800}}>購物車尚未加入商品唷!</div>
+                <div><img style={{width:275, height:275}} src="http://localhost:3000/images/svg/svg/noresult.gif"/></div>
+                {/* <div style={{marginTop: -10, marginBottom: 60, color: "#838383", fontWeight:800}}>請點擊上方"新增信用卡"以便繼續完成付款流程</div> */}
+          </div>
+      </aside>
+      ) : (display)}
       </>
     );
   }

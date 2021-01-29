@@ -14,7 +14,8 @@ const Breadcrumbs = props => {
   } = props;
   const pathnames = pathname.split("/").filter(x => x);
   return (
-    <MUIBreadcrumbs aria-label="breadcrumb" className="cookiesp">
+    <div className="shownothing">
+      <MUIBreadcrumbs aria-label="breadcrumb" className="cookiesp">
       {pathnames.length > 0 ? (
         <Link onClick={() => history.push("/")}>首頁</Link>
       ) : (
@@ -32,6 +33,8 @@ const Breadcrumbs = props => {
         );
       })}
     </MUIBreadcrumbs>
+    </div>
+    
   );
 };
 

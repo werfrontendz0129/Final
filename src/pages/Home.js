@@ -8,7 +8,7 @@ import Service from '../component/Service/Service'
 
 import Courseindex from '../component/CourseIndex/Courseindex'
 import BestSeller from '../component/Index/BestSeller'
-import Footer from '../component/Footer/Footer'
+import Footer2 from '../component/Footer/Footer2'
 
 import React from 'react'
 
@@ -17,8 +17,7 @@ import '../component/Index/homepage2.scss'
 const Home = () => {
   return (
     <>
-    
-    <Promotion />
+    {/* <Promotion /> */}
     <HeaderIndex />
     <Firstpage />
     <XBox />
@@ -28,8 +27,7 @@ const Home = () => {
     {/* <Cardcarousel /> */}
     <Courseindex />
     <BestSeller />
-    <Footer />
-      
+    <Footer2 />
     </>
   )
 }

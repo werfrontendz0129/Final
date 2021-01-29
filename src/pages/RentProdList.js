@@ -24,6 +24,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 function RentProdList(props) {
 
+  const [isAuth,setIsAuth]=useState(true)
   const[prod,setProd] =useState([])   
   const[occasion,setOccasion] = useState("")
   const[category,setCategory] = useState("")
@@ -271,11 +272,11 @@ function RentProdList(props) {
             prod = {prods}
             >
             </RentCardMd>
-          ))) : (    <div className="d-flex v-spinner text-center">
+          ))) : (    <div className="d-flex v-spinner text-center v-helloworld">
                       {/* <h4 className="m-5">很抱歉，查無此項商品。</h4> */}
                       <figure>
                         <img style={{width:'300px', paddingRight:'30px'}} alt="" src='http://localhost:3000/images/svg/noresult.gif' />
-                        <figcaption><h5>很抱歉，查無此項商品。</h5></figcaption>
+                        <figcaption><p className="h5">很抱歉，查無此項商品。</p></figcaption>
                       </figure>
                       
 
@@ -313,7 +314,7 @@ function RentProdList(props) {
 // console.log(order)
   return (
     <>
-      <HeaderA />
+      <HeaderA isAuth={isAuth} />
       <div className="v-max">
       <RentBreadcrumbsShort />
 

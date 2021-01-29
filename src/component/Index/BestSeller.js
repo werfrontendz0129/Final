@@ -1,7 +1,7 @@
 import React from 'react'
 import { devUrl } from '../../config/index'
 import {NavLink} from 'react-router-dom'
-import $ from 'jquery'
+// import $ from 'jquery'
 function BestSeller() {
   return (
     <>
@@ -15,41 +15,41 @@ function BestSeller() {
             </div>
           </div>
           <div className="c-productlist">
-            <div>
+            <NavLink to="/purchase/list/1">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/墨花常春藤.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/2">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/維多利亞鳳尾蕨.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/3">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/乳斑千年芋.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/4">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/貓眼.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/5">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/山蘇.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/6">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/白脈椒草.jpg'} alt="" />
               </figure>
-            </div>
-            <div>
+            </NavLink>
+            <NavLink to="/purchase/list/7">
               <figure>
-                <img src={devUrl + '/images/index/merchandise.jpg'} alt="" />
+                <img src={devUrl + '/images/images/saleprodlist/小星點.jpg'} alt="" />
               </figure>
-            </div>
+            </NavLink>
           </div>
         </div>
       </div>

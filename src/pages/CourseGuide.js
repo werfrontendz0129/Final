@@ -19,6 +19,7 @@ import Footer from '../component/Footer/Footer'
 import HeaderB from '../component/Header/HeaderB'
 function CourseGuide(props) {
   console.log(props)
+  const isAuth = props.isAuth
   // const { clickType, setClickType } = useState()
   // console.log("Guide_page!" + clickType)
 

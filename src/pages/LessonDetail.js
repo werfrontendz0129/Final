@@ -8,13 +8,14 @@ import LessonDetailContent from '../component/LessonDetailContent/LessonDetailCo
 import {withRouter} from 'react-router-dom'
 import Header from '../component/Header/Header'
 import Footer from '../component/Footer/Footer'
+
 function LessonDetail(props) {
-    const {isAuth} = props
+    // const {isAuth} = props
+    console.log('test?',props)
 
     return (
         <>
         <Header />
-        {/* <MemberHeader /> */}
         {/* <MyBreadcrumb /> */}
         {/* test */}
         {/* {isAuth ? '會員登入，xxx你好' : '未登入'} */}
@@ -22,14 +23,13 @@ function LessonDetail(props) {
             <section className="w-wrapper d-flex">
             <div className="w-card">
                 <MemberAvatar />
-                <MemberContent />
+                <MemberContent id={props.id}/>
             </div>
             <div className="w-article">
-
-                <LessonDetailContent data={props} />  
+                <LessonDetailContent id={props.match.params.id} />  
             </div>
             </section>
-            <Footer/>
+        <Footer/>
         </>
     )
 }

@@ -3,7 +3,7 @@ import './OrderManagementRentalItemTableReturn.scss'
 
 
 function OrderManagementRentalItemTableReturn() {
-    const Return = JSON.parse(localStorage.getItem('return'))
+    const Return = JSON.parse(localStorage.getItem('return')) || '[]'
     const DAY = 1000 * 60 * 60  * 24
     const startdate = new Date(Return[0].startdates)
     const enddate = new Date(Return[0].enddates)

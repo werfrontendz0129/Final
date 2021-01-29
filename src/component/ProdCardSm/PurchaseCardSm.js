@@ -40,7 +40,7 @@ function PurchaseCardSm(props) {
         <div className="d-flex justify-content-center v-card-group">
           {cat.map((e) => (
             <figure key={e._id} className="v-product-card ml-0" onClick={()=>window.location.reload()}>
-            <a href={`/purchase/list/${e._id}`}>
+            <a href={`/purchase/list/${e._id}`} style={{textDecoration:"none"}}>
               <img className="v-recommend-img" src={e.product_img} alt="" />
               <figcaption>
                 <p style={{color:'#494949'}}>{e.product_name}</p>

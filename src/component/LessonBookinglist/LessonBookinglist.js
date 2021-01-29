@@ -1,60 +1,70 @@
 import React, {useState,useEffect} from 'react'
-// import LessonBookinglistTbodyTr from '../LessonBookinglistTbodyTr/LessonBookinglistTbodyTr'
 import './LessonBookinglist.scss'
-import ClicktoLessonButton from '../ClicktoLessonButton/ClicktoLessonButton'
-import {Modal, Button} from 'react-bootstrap'
 import {NavLink, useHistory, withRouter} from 'react-router-dom'
 import LessonNone from '../LessonNone/LessonNone'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import axios from 'axios'
+// import Footer from '../Footer/Footer'
+// import Header from '../component/Header/Header'
 
 function LessonBookinglist(props) {
-    const [lessonbookings, setLessonbookings] = useState([])
+    const id = props.match.params.id//會員ID
+    // console.log('??',id)
+    // let course_id = props.match.params.course_id
+    // const new_course_id = course_id.slice(1,2)
 
-    //modal
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    
+
+    const [lessonbookings, setLessonbookings] = useState([]) //放本會員的課程預約ID
+    const [data, setData] = useState([]) //放課程資料
+    // const courses = lessonbookings.map((item) => item.lesson_number)
+    // console.log(courses)
     // sweet alert
     const MySwal = withReactContent(Swal)
 
     let history = useHistory()
 
-    // useEffect(()=> {
-    // const course_id = lessonbookings[0].lesson_number
-    // },[lessonbookings])
 
-
-    async function deleteCourse(index) {
-        const member_id = 1
+    async function deleteCourse(index,course_id) {
         try {
             const response = await fetch (
-                'http://localhost:3001/members/deleteCourse/' + index + '/' + member_id,
+                'http://localhost:3001/members/deleteCourse/' + index + '/' + id + '/' + course_id,
                 {
                     method:'delete',
                 }
             )
             if(response.ok){
                 // 重新載入
-                // const data = await response.json()
-                // const datas = data[0].course_booking
-
-                // console.log(data)
-                // setLessonbookings(datas)
-                getCourse()
-                history.push('/lesson')
-                
+                // getCourse(id)
+                setLessonbookings(response.data)
+                setTimeout(()=>{
+                    // history.push('/member/lesson/' +id)
+                    window.location.replace('/member/lesson/' +id)
+                }, 1000)
+                // history.push('/member/lesson/' +id)
+                // window.location.replace()
             } 
         } catch(error) {
             console.log('error:',error)
         }
     }
 
-    async function getCourse(){
+    //先取會員ID
+    useEffect(()=> {
+        getMember(id)
+    },[])
+
+    //再取該會員的各筆的課程預約資料
+    useEffect(()=>{
+        getCourse()
+        // lessonbookings.forEach((item) => console.log(item))
+    },[lessonbookings])
+
+    //取各個會員資料
+    async function getMember(id){
         try {
             const response = await fetch(
-                'http://localhost:3001/members',
+                `http://localhost:3001/members/${id}`,
                 {
                     method:'get',
                     headers: {
@@ -65,22 +75,68 @@ function LessonBookinglist(props) {
             )
             if(response.ok){
                 const data = await response.json()
-                const datas = data[0].course_booking
-                // const course_id = datas[0].lesson_number
+                // const datas = data.course_booking
+                let datas = data.course_booking.map((item)=> item.course_id)
+                // let new_datas = []
+                // datas.forEach((item)=> {
+                //     new_datas.push(item.slice(1,2))
+                // })
+                // console.log(new_datas)
                 // console.log('data?',data)
-                // console.log('datas?',datas)
-                // console.log('course_id:' ,datas[0].lesson_number)
-                
+                // console.log('datas?',datas[0].lesson_number)
+                console.log(datas)
+                // setLessonbookings(new_datas)
                 setLessonbookings(datas)
+                // console.log(datas)
             } 
         } catch(error) {
             console.log('error:',error)
         }
     }
 
-    useEffect(()=>{
-        getCourse()
-    },[])
+    // useEffect(()=>{
+    //     getCourse()
+    //     lessonbookings.forEach((item) => console.log(item))
+    // },[lessonbookings])
+
+    //取預約的課程資料
+     function getCourse() {
+        const data_arr = []
+        // const course_arr = lessonbookings.length || 0
+            console.log('hihihi',lessonbookings)
+            if(lessonbookings) {
+                lessonbookings.forEach((item)=> {
+                    axios.get(`http://localhost:3001/members/lesson/${item}`)
+                    .then((response) => {                  
+                        data_arr.push(response.data)
+                        // console.log('test',response.data)
+                    }).then(()=> {
+                        const course_arr = lessonbookings.length || 0
+                        if(data_arr.length == course_arr) {
+                            setData(data_arr)
+                            console.log('final', data)
+                        }
+                    })
+                    .catch((err)=> console.log(err))
+                })
+            }
+            
+        // lessonbookings.forEach((item)=> {
+        //     axios.get(`http://localhost:3001/members/lesson/${item}`)
+        //     .then((response) => {                  
+        //         data_arr.push(response.data)
+        //         // console.log('test',response.data)
+        //     }).then(()=> {
+        //         const course_arr = lessonbookings.length || 0
+        //         if(data_arr.length == course_arr) {
+        //             setData(data_arr)
+        //             console.log('final', data)
+        //          }
+        //     })
+        //     .catch((err)=> console.log(err))
+        // })
+    }
+
 
     const display = (
         <>
@@ -97,11 +153,11 @@ function LessonBookinglist(props) {
                             </tr>
                         </thead>
                         <tbody className="w-lessonbookinglisttbody">
-                        {lessonbookings.map((v,i)=>{
+                        {data && data.map((v,i)=>{
                             return(
-                                <tr key={i}>
+                                <tr>
                         {/* 課程No. */}
-                        <td className="align-middle">{v.lesson_number}</td>                    
+                        <td className="align-middle">{i+1}</td>                    
                         {/* 課程縮圖 */}
                         <td className="align-middle">      
                         <div>
@@ -117,11 +173,11 @@ function LessonBookinglist(props) {
                         {/* 課程費用 */}
                         <td className="align-middle" style={{color: '#838383'}}>NT$ {v.price}</td>                    
                         {/* 課程狀態 */}
-                        <td className="w-lessonstatus-booked align-middle">{v.lesson_status}</td>
+                        <td className="w-lessonstatus-booked align-middle">{lessonbookings? '已預約' : '已取消'}</td>
                         {/* 課程詳情&取消預約按鈕 */}
                         <td className="align-middle">
                         {/* <ClicktoLessonButton /> */}
-                        <NavLink to={`/lesson/lessondetail/${v.lesson_number}`} className="w-btn-lessondetail">課程詳情</NavLink>
+                        <NavLink to={`/member/lesson/${id}/lessondetail/${v._id}`} className="w-btn-lessondetail">課程詳情</NavLink>
                         <button
                                             type="button" 
                                             className="w-btn-cancellesson"  
@@ -130,14 +186,15 @@ function LessonBookinglist(props) {
                                                     title: '是否取消預約？',
                                                     icon: 'warning',
                                                     showCancelButton: true,
-                                                    confirmButtonColor: '#3085d6',
+                                                    confirmButtonColor: '#6c8650',
                                                     cancelButtonColor: '#d33',
-                                                    confirmButtonText: '是，我要取消!'
+                                                    confirmButtonText: '是，我要取消!',
+                                                    cancelButtonText: '返回'
                                                     }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         Swal.fire(
-                                                        'Deleted!',
-                                                        deleteCourse(v.index),
+                                                        '取消成功!',
+                                                        deleteCourse(i,v._id),
                                                         'success'
                                                         )
                                                     }
@@ -146,33 +203,6 @@ function LessonBookinglist(props) {
                                             >
                                             取消預約
                                         </button>
-                        
-                        {/* <button 
-                            type="button" 
-                            className="w-btn-cancellesson"
-                            data-toggle="modal" data-target="#exampleModal"
-                            onClick={handleShow}>
-                            取消預約</button> 
-                                        <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>取消預約？</Modal.Title>
-                                        </Modal.Header>
-                                            <Modal.Body>
-                                            <button 
-                                            type="button" 
-                                            className="close w-remove" 
-                                            aria-label="Close" 
-                                            onClick={()=>{deleteCourse(v.index)}}>
-                                            <span aria-hidden="true">是，我要取消！</span>
-                                            </button>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                否，回到課程管理
-                                            </Button>
-                                            </Modal.Footer>
-                                        </Modal> */}
-                        
                         </td>
                         </tr>
                             )
@@ -189,84 +219,11 @@ function LessonBookinglist(props) {
 
     return (
         <>
+        {/* <Header /> */}
+        {console.log("hello",lessonbookings)}
         {lessonbookings == 0 ? none : display }
+        {/* <Footer /> */}
         </>
-
-        // <LessonNone>
-        // <table className="table table-responsive w-lessonbookinglisttable">
-        //                 <thead style={{backgroundColor: '#E6E9DA'}}>
-        //                     <tr>
-        //                         <th scope="col" style={{width: 50}}>No.</th>
-        //                         <th scope="col" style={{width: 200}}></th>
-        //                         <th scope="col" style={{width: 200}}>課程名稱</th>
-        //                         <th scope="col" style={{width: 150}}>課程時間</th>
-        //                         <th scope="col" style={{width: 100}}>課程費用</th>
-        //                         <th scope="col" style={{width: 100}}>狀態</th>
-        //                         <th scope="col" style={{width:50}}></th>
-        //                     </tr>
-        //                 </thead>
-        //                 <tbody className="w-lessonbookinglisttbody">
-        //                 {lessonbookings.map((v,i)=>{
-        //                     return(
-        //                         <tr key={i}>
-        //                 {/* 課程No. */}
-        //                 <td className="align-middle">{v.lesson_number}</td>                    
-        //                 {/* 課程縮圖 */}
-        //                 <td className="align-middle">      
-        //                 <div>
-        //                 <img className="w-lessonpics" src={v.img} alt="" />                           
-        //                 </div>                        
-        //                 {/* 課程名稱 */}
-        //                 </td>
-        //                 <td className="w-lessonname align-middle">{v.name}</td>                    
-        //                 {/* 課程時間 */}
-        //                 <td className="w-lessontime align-middle">                   
-        //                 {v.date}<br/>{v.hours}
-        //                 </td>            
-        //                 {/* 課程費用 */}
-        //                 <td className="align-middle" style={{color: '#838383'}}>NT$ {v.price}</td>                    
-        //                 {/* 課程狀態 */}
-        //                 <td className="w-lessonstatus-booked align-middle">{v.lesson_status}</td>
-        //                 {/* 課程詳情&取消預約按鈕 */}
-        //                 <td className="align-middle">
-        //                 {/* <ClicktoLessonButton /> */}
-        //                 {/* 課程詳情頁面：不要用link，改用location href，或用push */}
-        //                 <NavLink to={`/lesson/lessondetail/${v.lesson_number}`} className="w-btn-lessondetail">課程詳情</NavLink>
-                        
-        //                 <button 
-        //                     type="button" 
-        //                     className="w-btn-cancellesson"
-        //                     data-toggle="modal" data-target="#exampleModal"
-        //                     onClick={handleShow}>
-        //                     取消預約</button> 
-        //                                 <Modal show={show} onHide={handleClose}>
-        //                                 <Modal.Header closeButton>
-        //                                 <Modal.Title>是否取消預約？</Modal.Title>
-        //                                 </Modal.Header>
-        //                                     <Modal.Body>
-        //                                     <button 
-        //                                     type="button" 
-        //                                     className="close w-remove" 
-        //                                     aria-label="Close" 
-        //                                     onClick={()=>{deleteCourse({i})}}>
-        //                                     <span aria-hidden="true">是，我要取消！</span>
-        //                                     </button>
-        //                                     </Modal.Body>
-        //                                     <Modal.Footer>
-        //                                     <Button variant="secondary" onClick={handleClose}>
-        //                                         否，回到課程管理
-        //                                     </Button>
-        //                                     </Modal.Footer>
-        //                                 </Modal>
-                        
-        //                 </td>
-        //                 </tr>
-        //                     )
-        //                 })}
-        //                             </tbody>
-        //                         </table>
-                                
-        // </LessonNone>
     )
 }
 

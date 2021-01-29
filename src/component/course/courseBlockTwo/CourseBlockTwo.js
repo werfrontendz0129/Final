@@ -27,7 +27,7 @@ function CourseBlockTwo(props) {
           // }}
           // onMouseOver={() => {}}
           // to={props.type === 'succulent' ? '/course/search' : '/course/search'}
-          to={`/course/search/`}
+          to={`/courses/search/`}
         >
           了解更多
         </NavLink>
@@ -45,7 +45,7 @@ function CourseBlockTwo(props) {
             console.log(type)
           }}
           // to={props.type === 'succulent' ? '/course/search' : '/course/search'}
-          to={`/course/search/`}
+          to={`/courses/search/`}
         >
           了解更多
         </NavLink>

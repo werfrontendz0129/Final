@@ -1,17 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import './OrderlistTablePurchase.scss'
-import Pagination from '../Pagination/Pagination'
+// import Pagination from '../Pagination/Pagination'
 import ClicktoDetailButton from '../ClicktoDetailButton/ClicktoDetailButton'
-import {withRouter} from 'react-router-dom'
+import {withRouter,NavLink} from 'react-router-dom'
 import OrderlistNoPurchase from '../OrderlistNoPurchase/OrderlistNoPurchase'
 
 function OrderlistTablePurchase(props) {
+    const id = props.match.params.id
+    // console.log('id!',id)
+
+     // date
+     const year = new Date().getFullYear()
+     const month = '0'+ (new Date().getMonth()+1)
+     const date = new Date().getDate()
+     const today = year + '-' + month + '-' + date
+
     const [purchaseorders, setPurchaseorders] = useState([])
 
-    async function getMembers(){
+    async function getPurchase(id){
         try {
             const response = await fetch(
-                'http://localhost:3001/members',
+                `http://localhost:3001/members/${id}`,
                 {
                     method:'get',
                     headers: {
@@ -21,10 +30,11 @@ function OrderlistTablePurchase(props) {
                 }
             )
             if(response.ok){
+                // 取得會員&他的選購訂單
                 const data = await response.json()
-                const datas = data[0].user_purchase
-
-                console.log(data)
+                const datas = data.user_purchase
+                // console.log(data)
+                // console.log(datas)
                 setPurchaseorders(datas)
                 
             } 
@@ -34,7 +44,7 @@ function OrderlistTablePurchase(props) {
     }
 
     useEffect(()=>{
-        getMembers()
+        getPurchase(id)
     },[])
 
     const display = (
@@ -57,15 +67,15 @@ function OrderlistTablePurchase(props) {
                             {/* 訂單編號 */}
                             <td className="w-ordernumber align-middle">{v.order_purchasenumber}</td>
                             {/* 訂單日期 */}
-                            <td className="w-orderdate align-middle">{v.order_purchasedate}</td>                    
+                            <td className="w-orderdate align-middle">{today}</td>                    
                             {/* 訂單金額 */}
                             <td className="align-middle" style={{color: '#E58F80'}}>
                             {v.order_purchaseprice}
                             </td>  
-                            {/* 選購訂單狀態-待出貨color：#838383、已完成：#6C8650 */}
                             <td className="align-middle">
                             <div className="d-inline-block w-statuspurchase">
-                            {v.order_purchasestatus}</div>
+                            {v.order_purchasestatus}
+                            </div>
                             </td>                                        
                             {/* 選購訂單縮圖 */}
                             <td className="align-middle">                    
@@ -76,14 +86,15 @@ function OrderlistTablePurchase(props) {
                                 </td>
                             {/* 訂單詳情button */}
                             <td className="align-middle">    
-                                <ClicktoDetailButton />
+                                {/* 這個要連結到結帳流程後的訂單詳情頁面 */}
+                                <NavLink to={`/member/purchaseorder/${id}/`} className="w-btn-clicktodetail">訂單詳情</NavLink>
                             </td>                    
                             </tr>
                             )
                         })}  
                             </tbody>      
                     </table>
-                    <Pagination />
+                    {/* <Pagination /> */}
         </>
     )
 

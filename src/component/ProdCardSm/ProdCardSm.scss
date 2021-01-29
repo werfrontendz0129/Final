@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 .v-recommend-goods {
   margin-top: 100px;
   margin-bottom: 50px;
@@ -24,6 +24,13 @@
   box-shadow: 3px 3px 6px #ccc;
   border-radius: 3px;
   text-align: center;
+  &:hover {
+    text-decoration: none;
+    & img {
+      transition: 0.2s;
+      opacity: 0.5;
+    }
+  }
   @media screen and (max-width: 1200px) {
     .v-product-card {
       width: 200px;

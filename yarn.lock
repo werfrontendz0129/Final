@@ -8386,6 +8386,11 @@ node-forge@^0.10.0:
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.10.0.tgz#32dea2afb3e9926f02ee5ce8794902691a676bf3"
   integrity sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==
 
+node-fpe@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/node-fpe/-/node-fpe-2.0.1.tgz#36aafc813d921e9ac5a60ec44287ab5c52fb95d7"
+  integrity sha512-ZfVs+qPYm/nba7ZC0hwGtt31QM80J5SZs2LB1sZ0ncZa1zrX/MUsV4OIKm2GZjP+CytaTxgLzoGzcrhxKmn4Sg==
+
 node-gyp@^3.8.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-3.8.0.tgz#540304261c330e80d0d5edce253a68cb3964218c"
@@ -8753,6 +8758,13 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
+
+order-id@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/order-id/-/order-id-2.1.1.tgz#7ce00b5df28f0b610be5cfbfaba2d7f8c5feec6f"
+  integrity sha512-iYOm4s2xuTZzO5ff/5SI64aZHbNUZAADqk2HW/MKXZXUnlB3COBmlnS04+nZ34lIaC790eW9+oGZg0sbEf5eBw==
+  dependencies:
+    node-fpe "^2.0.1"
 
 original@^1.0.0:
   version "1.0.2"

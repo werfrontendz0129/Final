@@ -31,12 +31,6 @@ $h7-font-size: 16px * 0.75; //12px
   font-size: 1.5rem;
   transition: 0.5s;
 }
-.c-test {
-  height: 100vh;
-  width: 100vw;
-  background-color: burlywood;
-  transition: 0.5s;
-}
 .c-transition {
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -68,6 +62,12 @@ $h7-font-size: 16px * 0.75; //12px
       padding: 0;
       color: #ffffff;
       font-size: 1rem;
+      &:hover {
+        color: #a8ae91;
+        transform: translateY(-5px);
+        transition: 0.2s;
+        border-bottom: 1px solid #fff;
+      }
     }
     figure {
       display: block;
@@ -98,9 +98,11 @@ $h7-font-size: 16px * 0.75; //12px
         height: 2.5rem;
         padding: 0;
         margin: 0 1.5625rem 0 0;
+        border-radius: 50%;
         img {
           object-fit: cover;
           width: 100%;
+          border-radius: 50%;
         }
       }
     }
@@ -109,6 +111,12 @@ $h7-font-size: 16px * 0.75; //12px
     margin: 0 1.5625rem 0 0;
     padding: 0;
     color: #ffffff;
+    &:hover {
+      color: #a8ae91;
+      transform: translateY(-5px);
+      transition: 0.2s;
+      border-bottom: 1px solid #fff;
+    }
   }
 }
 
@@ -150,7 +158,7 @@ $h7-font-size: 16px * 0.75; //12px
         left: 3.05vw;
         top: 25vh;
         width: 15rem;
-        height: 31.1vh;
+        height: 40vh;
       }
       .c-lh18px {
         font-size: 1.125rem;
@@ -163,6 +171,7 @@ $h7-font-size: 16px * 0.75; //12px
       .c-LH {
         font-size: 24px;
         line-height: 1.5rem;
+        cursor: pointer;
       }
     }
     .c-backgroundmiddle {
@@ -360,8 +369,9 @@ $h7-font-size: 16px * 0.75; //12px
   }
 }
 .c-bestseller {
+  margin-top: 12rem;
   display: flex;
-  height: 44vh;
+  height: 48vh;
   width: 100vw;
   padding: 0 7.5rem;
   flex-direction: column;
@@ -379,7 +389,7 @@ $h7-font-size: 16px * 0.75; //12px
     display: flex;
     width: fit-content;
     flex-direction: column;
-    margin: 5rem 0 3rem 0;
+    margin: 3rem 0 3rem 0;
     .c-70 {
       color: #707070;
     }

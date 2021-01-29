@@ -6,6 +6,8 @@ import ShoppingCartShall from '../component/ShoppingCart-Shall/ShoppingCartShall
 import ShoppingCartMainTableTitlePurchase from '../component/ShoppingCart_Purchase/ShoppingCart-Main-Table-Title-Purchase/ShoppingCartMainTableTitlePurchase'
 import ShoppingCartMainPurchaseItemList from '../component/ShoppingCart_Purchase/ShoppingCart-Main-Purchase-Item-List/ShoppingCartMainPurchaseItemList'
 import ShoppingCartCheckoutBoxPurchase from '../component/ShoppingCart_Purchase/ShoppingCart-Checkout-Box-Purchase/ShoppingCartCheckoutBoxPurchase'
+import Footer from '../component/Footer/Footer'
+import Header from '../component/Header/Header'
 import Table from 'react-bootstrap/Table'
 
 
@@ -13,12 +15,14 @@ import Table from 'react-bootstrap/Table'
 function ShoppingCartPurchase(){
     return(
     <>
+    <Header />
+    <div className="test">
         <div className="b-paddingLR">
-            <div className="b-shoppingcart-main-purchase-header">
+            <div className="b-shoppingcart-main-purchase-header" style={{paddingTop:0}}>
                 <div>
-                    <Breadcrumb />
-                    <div className="b-shoppingcart-main-purchase-carts">
-                        <p className="mb-2">購物車</p>
+                    {/* <Breadcrumb /> */}
+                    <div className="b-shoppingcart-main-purchase-carts" style={{paddingTop:0}}>
+                        <p style={{marginTop:80}}>購物車</p>
                     </div>
                 </div>
                 <Shoppingprocessbar shopping></Shoppingprocessbar>
@@ -34,10 +38,6 @@ function ShoppingCartPurchase(){
                                 </thead>  
                                 <tbody>
                                     <ShoppingCartMainPurchaseItemList />
-                                    <ShoppingCartMainPurchaseItemList />
-                                    <ShoppingCartMainPurchaseItemList />
-                                    <ShoppingCartMainPurchaseItemList />
-                                    <ShoppingCartMainPurchaseItemList />
                                 </tbody>
                             </Table>
                         </div>
@@ -48,7 +48,8 @@ function ShoppingCartPurchase(){
                 </aside>
             </ShoppingCartShall>
         </div>
-        
+        </div>
+    <Footer />
      </>
     )}
 

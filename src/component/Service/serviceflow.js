@@ -1,4 +1,4 @@
-// import {devUrl} from '../../config/index'
+import {devUrl} from '../../config/index'
 const service = {
   info: [
     {
@@ -10,6 +10,7 @@ const service = {
       service_name: '挑選植栽',
       servic_class: 'c-textlength h3',
       box: 'box',
+      link:devUrl+'/images/index/line3.svg'
     },
     {
       flow_id: 2,
@@ -20,6 +21,7 @@ const service = {
       service_name: '預約租期',
       servic_class: 'c-textlength h3',
       box: 'box',
+      link:devUrl+'/images/index/line5.svg',
     },
     {
       flow_id: 3,
@@ -30,6 +32,7 @@ const service = {
       service_name: '購物車',
       servic_class: 'c-textlength h3',
       box: 'box',
+      link:devUrl+'/images/index/line3.svg'
     },
     {
       flow_id: 4,
@@ -40,6 +43,7 @@ const service = {
       service_name: '等待配送',
       servic_class: 'c-textlength h3',
       box: 'box',
+      link:devUrl+'/images/index/line5.svg'
     },
     {
       flow_id: 5,
@@ -50,6 +54,7 @@ const service = {
       service_name: '收到植栽',
       servic_class: 'c-textlength h3',
       box: 'box',
+      link:devUrl+'/images/index/line3.svg'
     },
     {
       flow_id: 6,

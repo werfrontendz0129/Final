@@ -1,69 +1,396 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "react-nice-dates/src/style.scss";
 
-@media screen and (max-width: 1200px) {
-  .v-card-lg {
-    width: 765px;
-    background-color: transparent;
+// @media screen and (max-width: 1200px) {
+//   .v-card-lg {
+//     width: 765px;
+//     background-color: transparent;
+//   }
+//   .v-product-img-lg {
+//     // background-color: rgb(85, 202, 69);
+//     // max-width: 715px;
+//     width: 715px;
+//     height: 715px;
+//     object-fit: cover;
+//   }
+//   .v-img-part {
+//     margin: 0;
+//     justify-content: center;
+//     // background-color: bisque;
+//   }
+// }
+// // 下面是1200以上
+// .v-price {
+//   color: #e58f80;
+//   font-size: 24px;
+// }
+
+// .v-input-style {
+//   .input {
+//     background-color: #fff;
+//     width: 60%;
+//     height: 48px;
+//     font-size: 16px;
+//     color: #838383;
+//     border-radius: 1px;
+//     border: 1px solid #838383;
+//     padding: 5px;
+//   }
+//   .rent-date:focus,
+//   input:focus {
+//     outline: 0;
+//     border-radius: 1px;
+//     border: 2px solid #494949;
+//     z-index: 2;
+//   }
+// }
+
+// .v-input-style-lg {
+//   input,
+//   select {
+//     background-color: #fff;
+//     /* width:440px; */
+//     height: 48px;
+//     font-size: 16px;
+//     color: #838383;
+//     border-radius: 1px;
+//     border: 1px solid #838383;
+//     padding: 5px;
+//   }
+//   select:focus,
+//   input:focus {
+//     box-shadow: 0;
+//     border-radius: 1px;
+//     border: 2px solid #494949;
+//     z-index: 2;
+//     box-shadow: inset 0 1px 1px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255);
+//   }
+// }
+
+// .v-btn-g {
+//   button,
+//   input {
+//     height: 48px;
+//     border-radius: 1px;
+//     color: #fff;
+//     border: 0;
+//   }
+//   input:focus {
+//     opacity: 0.8;
+//     outline: 0;
+//   }
+//   .btn-secondary:hover {
+//     color: #fff;
+//   }
+// }
+
+// .v-btn-addlike {
+//   button {
+//     background-color: #e58f80;
+//   }
+//   button:active {
+//     background-color: #e58f80;
+//   }
+// }
+
+// .v-btn-checkdate {
+//   input,
+//   button {
+//     background-color: #6c8650;
+//   }
+// }
+
+// .v-disabled {
+//   background-color: #d1cfcf;
+//   color: #838383;
+// }
+
+// .v-bg {
+//   background: linear-gradient(to bottom, #ebebeb 100%, #fff);
+//   background-size: 100vw 400px;
+//   background-repeat: no-repeat;
+//   padding-top: 75px;
+// }
+// @media screen and (max-width: 800px) {
+//   .v-bg {
+//     padding-top: 0;
+//   }
+// }
+
+// .v-card-lg {
+//   margin: 0 auto;
+//   max-width: 1200px;
+//   background: #fff;
+// }
+
+// .v-detail-lg {
+//   padding: 0 120px;
+// }
+
+// .v-img-part {
+//   margin: 0 25px;
+//   padding: 0;
+// }
+
+// .v-form-part {
+//   margin: 25px;
+//   padding: 0 20px 0 0;
+// }
+// .DatePicker_input {
+//   text-align: left;
+// }
+// .v-product-left {
+//   width: 20px;
+// }
+
+// .v-product-right {
+//   // background-color: rgb(233, 0, 0);
+//   width: 20px;
+// }
+
+// .v-is-active {
+//   opacity: 1;
+//   border: 3px solid #a8ae91;
+//   transition: 0.2s;
+// }
+
+// .v-not-active {
+//   opacity: 0.5;
+//   border: 0;
+//   transition: 0.2s;
+// }
+// .v-product-img-browse {
+//   max-width: 600px;
+//   justify-content: space-between;
+//   padding: 25px 0 100px 0;
+//   text-align: center;
+// }
+// @media screen and (max-width: 1200px) {
+//   .v-product-img-browse {
+//     padding: 25px 5px 30px 5px;
+//   }
+// }
+// .v-product-img-lg {
+//   // width: 100%;
+//   height: 100%;
+//   max-width: 600px;
+//   max-height: 600px;
+//   object-fit: cover;
+//   margin: 25px 0;
+//   transition: 0.2s;
+// }
+
+// .v-product-img-sm {
+//   width: 90%;
+//   height: 120px;
+//   object-fit: cover;
+
+//   /* background:powderblue; */
+// }
+// @media screen and (max-width: 1200px) {
+//   .v-product-description {
+//     margin-bottom: 50px;
+//   }
+// }
+// .v-card-des-wrapper {
+//   margin-top: 100px;
+//   align-self: flex-end;
+// }
+
+// .v-card-des-rwd {
+//   margin-top: 30px;
+//   // background: turquoise;
+// }
+
+// .v-card-des-wrapper img {
+//   width: 40px;
+//   height: 40px;
+//   margin: 5px;
+//   cursor: pointer;
+//   transition: 0.2s;
+// }
+
+// .v-share {
+//   margin: 10px 0 10px;
+//   img {
+//     width: 40px;
+//     height: 40px;
+//     margin: 5px;
+//   }
+//   img:hover {
+//     opacity: 0.8;
+//     transition: 0.2s;
+//   }
+// }
+
+// .v-share-text {
+//   font-size: 20px;
+// }
+
+// .v-btn-disabled {
+//   color: #fff;
+//   background-color: #838383;
+//   border: 0;
+// }
+.gray_background {
+  width: 100%;
+  height: 480px;
+  background-color: #ebebeb;
+}
+.v-bg {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: -380px;
+  background-color: #ffffff;
+  padding: 25px;
+  @media screen and (max-width: 1200px) {
+    max-width: 640px;
   }
-  .v-product-img-lg {
-    // background-color: cadetblue;
-    max-width: 715px;
+
+  .v-card-lg {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    @media screen and (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .v-img-part {
-    margin: 0;
-    justify-content: center;
-    // background-color: bisque;
+    width: 100%;
+    margin-right: 80px;
+    @media screen and (max-width: 1200px) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .v-product-img-lg {
+      width: 580px;
+      height: 580px;
+      object-fit: cover;
+      border-radius: 1px;
+      @media screen and (max-width: 1200px) {
+        padding-left: 10px;
+      }
+    }
+    .v-product-img-browse {
+      width: 580px;
+      margin: 25px auto;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      .imgBox {
+        flex: 1 0 0;
+        margin: 0 5px;
+        .v-product-img-sm {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 1px;
+        }
+        .v-is-active {
+          opacity: 1;
+          border: 3px solid #a8ae91;
+          transition: 0.2s;
+        }
+        .v-not-active {
+          opacity: 0.5;
+          border: 0;
+          transition: 0.2s;
+        }
+      }
+    }
   }
-}
-// 下面是1200以上
-.v-price {
-  color: #e58f80;
-  font-size: 24px;
-}
 
-.v-input-style {
-  .input {
-    background-color: #fff;
-    width: 60%;
-    height: 48px;
-    font-size: 16px;
-    color: #838383;
-    border-radius: 1px;
-    border: 1px solid #838383;
-    padding: 5px;
-  }
-  .rent-date:focus,
-  input:focus {
-    outline: 0;
-    border-radius: 1px;
-    border: 2px solid #494949;
-    z-index: 2;
+  .v-form-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (max-width: 1200px) {
+      // max-width: 600px;
+    }
+    .inputAndButton {
+      flex: 3 0 0;
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        margin: 10px 0 16px;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+      .v-price {
+        color: #e58f80;
+        font-size: 24px;
+      }
+    }
+    .v-card-des-wrapper {
+      flex: 1 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .input {
+      background-color: #fff;
+      width: 60%;
+      height: 48px;
+      font-size: 16px;
+      color: #838383;
+      border-radius: 1px;
+      border: 1px solid #838383;
+      padding: 5px;
+    }
+    .v-input-style:focus,
+    input:focus {
+      outline: 0;
+      border-radius: 1px;
+      border: 2px solid #494949;
+      z-index: 2;
+    }
+    .v-input-style-lg {
+      input,
+      select {
+        background-color: #fff;
+        /* width:440px; */
+        height: 48px;
+        font-size: 16px;
+        color: #838383;
+        border-radius: 1px;
+        border: 1px solid #838383;
+        padding: 5px;
+      }
+      select:focus,
+      input:focus {
+        box-shadow: 0;
+        border-radius: 1px;
+        border: 2px solid #494949;
+        z-index: 2;
+        box-shadow: inset 0 1px 1px rgb(255, 255, 255),
+          0 0 8px rgb(255, 255, 255);
+      }
+    }
   }
 }
-
-.v-input-style-lg {
-  input,
-  select {
-    background-color: #fff;
-    /* width:440px; */
-    height: 48px;
-    font-size: 16px;
-    color: #838383;
-    border-radius: 1px;
-    border: 1px solid #838383;
-    padding: 5px;
+.v-btn-addlike {
+  button,
+  button:active {
+    background-color: #e58f80;
   }
-  select:focus,
-  input:focus {
-    box-shadow: 0;
-    border-radius: 1px;
-    border: 2px solid #494949;
-    z-index: 2;
-    box-shadow: inset 0 1px 1px rgb(255, 255, 255), 0 0 8px rgb(255, 255, 255);
+  button:focus {
+    color: #fff;
+    background-color: #dd8575;
   }
 }
-
+.v-btn-checkdate {
+  button {
+    background-color: #6c8650;
+    border-radius: 1px;
+  }
+  button:focus {
+    background-color: #6c8650;
+    color: #fff;
+  }
+}
 .v-btn-g {
   button,
   input {
@@ -80,117 +407,16 @@
     color: #fff;
   }
 }
-
-.v-btn-addlike {
-  button {
-    background-color: #e58f80;
-  }
-  button:active {
-    background-color: #e58f80;
-  }
-}
-
-.v-btn-checkdate {
-  input,
-  button {
-    background-color: #6c8650;
-  }
-}
-
-.v-disabled {
-  background-color: #d1cfcf;
-  color: #838383;
-}
-
-.v-bg {
-  background: linear-gradient(to bottom, #ebebeb 100%, #fff);
-  background-size: 100vw 400px;
-  background-repeat: no-repeat;
-  padding-top: 75px;
-}
-@media screen and (max-width: 800px) {
-  .v-bg {
-    padding-top: 0;
-  }
-}
-
-.v-card-lg {
-  margin: 0 auto;
-  max-width: 1200px;
-  background: #fff;
-}
-
-.v-detail-lg {
-  padding: 0 120px;
-}
-
-.v-img-part {
-  margin: 0 25px;
-  padding: 0;
-}
-
-.v-form-part {
-  margin: 25px;
-  padding: 0 20px 0 0;
-}
-.DatePicker_input {
-  text-align: left;
-}
-.v-product-left {
-  width: 20px;
-}
-
-.v-product-right {
-  // background-color: rgb(233, 0, 0);
-  width: 20px;
-}
-
-.v-product-img-browse {
-  // max-width: 600px;
-  justify-content: space-between;
-  padding: 25px 5px 100px 5px;
-}
-@media screen and (max-width: 1200px) {
-  .v-product-img-browse {
-    padding: 25px 5px 30px 5px;
-  }
-}
-.v-product-img-lg {
-  width: 100%;
-  // height: 600px;
-  object-fit: cover;
-  margin: 25px 0;
-}
-
-.v-product-img-sm {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  /* background:powderblue; */
-}
-@media screen and (max-width: 1200px) {
-  .v-product-description {
-    margin-bottom: 50px;
-  }
-}
-.v-card-des-wrapper {
-  margin-top: 100px;
-}
-
-.v-card-des-rwd {
-  margin-top: 30px;
-  // background: turquoise;
-}
-
 .v-card-des-wrapper img {
   width: 40px;
   height: 40px;
   margin: 5px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .v-share {
-  margin: 10px 0;
+  margin: 10px 0 10px;
   img {
     width: 40px;
     height: 40px;
@@ -200,8 +426,4 @@
     opacity: 0.8;
     transition: 0.2s;
   }
-}
-
-.v-share-text {
-  font-size: 20px;
 }

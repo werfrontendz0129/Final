@@ -9,6 +9,7 @@ function ShoppingCartCheckoutBoxPurchase(props){
   const [coupon, setCoupon] = useState(0)
   const [couponCode, setcouponCode] = useState("")
   const [conponvar, setConponvar] = useState("")
+  
 
   const updateCartToLocalStorage = (item) => {
     const currentCart = JSON.parse(localStorage.getItem('prices')) || []
@@ -28,9 +29,11 @@ function ShoppingCartCheckoutBoxPurchase(props){
     // 設定資料
     setMycart(currentCart)
   }
-    return(
+    return ( 
     <>
-    <div className="card position-fixed">
+      {props.val>0? (
+   
+    <div className="card">
       <div className="card-body b-shippingcart-box-card-body">
         <dl className="b-shippingcart-boxdlist-align">
             <dt className="font-weight-normal">金額總計:</dt>
@@ -49,7 +52,7 @@ function ShoppingCartCheckoutBoxPurchase(props){
             <div class="input-group m-0"> 
               <input type="text" class="form-control b-Verification-coupon-info mb-1" name="" onChange={(e)=>setcouponCode(e.target.value)} defaultvalue={couponCode} placeholder="請輸入優惠碼" />
               <span class="input-group-append"> 
-              <input type="button" value="新增" 
+              <input  style={{width:50}} type="button" value="新增" 
               onClick={()=>{
                 switch(couponCode){
                   case 'NEW10OFF':
@@ -100,7 +103,8 @@ function ShoppingCartCheckoutBoxPurchase(props){
           <ModalShippingInfo />
         </div>
       </div>
-     </>
+      ) : ("")} 
+      </>
     )}
 
 export default ShoppingCartCheckoutBoxPurchase

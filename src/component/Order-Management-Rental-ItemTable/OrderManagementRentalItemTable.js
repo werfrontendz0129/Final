@@ -6,19 +6,20 @@ import Axios from 'axios';
 function OrderManagementRentalItemTable() {
     const[orderitemview, setOrderitemview] = useState([]);
     const [mycart, setMycart] = useState([])
+    const Return = JSON.parse(localStorage.getItem('submit')) || '[]'
 
     const updateCartToLocalStorage = (item) => {
         const currentCart = JSON.parse(localStorage.getItem('return')) || []
+        
     
         // find if the product in the localstorage with its id
         const index = currentCart.findIndex((v) => v.id === item.id)
         if (index > -1) {
-            //currentCart[index].amount++
-            alert('這個商品已經加過了')
+            
             return
           } else {
             currentCart.push(item)
-            alert('商品已經加入購物車')
+          
           }
       
   
@@ -30,7 +31,7 @@ function OrderManagementRentalItemTable() {
 
 
     useEffect(()=>{
-        Axios.get('http://localhost:3005/orderList/')
+        Axios.get('http://localhost:3001/orderList/')
         .then((response) => {
             setOrderitemview(response.data[0].user_rental[0].prodId[0]) 
         })
@@ -77,7 +78,10 @@ function OrderManagementRentalItemTable() {
                                     <p className="text-center">{orderitemview.enddates}</p>
                                 </td>
                                 <td className="align-middle text-center">大型植栽</td>
-                                <td className="b-member-Rental-orderorderstatus align-middle text-center">租賃中</td>
+                                {Return == '[]'? ( <td className="b-member-Rental-orderorderstatus align-middle text-center">租賃中</td>)
+                                :
+                                ( <td className="b-member-Rental-orderorderstatus align-middle text-center" style={{color:"#E58F80"}}>申請退租</td>)
+                                }
                                 <td className="align-middle text-center">{orderitemview.qtys}</td>
                                 <td className="align-middle text-center">NT${orderitemview.price}</td>
                                 <td className="align-middle text-center">NT${orderitemview.price * orderitemview.qtys}</td>
@@ -93,7 +97,7 @@ function OrderManagementRentalItemTable() {
                         </NavLink>
 
                         <NavLink 
-                        to='/members/:name&:order_id/rentalreturn' 
+                        to='/members/rentalreturn' 
                         type="button" 
                         className="b-member-Rental-order-btn b-member-Rental-order-btn-cancelrent"
                         onClick={() => {

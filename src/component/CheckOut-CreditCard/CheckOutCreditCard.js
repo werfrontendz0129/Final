@@ -65,9 +65,20 @@ export default class App extends React.Component {
   render() {
     const { number, expiry, cvc, focused, issuer, formData, card_holder, card_tag, BillingCity, BillingDistrict, BillingDetail } = this.state;
 
-    const refreshPage = ()=>{
-      window.location.replace('/checkout/orderview-rental' );
-  }
+    const updatedtoloaclstoragem = (item)=>{
+      const currentCart = JSON.parse(localStorage.getItem('payment')) || []
+      const index = currentCart.findIndex((v) => v.id === item.id)
+      if (index > -1) {
+        localStorage.removeItem('payment')
+        const currentCart = JSON.parse(localStorage.getItem('payment')) || []
+        currentCart.push(item)
+        localStorage.setItem('payment', JSON.stringify(currentCart))
+        return
+      } else {
+        currentCart.push(item)
+      }
+      localStorage.setItem('payment', JSON.stringify(currentCart));
+    }
     return (
       <div key="Payment">
         <div className="App-payment d-flex" >
@@ -96,7 +107,6 @@ export default class App extends React.Component {
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
-              <small>E.g.: 49..., 51..., 36..., 37...</small>
             </div>
             <div className="form-group">
               <input
@@ -188,7 +198,15 @@ export default class App extends React.Component {
             </div>
             <input type="hidden" name="issuer" value={issuer} />
             <div className="form-actions d-flex justify-content-center">
-              <button onClick={refreshPage}to="/checkout/orderview-rental"  className="b-checkout-checkoutbox-address-btn-main btn-block m-1">確認</button>
+              <button  onClick={() => {
+                updatedtoloaclstoragem({
+                  card_holder : card_holder,
+                  number : number,
+                  expiry : expiry,
+                  cvc : cvc
+                })
+                window.location.replace('/checkout/orderview-rental')}}
+            className="b-checkout-checkoutbox-address-btn-main btn-block m-1">確認</button>
             </div>
           </form>
         </div>

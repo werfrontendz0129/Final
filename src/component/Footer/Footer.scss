@@ -7,6 +7,7 @@ $h6-font-size: 16px * 0.875; //14px
 $h7-font-size: 16px * 0.75; //12px
 .c-width100 {
   // width: 100%;
+  margin-top: 16px;
   max-width: 1440px;
 
   // max-width: 1440px;
@@ -17,7 +18,10 @@ $h7-font-size: 16px * 0.75; //12px
   border-top: 1px solid #d1cfcf;
 }
 .c-paddingtome {
-  height: 7.5rem;
+  height: 7.8rem;
+}
+.c-paddingtome2 {
+  height: 0.5rem;
 }
 .c-footheight {
   height: 21rem;

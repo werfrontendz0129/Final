@@ -6,10 +6,8 @@ import './AccountView.scss'
 // 此頁為測試資料
 // 
 function AccountView(props) {
-    const [members, setMembers] = useState('AccountViewtest')
-    // 是否連到members資料?
-    console.log('members?:',members); 
-
+    const {data} = props
+    // console.log(data.member_account )
     const [member, setMember] = useState()
 
     
@@ -32,54 +30,52 @@ function AccountView(props) {
 
     // let {id} = useParams()
 
-    async function getMembers() {
-        try {
-            const response = await fetch(
-                'http://localhost:3001/members',
-                {
-                    method:'get',
-                }
-            )
-            if(response.ok) {
-                const data = await response.json()
-                console.log('data:',data)
+    // async function getMembers() {
+    //     try {
+    //         const response = await fetch(
+    //             'http://localhost:3001/members',
+    //             {
+    //                 method:'get',
+    //             }
+    //         )
+    //         if(response.ok) {
+    //             const data = await response.json()
+    //             console.log('data:',data)
 
-                setMembers(data)
-            }
-        } catch(error) {
-            console.log(error)
-        }
-    }
+    //             setMembers(data)
+    //         }
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }
 
     // 無法取得特定id會員
-    async function getMember(id) {
-        try {
-            const response = await fetch(
-                'http://localhost:3001/members/',
-                {
-                    method:'get',
-                }
-            )
-            if(response.ok) {
-                const data2 = await response.json()
-                console.log('?:',data2) 
+    // async function getMember(id) {
+    //     try {
+    //         const response = await fetch(
+    //             'http://localhost:3001/members/',
+    //             {
+    //                 method:'get',
+    //             }
+    //         )
+    //         if(response.ok) {
+    //             const data2 = await response.json()
+    //             console.log('?:',data2) 
                 
-                setMember(data2)
-                // console.log('???:',data);
-            }
-        } catch(error) {
-            alert('no data, try later')
-        }
-    }
+    //             setMember(data2)
+    //             // console.log('???:',data);
+    //         }
+    //     } catch(error) {
+    //         alert('no data, try later')
+    //     }
+    // }
 
-    useEffect(()=>{
-        getMembers()
-    },[])
+    // useEffect(()=>{
+    //     getMembers()
+    // },[])
     
     return (
         <>
-            
-                {/* 目前是取members第1筆會員 */}
                 
                 <div className="w-account-view">
                 <div className="w-div-title">
@@ -93,7 +89,7 @@ function AccountView(props) {
                                 <input 
                                     type="email" readonly 
                                     className="form-control-plaintext" 
-                                    value={members[0].member_account}
+                                    value={data.member_account}
                                     disabled 
                                     />
                             </div>
@@ -104,7 +100,7 @@ function AccountView(props) {
                                 <input 
                                     type="text" readonly 
                                     className="form-control-plaintext" 
-                                    value={members[0].member_name}
+                                    value={data.member_name}
                                     disabled
                                     />
                             </div>
@@ -115,7 +111,7 @@ function AccountView(props) {
                                 <input 
                                     type="text" readonly 
                                     className="form-control-plaintext" 
-                                    value={members[0].member_gender}
+                                    value={data.member_gender}
                                     disabled
                                     />
                             </div>
@@ -126,7 +122,7 @@ function AccountView(props) {
                                 <input 
                                     type="text" readonly 
                                     className="form-control-plaintext" 
-                                    value={members[0].member_phone}
+                                    value={data.member_phone}
                                     disabled
                                     />
                             </div>
@@ -137,14 +133,14 @@ function AccountView(props) {
                                 <input 
                                     type="text" readonly 
                                     className="form-control-plaintext" 
-                                    value={members[0].member_birthdate}
+                                    value={data.member_birthdate}
                                     disabled
                                     />
                             </div>
                         </div>
                     </form>
                     {/* bug~~~跳轉到編輯個人檔案的頁面有問題，需要重新整理才會跑出會員檔案 */}
-                    <NavLink to="/memberedit" className="w-accounteditbutton">編輯個人檔案 Edit</NavLink>
+                    <NavLink to={`/member/memberedit/${props.id}`} className="w-accounteditbutton">編輯個人檔案 Edit</NavLink>
                 </div>
             </div>
         </>

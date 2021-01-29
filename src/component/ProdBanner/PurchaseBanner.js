@@ -29,9 +29,9 @@ function PurchaseBanner() {
   };
 
 const imgSlide= [
-  devUrl + '/images/images/rentprodindex/banner-prod1-01.jpg' ,
-  devUrl + '/images/images/rentprodindex/banner-prod2-02.jpg' ,
-  devUrl + '/images/images/rentprodindex/banner-prod3-03.jpg' ,
+  devUrl + '/images/images/saleprodindex/purchase_banner_1.jpg' ,
+  devUrl + '/images/images/saleprodindex/purchase_banner_2.jpg' ,
+  devUrl + '/images/images/saleprodindex/purchase_banner_3.jpg' ,
 ]
 
 

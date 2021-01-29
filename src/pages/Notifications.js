@@ -4,17 +4,17 @@ import {withRouter} from 'react-router-dom'
 import MemberAvatar from '../component/MemberAvatar/MemberAvatar'
 import MemberContent from '../component/MemberContent/MemberContent'
 import NotifyTabs from '../component/NotifyTabs/NotifyTabs'
-import MemberHeader from '../component/MemberHeader/MemberHeader'
-// import MyBreadcrumb from '../components/MyBreadcrumb/MyBreadcrumb'
 import Header from '../component/Header/Header'
+// import MyBreadcrumb from '../components/MyBreadcrumb/MyBreadcrumb'
 import Footer from '../component/Footer/Footer'
+
 function Notifications(props) {
-    const {isAuth} = props
+    // const {isAuth} = props
+    // console.log('test',props)
 
     return (
         <>
-        <Header />
-            {/* <MemberHeader /> */}
+            <Header />
             {/* <MyBreadcrumb /> */}
             {/* test */}
             {/* {isAuth ? '會員登入，xxx你好' : '未登入'} */}
@@ -22,13 +22,13 @@ function Notifications(props) {
             <section className="w-wrapper d-flex">
             <div className="w-card">
                 <MemberAvatar />
-                <MemberContent />
+                <MemberContent id={props.id}/>
             </div>
             <div className="w-article">
-                <NotifyTabs />
+                <NotifyTabs id={props.match.params.id}/>
             </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     )
 }

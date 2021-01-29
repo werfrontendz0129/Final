@@ -10,7 +10,10 @@ import {
   Button,
   NavDropdown,
 } from 'react-router-dom'
-import { UserContext} from './component/Index/UserContext'
+import {UserContext} from './component/Index/UserContext'
+import {Result} from './component/useContext/Result'
+import {Todo} from './component/useContext/Todo'
+import {UserItem} from './component/useContext/UserItem'
 //Index
 import Home from './pages/Home'
 //Course
@@ -37,6 +40,7 @@ import Lesson from './pages/Lesson'
 import LessonDetail from './pages/LessonDetail'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
+import OrderlistTablePurchase from './component/PurchaseOrderContent/PurchaseOrderContent'
 //Order
 import OrderManagementPurchase        from './pages/OrderManagementPurchase'
 import OrderManagementPurchaseReturn  from './pages/OrderManagementPurchaseReturn'
@@ -50,21 +54,40 @@ import ShoppingCartCompletePurchase          from './pages/ShoppingCartCompleteP
 import ShoppingCartPaymentSelectPurchase      from './pages/ShoppingCartPaymentSelectPurchase'
 import ShoppingCartPurchase           from './pages/ShoppingCartPurchase'
 import ShoppingCartRental             from './pages/ShoppingCartRental' 
-// import Test from './Test'
+
+import VScrollToTop from './component/VScrollToTop'
+import {useTEST} from './component/useTEST'
 
 function App() {
+
+
   const [user , setUser] = useState(null)
+  const [toBuy , setToBuy] = useState(null)
+  const [qu, setQu] = useState(null)
+  const [date, setDate] = useState(null)
+
   const value = useMemo(()=>({user, setUser}),[user,setUser])
-  
-  
+  const itemName = useMemo(()=>({toBuy, setToBuy}),[toBuy , setToBuy])
+  const itemQ = useMemo(()=>({qu, setQu}),[qu, setQu])
+  const itemDate = useMemo(()=>({date, setDate}),[date, setDate])
+  const [values,setValues] = useState([])
+  const memberDetail = useMemo(()=>({values,setValues}),[values,setValues])
   const [occasion,setOccasion]=useState('')
+  const member_id = 1
   return (
   <Router>
       <>
+      <VScrollToTop>
         <Switch>
+        <Result.Provider value={itemName}>
+        <UserItem.Provider value={itemQ}>
+        <Todo.Provider value={itemDate}>
         <UserContext.Provider value={value}>
+        <useTEST.Provider value={memberDetail}>
         {/* Index */}
           <Route exact path="/" component={()=><Home />} />
+          <Route exact path="/login" component={()=> <Login />} /> 
+          <Route exact path="/register" component={()=><Register />} /> 
         {/* Courses */}
           <Route exact path="/course" component={()=><CourseGuide />} />
           <Route exact path="/course/:id" component={()=><CourseInfo />} />
@@ -77,33 +100,38 @@ function App() {
           <Route exact path="/purchase/list" component={()=><PurchaseProdList occasion={occasion}/>} />
           <Route exact path="/purchase/list/:id" component={()=><PurchaseProdDetail />} />
         {/* Members */}
-          <Route exact path="/member" component={()=><Member />} />
-          <Route exact path="/memberedit" component={()=><MemberEditProfile />} />
-          <Route exact path="/notifications" component={()=><Notifications />} />
-          <Route exact path="/mycollections" component={()=><MyCollections />} />
-          <Route exact path="/rentalorder" component={()=><RentalOrder />} />
-          <Route exact path="/purchaseorder" component={()=><PurchaseOrder />} />
-          <Route exact path="/lesson/lessondetail" component={()=><LessonDetail />} />
-          <Route exact path="/lesson" component={()=><Lesson />} />
-          <Route exact path="/register" component={()=><Register />} />
+          <Route exact path="/member/lesson/:id?/lessondetail/:course_id" component={()=><LessonDetail id={member_id} />} />
+
+          <Route exact path="/member/:id?" component={()=><Member id={member_id}  />} />
+          <Route exact path="/member/memberedit/:id?" component={()=><MemberEditProfile id={member_id} />} />
+          <Route exact path="/member/notifications/:id?" component={()=><Notifications id={member_id} />} />
+          <Route exact path="/member/mycollections/:id?" component={()=><MyCollections id={member_id} />} />
+          <Route exact path="/member/rentalorder/:id?" component={()=><RentalOrder id={member_id} />} />
+          <Route exact path="/member/purchaseorder/:id?" component={()=><PurchaseOrder id={member_id} />} />
+          <Route exact path="/member/lesson/:id?" component={()=><Lesson id={member_id} />} />
           <Route exact path="/forgotpassword" component={()=><ForgotPassword />} />
           <Route exact path="/resetpassword" component={()=><ResetPassword />} />
-          <Route exact path="/login" component={()=> <Login />} />
+          {/* <Route exact path="/login" component={()=> <OrderlistTablePurchase />} />  */}
         {/* Order */}
           {/* <Route exact path="/members/:name&:order_id/purchase_detail" component={()=>  <OrderManagementPurchase />} />
           <Route exact path="/members/:name&:order_id/purchase_return" component={()=>  <OrderManagementPurchaseReturn />} /> */}
-          <Route exact path="/members/:name&:order_id/rentaldetail" component={()=>  <OrderManagementRental />} />
-          <Route exact path="/members/:name&:order_id/rentalreturn" component={()=>   <OrderManagementRentalReturn />  } />
-          <Route exact path="/main/shoppingcart-rental" component={()=>  <ShoppingCartRental />} />
-          {/* <Route exact path="/main/shoppingcart-purchase" component={()=>  <ShoppingCartPurchase /> } /> */}
-          <Route exact path="/checkout/selectaddress-rental" component={()=>  <ShoppingCartAddressSelectRental /> } />
-          <Route exact path="/checkout/selectpayment-rental" component={()=>  <ShoppingCartPaymentSelectRental /> } />
-          <Route exact path="/checkout/orderview-rental" component={()=>  <ShoppingCartCompleteRental  /> } />
+          <Route exact path="/members/rentaldetail" component={()=> <OrderManagementRental />} />
+          <Route exact path="/members/rentalreturn" component={()=> <OrderManagementRentalReturn />  } />
+          <Route exact path="/main/shoppingcart-rental" component={()=> <ShoppingCartRental />} />  {/* 1 */}
+          <Route exact path="/main/shoppingcart-purchase" component={()=>  <ShoppingCartPurchase /> } />
+          <Route exact path="/checkout/selectaddress-rental" component={()=> <ShoppingCartAddressSelectRental /> } /> {/* 2 */}
+          <Route exact path="/checkout/selectpayment-rental" component={()=> <ShoppingCartPaymentSelectRental /> } /> {/* 3 */}
+          <Route exact path="/checkout/orderview-rental" component={()=> <ShoppingCartCompleteRental  /> } /> {/* 4 */}
           {/* <Route exact path="/checkout/selectaddress-purchase" component={()=>  <ShoppingCartAddressSelectPurchase /> } />      
           <Route exact path="/checkout/selectpayment-purchase" component={()=>  <ShoppingCartPaymentSelectPurchase />} />
           <Route exact path="/checkout/orderview-purchase" component={()=>  <ShoppingCartCompletePurchase  /> } /> */}
+        </useTEST.Provider>
         </UserContext.Provider>
+        </Todo.Provider>
+        </UserItem.Provider>
+        </Result.Provider>
         </Switch>
+      </VScrollToTop>  
       </>
   </Router>
 

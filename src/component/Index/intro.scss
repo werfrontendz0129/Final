@@ -19,11 +19,21 @@ $h7-font-size: 16px * 0.75; //12px
 .c-intro {
   width: 100vw;
   height: 122.2vh;
+  margin-bottom: 5rem;
   //   padding: 0 120px;
-
-  .c-10 {
-    padding: 0 120px;
+  position: relative;
+  .c-testback {
+    background-color: #ddd;
+    position: absolute;
     width: 100vw;
+    height: 120vh;
+    top: 12.2vh;
+    z-index: -1;
+  }
+  .c-10 {
+    margin: 0 auto;
+    padding: 0 120px;
+    max-width: 1440px;
     height: 12.2vh;
     // position: relative;
     .c-about {
@@ -40,10 +50,11 @@ $h7-font-size: 16px * 0.75; //12px
     }
   }
   .c-100 {
+    margin: 0 auto;
     padding: 0 120px;
-    width: 100vw;
+    width: 1440px;
     height: 110vh;
-    background-color: #ddd;
+    // background-color: #ddd;
     .c-whoweare {
       margin: 4.6875rem 0 0 0;
       padding: 0;
@@ -57,6 +68,7 @@ $h7-font-size: 16px * 0.75; //12px
       }
     }
     .c-mission {
+      position: absolute;
       .c-70 {
         color: #707070;
         margin: 0 0 3rem 0;
@@ -65,6 +77,7 @@ $h7-font-size: 16px * 0.75; //12px
         line-height: 1.75rem;
       }
       .c-gbutton {
+        cursor: pointer;
         background-color: #6c8650;
         color: #fff;
         width: 200px;
@@ -73,11 +86,16 @@ $h7-font-size: 16px * 0.75; //12px
         line-height: 50px;
         margin-top: 56px;
       }
+      .c-gbutton:hover {
+        opacity: 0.8;
+        transition: 0.2s;
+      }
     }
+
     .c-Ourmission {
       position: relative;
       figure {
-        top: -180px;
+        top: -240px;
         right: 0px;
         position: absolute;
         width: 425px;
@@ -89,5 +107,9 @@ $h7-font-size: 16px * 0.75; //12px
       }
     }
   }
+}
+.c-rbutton:hover {
+  opacity: 0.8;
+  transition: 0.2s;
 }
 @import "~bootstrap/scss/bootstrap.scss";

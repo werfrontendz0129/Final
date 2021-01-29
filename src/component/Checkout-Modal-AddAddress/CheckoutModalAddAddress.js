@@ -3,9 +3,19 @@ import Axios from 'axios';
 import {Modal, Button, Col, Container, Form} from 'react-bootstrap';
 
 function CheckoutModalAddAddress(props) {
-    const url = "http://localhost:3005/orderList/create"
+    const url = "http://localhost:3001/orderList/create"
     const [lgShow, setLgShow] = useState(false);
     const [orderData, setOrderData] = useState([])
+    const autoform = {
+      addressCity:"台北市",
+      addressDistrict:"松山區",
+      addressDetail:"八德路1段1弄1號",
+      receiver:"Vivian Lee",
+      phone:"0958777888",
+      shipping_method:"宅配",
+      address_tag:"台北總店",
+      }
+    
     const [data, setData] = useState({
       addressCity:"",
       addressDistrict:"",
@@ -50,13 +60,20 @@ function CheckoutModalAddAddress(props) {
           <Modal.Title id="example-modal-sizes-title-lg">
            新增地址
           </Modal.Title>
+          <button type="button"
+            className="btn btn-outline-success ml-2"
+            style={{ border:0, borderRadius:1}}
+            onClick={()=> {
+            setData(autoform)
+            }}
+            >小幫手</button>
         </Modal.Header>
         <Modal.Body>
         <div className="container">
               <form onSubmit={submit}>
                 <div className="form-group">
                   <label htmlFor="address_tag">地址識別名稱 </label>
-                  <input onChange={handle} value={data.address_tag} type="text" name="address_tag"  id="address_tag" className="form-control" placeholder="請輸入tag"  />
+                  <input onChange={handle} value={data.address_tag} type="text" name="address_tag"  id="address_tag" className="form-control" placeholder="請輸入地址識別名稱"  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="receiver">收件人</label>
@@ -82,7 +99,9 @@ function CheckoutModalAddAddress(props) {
                   <label htmlFor="shipping_method">寄件方式</label>
                   <input onChange={handle} value="宅配" type="text" name="shipping_method"  id="shipping_method" className="form-control" placeholder="選擇寄件模式"  />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <div className="d-flex justify-content-center">
+                  <button type="submit" className="btn btn-outline btn-primary" style={{width:200, backgroundColor: "#6C8650",border:0, borderRadius:1}}>新增地址</button>
+                </div>
               </form>
             </div>
         </Modal.Body>

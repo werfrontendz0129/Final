@@ -55,16 +55,17 @@ function CheckoutCheckoutBoxPaymentSelectRental(){
       {cerditcard.map((v,index)=>{
         return (
           <>
-          <tr class="d-flex justify-content-between">  
+          <tr class="d-flex justify-content-between b-select-readio-boc-payment">  
             <th class="d-flex justify-content-between align-items-center" scope="row" width="185" height="100">
               <div class="form-check ml-3">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" 
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id={"flexRadioDefault1" + v.card_tag}
                 value={v.creditcard_owner}
-                checked ={v.creditcard_owner === "v.creditcard_owner"}
-                onChange={() =>{setSelectcard(index)}}/>
-                <label class="form-check-label" for="flexRadioDefault1">
+                
+                onChange={() =>{setSelectcard(index)}}
+                  
+                />
+                <label class="form-check-label" for={"flexRadioDefault1" + v.card_tag}>
                 {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{v.card_tag}
-
                 </label>
               </div>
             </th>
@@ -109,13 +110,20 @@ function CheckoutCheckoutBoxPaymentSelectRental(){
 
 
 
-return isLoading == 1 ? <h1>loading</h1> : (!cerditcard[selectcard]? 
-<aside className="col-lg-9 p-0" style={{backgroundColor: "#EBEBEB"}}>
-    <div className="table-responsive d-flex justify-content-center  flex-column text-center">
-          <div style={{marginBottom: -40, marginTop: 70, fontSize: 20, color: "#838383"}}>信用卡資訊尚未添加</div>
-          <div><img style={{width:275, height:275, opacity: "40%"}} src="http://localhost:3000/images/credit-card-with-add-button.png"/></div>
-          <div style={{marginTop: -40, marginBottom: 60, color: "#838383"}}>請點擊上方"新增信用卡"以便繼續完成付款流程</div>
-     </div>
+return isLoading == 1 ? 
+<>
+<div className="d-flex v-spinner">
+          <img style={{width:'300px'}} alt="" src='http://localhost:3000/images/svg/spinner.gif' />
+           {/* <h4 className="mr-2">Loading... </h4> */}
+           {/* <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div> */}
+</div>
+</> 
+: (!cerditcard[selectcard]? 
+<aside className="col-lg-9 p-0">
+  <div className="table-responsive d-flex justify-content-center flex-column text-center">
+  <div style={{marginTop: 50, marginBottom: 30, fontSize: 20, color: "#838383"}}>信用卡資訊尚未添加，請點擊上方<span style={{color:"#E58F80"}}>"新增信用卡"</span>以便繼續完成付款流程</div>
+  <div className="mb-5"><img style={{width:275, height:"100%", opacity: "40%"}} src="http://localhost:3000/images/card.png"/></div>
+  </div>
 </aside>
 
 /////////上方為空頁面畫面
@@ -143,7 +151,7 @@ return isLoading == 1 ? <h1>loading</h1> : (!cerditcard[selectcard]?
   </div>
 </aside>
 <aside className="b-chekcout-payment-checkout-outterbox">
- <div className="card .b-checkout-checkoutbox-payment-card position-fixed">
+ <div className="card .b-checkout-checkoutbox-payment-card">
     <div className="card-body">
       <dl className="dlist-align b-checkout-checkoutbox-payment-dlist-align">
         <dt className="font-weight-normal">持卡人：</dt>
@@ -162,7 +170,7 @@ return isLoading == 1 ? <h1>loading</h1> : (!cerditcard[selectcard]?
             <div class="input-group m-0"> 
               <input type="text" class="form-control b-Verification-payment-info mb-1" name="" onChange={(e)=>setCvc(e.target.value)} defaultvalue={cvc} placeholder="驗證碼" />
               <span class="input-group-append"> 
-              <input type="button" value="驗證" 
+              <input style={{width:50}} type="button" value="驗證" 
               onClick={(e)=>
                 {if(cerditcard[selectcard].cvc == cvc){
                   setVarcvc("驗證成功")
@@ -182,7 +190,7 @@ return isLoading == 1 ? <h1>loading</h1> : (!cerditcard[selectcard]?
         </div>
       <hr />  
       {varcvc=="驗證成功"?
-        <NavLink to='/checkout/orderview-rental' className="b-checkout-checkoutbox-payment-btn-main" data-abc="true" style={{backgroundColor: "#6C8650", color: "#FFFFFF"}}
+        <NavLink to='/checkout/orderview-rental' className="b-checkout-checkoutbox-payment-btn-main" data-abc="true" style={{color:"#fff"}} 
         onClick={() => {
           updatePaymentToLocalStorage({
             card_holder : cerditcard[selectcard].card_holder,

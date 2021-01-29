@@ -3,12 +3,23 @@ import {NavLink} from 'react-router-dom';
 import MemberAvatar from '../component/MemberAvatar/MemberAvatar';
 import MemberContent from '../component/MemberContent/MemberContent';
 import OrderManagementRentalItemTableReturn from '../component/Order-Management-Rental-ItemTable-Return/OrderManagementRentalItemTableReturn'
+import Header from '../component/Header/Header'
+import Footer from '../component/Footer/Footer'
 
-function OrderManagementRentalReturn() {
+
+
+    function OrderManagementRentalReturn() {
+        const updateCartToLocalStorage = (item) => {
+        const currentCart = JSON.parse(localStorage.getItem('return')) || []
+        currentCart.push(item)
+        localStorage.setItem('submit', JSON.stringify(currentCart))
+        localStorage.removeItem('return')
+        }
     return (
         <>
+        <Header />
             <section className="b-member-return-order-wrapper">
-            <div className=" b-member-return-order-card">
+            <div className="w-card">
                 <MemberAvatar />
                 <MemberContent />
             </div>
@@ -44,18 +55,17 @@ function OrderManagementRentalReturn() {
                         </thead>
                         <tbody className="b-member-return-order-orderlist-rent-detailtable">
                             <OrderManagementRentalItemTableReturn />
-                            <OrderManagementRentalItemTableReturn />
-                            <OrderManagementRentalItemTableReturn />
                         </tbody>
                     </table>
                     <div className="b-member-return-order-buttonblock d-flex justify-content-center">
-                        <NavLink to='/members/:name&:order_id/rentaldetail' type="button" className="b-member-return-order-btn b-member-return-btn-checkelse">返回</NavLink>
-                        <NavLink to='submit to backend' type="button" className="b-member-return-order-btn b-member-return-btn-cancelrent">申請退租</NavLink>
+                        <NavLink to='/' type="button" className="b-member-return-order-btn b-member-return-btn-checkelse">返回</NavLink>
+                        <NavLink to='/members/rentaldetail' onClick={() => {updateCartToLocalStorage()}} type="button" className="b-member-return-order-btn b-member-return-btn-cancelrent">申請退租</NavLink>
                     </div>
                 </div>
             </div>
         </div>
             </section>
+        <Footer />
         </>
     )
 }

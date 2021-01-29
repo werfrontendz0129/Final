@@ -5,7 +5,10 @@ import MyCollectionNone from '../MyCollectionNone/MyCollectionNone'
 import {withRouter} from 'react-router-dom'
 
 function MyCollectionContent(props) {
-    const [data, setData] = useState(false)
+    // const [data, setData] = useState(false)
+    // console.log('?',props)
+    // const id = props.match.params.id
+    // console.log('id??',id)
 
     // const display = <MyCollectionTable />
     // const none = <MyCollectionNone />
@@ -17,7 +20,7 @@ function MyCollectionContent(props) {
                     <p>我的收藏</p>
                 </div>
                 <div className="w-collect-main px-2">
-                    <MyCollectionTable />
+                    <MyCollectionTable id={props.match.params.id}/>
 
                 </div>
             </div>  

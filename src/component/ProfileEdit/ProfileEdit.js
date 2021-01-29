@@ -3,13 +3,13 @@ import './ProfileEdit.scss'
 import {withRouter,useHistory} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-
 // 測試data
 // import data from '../../data/users'
 
-function ProfileEdit() {
+function ProfileEdit(props) {
+    // console.log('hihi',props)
     // 目前只取id=1的會員
-    const _id = 1;
+    const _id = props.match.params.id;
 
     const [members, setMembers] = useState('ProfileEdit')
     // console.log('members:',members)
@@ -56,7 +56,7 @@ function ProfileEdit() {
                 console.log(data)
                 
                 if(data.id) alert('ok')
-                history.push('/member')
+                history.push('/member/'+ _id) 
             }
         } catch(error) {
             console.log('error:',error)
@@ -195,9 +195,10 @@ function ProfileEdit() {
                                 title: '確定修改?',
                                 icon: 'warning',
                                 showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
+                                confirmButtonColor: '#6c8650',
                                 cancelButtonColor: '#d33',
-                                confirmButtonText: '是，我要修改!'
+                                confirmButtonText: '是，我要修改!',
+                                cancelButtonText: '返回'
                                 }).then((result) => {
                                 if (result.isConfirmed) 
                                 {

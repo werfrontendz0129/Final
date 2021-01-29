@@ -1,59 +1,59 @@
 .b-complete-tableTitle {
-    background-color: #e6e9da;
-    height: 35px;
-    th {
+  background-color: #e6e9da;
+  height: 35px;
+  th {
     display: flex;
     justify-content: center;
     font-size: 16px;
     align-items: center;
-    }
   }
-  
-  .b-completepage-itemlist {
-    margin-top: 20px;
-    max-width: 100%;
-  }
+}
 
-  .b-complete-img-sm {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .b-completepage-detailinfo {
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    .b-completepage-detail-daily {
-        font-weight: bold;
-        margin:0;
-        margin-bottom: 5px;
-        display: block;
-        color: #e58f80;
-      }
-  }
-  
-  .b-completepage-fontSize {
-    font-size: 14px;
-  }
+.b-completepage-itemlist {
+  margin-top: 20px;
+  max-width: 100%;
+}
 
-  .b-completepage-button-to-mainpages{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    text-transform: capitalize;
-    font-size: 15px;
-    padding: 10px 19px;
-    cursor: pointer;
-    color: #fff;
-    width: 100%;
-    background-color:#6C8650 ;
-    width: 400px;
-    height: 40px;
+.b-complete-img-sm {
+  width: 120px;
+  height: 120px;
+}
+
+.b-completepage-detailinfo {
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .b-completepage-detail-daily {
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px;
+    display: block;
+    color: #e58f80;
   }
-  .b-completepage-button-to-mainpages:hover{
-    color:#494949;
-  }
-  
+}
+
+.b-completepage-fontSize {
+  font-size: 14px;
+}
+
+.b-completepage-button-to-mainpages {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  text-transform: capitalize;
+  font-size: 15px;
+  padding: 10px 19px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #6c8650;
+  width: 300px;
+  height: 50px;
+  border: 0;
+  border-radius: 1;
+}
+.b-completepage-button-to-mainpages:hover {
+  opacity: 70%;
+}

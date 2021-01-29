@@ -16,28 +16,29 @@ function RentOccation(props) {
   useEffect(() => {
     AOS.init({ duration: 2000 })
   })
+// data-aos="fade-up"
+//             data-aos-anchor-placement="center-bottom"
 
   return (
     <>
       {/* <div className="container"> */}
       <div className="section-tilte"
-            data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom">
+            >
         <div className="title2">
           <h3>創造屬於你的居家森林</h3>
           <h5 className="mt-1">Home Decorating</h5>
         </div>
       </div>
       <div className="wrap"
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-bottom">
-        <div className="left-pic d-flex text-center" >
+              >
+        <div className="left-pic d-flex text-center">
         <NavLink to="/rental/list" >
             <img
               onMouseOver={()=>{props.setO('客廳空間布置')}}
               className="livingroom-pic"
               src={devUrl + '/images/images/rentprodindex/客廳布置3.jpg'}
               alt=""
+              
             />
             <div 
             className="living-room-mask mask">
@@ -49,7 +50,7 @@ function RentOccation(props) {
         <div className="right-pic-top d-flex text-center" >
           <NavLink to="/rental/list" >
             <img
-             onMouseOver={()=>{props.setO('居家牆面布置')}}
+            //  onMouseOver={()=>{props.setO('居家牆面布置')}}
               className="wall-pic"
               src={devUrl + '/images/images/rentprodindex/居家牆面.jpg'}
               alt=""
@@ -63,7 +64,7 @@ function RentOccation(props) {
         <div className="right-pic-bottom d-flex text-center">
           <NavLink to="/rental/list">
             <img
-              onMouseOver={()=>{props.setO('浴室空間布置')}}
+              // onMouseOver={()=>{props.setO('浴室空間布置')}}
               className="bathroom-pic"
               src={devUrl + '/images/images/rentprodindex/浴室布置.jpeg'}
               alt=""
@@ -76,22 +77,20 @@ function RentOccation(props) {
       </div>
 
       <div className="section-tilte"
-            data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom">
+            >
         <div className="title2">
           <h3>適合各種商業場合</h3>
           <h5 className="mt-1">Business Occasions</h5>
         </div>
       </div>
       <div className="wrap2"
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-bottom">
+              >
         <div className="left-pic-top d-flex text-center">
         <NavLink to="/rental/list">
             <img
               className="livingroom-pic"
               src={devUrl + '/images/images/rentprodindex/辦公室布置.jpg'}
-              onMouseOver={()=>{props.setO('辦公室布置')}}
+              // onMouseOver={()=>{props.setO('辦公室布置')}}
               alt=""
             />
             <div className="living-room-mask mask">
@@ -103,7 +102,7 @@ function RentOccation(props) {
         <NavLink to="/rental/list">
             <img
               className="wall-pic"
-              onMouseOver={()=>{props.setO('商業空間布置')}}
+              // onMouseOver={()=>{props.setO('商業空間布置')}}
               src={devUrl + '/images/images/rentprodindex/咖啡廳5.jpg'}
               alt=""
             />
@@ -117,7 +116,7 @@ function RentOccation(props) {
             <img
               className="bathroom-pic"
               src={devUrl + '/images/images/rentprodindex/婚禮布置.jpg'}
-              onMouseOver={()=>{props.setO('婚禮活動布置')}}
+              // onMouseOver={()=>{props.setO('婚禮活動布置')}}
               alt=""
             />
             <div className="bathroom-mask mask">

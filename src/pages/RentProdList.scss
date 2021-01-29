@@ -20,3 +20,15 @@
   margin-bottom: 20px;
   // background-color: sandybrown;
 }
+.v-helloworld {
+  width: 300px;
+  height: 300px;
+  img {
+    width: fit-content;
+    object-fit: cover;
+  }
+  figcaption {
+    display: inline-block;
+    width: 300px;
+  }
+}

@@ -10,8 +10,8 @@ function ShoppingCartMainTableTitle(){
             <th scope="col" width="100" className="text-center p-2">價格</th>
             <th scope="col" width="200" className="text-center p-2">租賃區間</th>
             <th scope="col" width="120" className="text-center p-2">數量</th>
-            <th scope="col" width="100" className="text-center p-2">小記</th>
-            <th scope="col" width="50" className="p-2"></th>
+            <th scope="col" width="100" className="text-center p-2">小計</th>
+            <th scope="col" width="30" className="p-0"></th>
         </tr>
     </>
     )}

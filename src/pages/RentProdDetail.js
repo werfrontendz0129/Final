@@ -16,15 +16,21 @@ import Footer from '../component/Footer/Footer'
 
 
 function RentProdDetail(props) {
-  //判斷登入狀態
+  // 判斷登入狀態
   const [isAuth,setIsAuth]=useState(true)
-  const { user,setUser } = useContext(UserContext)
-  // if(user.id){
-  //   setIsAuth(true)
-  // }
+
+  // const {user, setUser} =useContext(UserContext)
+
+  // setIsAuth(user)
+  // const { user,setUser } = useContext(UserContext)
+
+  // useEffect(()=>{
+  //   if(!user){setIsAuth(false)}
+  //   else{setIsAuth(true)}
+  // },[user])
 
   let {id} =useParams()
-  console.log(id)
+  // console.log(id)
   let member_id = 1
   // let url =  `http://localhost:3001/products/get/${id}`  //not login
 
@@ -45,7 +51,7 @@ function RentProdDetail(props) {
   return (
     <>
 
-      <HeaderA />
+      <HeaderA isAuth={true} />
 
 
       <RentBreadcrumbs 

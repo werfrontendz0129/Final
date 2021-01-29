@@ -15,9 +15,10 @@ function Firstpage() {
         <div className="c-second-layer">
           <div className="c-backgroundmiddletop">
             <div className="c-word1 align-content-between row">
-              <div className="h2 c-lineheight28px">Why Plants?</div><div></div>
+              <div className="h2">Why Plants?</div>
+              {/* <div className="h2">Click to See<span>&nbsp;&nbsp;</span><i class="fas fa-angle-double-down"></i></div> */}
               <div className={turn?`c-lh18px`:`c-lh18px-g`}>居家布置</div><div onClick={toggle}><span>&nbsp;&nbsp;</span>{turn?<CgToggleOn className="c-LH" />:<CgToggleOff className="c-LH" />}<span>&nbsp;&nbsp;</span></div><div className={turn?`c-lh18px-g`:`c-lh18px`}>商業空間</div>
-              <div className="h4 c-lineheight20px">
+              <div className="h4">
                 隨心所欲,
                 <br />
                 改變室內空間的氣氛｡

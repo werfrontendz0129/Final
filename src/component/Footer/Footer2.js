@@ -3,11 +3,11 @@ import './Footer.scss'
 import {NavLink} from 'react-router-dom'
 import { devUrl } from '../../config/index'
 
-function Footer() {
+function Footer2() {
   return (
     <>
       <div className="container-fluid c-width100 m-0 p-0 col">
-      <div className="c-paddingtome2"></div>
+        <div className="c-paddingtome"></div>
         <div className="c-footheight align-items-center">
           <div className="row c-border align-items-center p-0 m-0">
           <div className="col-md-3 p-0 m-0">
@@ -85,4 +85,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer2

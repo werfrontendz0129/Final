@@ -1,48 +1,30 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './LatestNews.scss'
 import { BsChevronRight } from "react-icons/bs"
 import {withRouter} from 'react-router-dom'
-
+import {useTEST} from '../useTEST'
+import axios from 'axios'
 function LatestNews(props) {
-    const [accountNotify, setAccountNotify] = useState([])
-    const [ordersNotify, setOrdersNotify] = useState([])
-    const [lessonNotify, setLessonNotify] = useState([])
+    // date
+    const year = new Date().getFullYear()
+    const month = '0'+ (new Date().getMonth()+1)
+    const date = new Date().getDate()
+    const today = year + '年' + month + '月' + date + '日'
+    //
+  
+    const [data, setData] = useState()
 
-    async function getMembers(){
+    useEffect(() => {
+        //取該會員的資料
+            axios.get(`http://localhost:3001/members/${props.id}`)
+            .then((response)=> {
 
-        try {
-            const response = await fetch(
-                'http://localhost:3001/members',
-                {
-                    method:'get',
-                    // headers: {
-                    //     Accept: 'application/json',
-                    //     'Content-Type': 'application/json',
-                    // },
+                //有資料的話
+                if(response.data){
+                    setData(response.data)
                 }
-            )
-            if(response.ok){
-                const data = await response.json()
-                console.log('data',data) 
-                const datas = data[0].notifications_account[0]
-                console.log('datas',datas)
-                const orders = data[0].notifications_orders[0]
-                console.log('orders',orders)
-                const classsess = data[0].notifications_lesson[0]
-                console.log('classsess',classsess)
-                
-                setAccountNotify(datas)
-                setOrdersNotify(orders)
-                setLessonNotify(classsess)
-               
-            } 
-        } catch(error) {
-            console.log('error',error)
-        }
-    }
-
-    useEffect(()=>{
-        getMembers()
+            }).catch((err) => console.log(err))
+        
     },[])
 
     return (
@@ -52,15 +34,15 @@ function LatestNews(props) {
                     <p>最新消息</p>
                 </div>
                 <div className="w-news-main">
-                    <p>{accountNotify.accountnotify_title}{accountNotify.accountnotify_content}
+                    <p>{data && data.notifications_account[0].accountnotify_title}您在{today}{data && data.notifications_account[0].accountnotify_content}
                     <BsChevronRight className="w-iconright" size="20" />
                     </p>
                     <hr/>
-                    <p>{ordersNotify.orderlistnotify_title}{ordersNotify.orderlistnotify_content}
+                    <p>{data && data.notifications_orders[0].orderlistnotify_title}您在{today}{data && data.notifications_orders[0].orderlistnotify_content}
                     <BsChevronRight className="w-iconright" size="20" />
                     </p>
                     <hr/>
-                    <p>{lessonNotify.lessonnotify_title}{lessonNotify.lessonnotify_content}
+                    <p>{data && data.notifications_lesson[0].lessonnotify_title}您在{today}{data && data.notifications_lesson[0].lessonnotify_content}
                     <BsChevronRight className="w-iconright" size="20" />
                     </p>
                 </div>

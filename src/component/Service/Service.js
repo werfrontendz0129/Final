@@ -9,7 +9,7 @@ function Service() {
           <div className="row d-flex justify-content-center p-0">
             <div className="">
               <div className="h1 text-center">植物租賃服務</div>
-              <div className="h4 text-center">Leasing Service of Plants</div>
+              <div className="h4 text-center" style={{color:'#838383'}}>Leasing Service of Plants</div>
             </div>
           </div>
           <div className="row d-flex">
@@ -23,7 +23,7 @@ function Service() {
                       <div className={ele.servic_class}>{ele.service_name}</div>
                     </div>
                     <div className={ele.box}>
-                      
+                      <img src={ele.link} alt=""/>
                     </div>
                   </>
                 ))}
